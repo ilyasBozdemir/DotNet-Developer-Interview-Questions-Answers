@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## .NET Developer Mülakat Soruları ve Cevapları
 
 ### 1. .NET Framework ile .NET Core arasındaki farklar nelerdir?
