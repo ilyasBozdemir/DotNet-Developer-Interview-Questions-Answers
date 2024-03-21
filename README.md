@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## .NET Developer Mülakat Soruları ve Cevapları
 
 ### 1. .NET Framework ile .NET Core arasındaki farklar nelerdir?
@@ -549,4 +550,6 @@ Değer tipleri ve referans tipleri, farklı bellek yerleşimleri ve kopyalama da
 - BlockingCollection, ekleme veya çıkarma işlemi yapılırken koleksiyonun kapasitesi aşılmışsa veya koleksiyon boşsa iş parçacıklarını bloklar.
 
 Bu thread-safe koleksiyonlar, çoklu iş parçacığı uygulamalarında veri bütünlüğünü korumak ve senkronizasyon sorunlarını önlemek için kullanılır.
+=======
+>>>>>>> 28ea396a2607e96c7e0d3f0c2e9c0c70e438b636
 
