@@ -4,7 +4,6 @@
 </h2>
 </center>
 
-
 ### 1. .NET Framework ile .NET Core arasındaki farklar nelerdir?
 
 .NET Framework, Windows tabanlı uygulamalar geliştirmek için kullanılırken, .NET Core çoklu platform desteği sunar ve Windows, Linux, macOS gibi çeşitli işletim sistemlerinde çalışabilir. .NET Core ayrıca daha hızlı, daha hafif ve modüler bir mimariye sahiptir. Sonunda, .NET Core, .NET 5 ve sonrasındaki sürümlerde .NET 5 ile birleştirilerek .NET 5, .NET Core'un devamı olarak konumlandırıldı.
@@ -27,7 +26,7 @@ Entity Framework, .NET geliştiricilerinin veritabanı işlemlerini yönetmeleri
 
 ### 6. SOLID prensipleri nelerdir ve neden önemlidirler?
 
-SOLID prensipleri, yazılım tasarımında temiz, esnek ve sürdürülebilir kod yazmayı teşvik eden bir dizi prensiptir. 
+SOLID prensipleri, yazılım tasarımında temiz, esnek ve sürdürülebilir kod yazmayı teşvik eden bir dizi prensiptir.
 
 - **S (Single Responsibility Principle - Tek Sorumluluk Prensibi):** Bir sınıfın sadece bir işlevi olmalıdır.
 - **O (Open/Closed Principle - Açık/Kapalı Prensibi):** Bir sınıf, genişletmeye açık ancak değişikliğe kapalı olmalıdır.
@@ -50,6 +49,7 @@ JWT (JSON Web Token), güvenli bir şekilde bilgi taşımak için kullanılan bi
 ### 10. Unit Test nedir ve neden önemlidir?
 
 Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir girdiyle belirli bir çıktı üretip üretmediğini test etmek için yazılan otomatik testlerdir. Unit Test'ler, yazılımın her birimini ayrı ayrı test ederek kodun doğruluğunu ve işlevselliğini sağlamaya yardımcı olur. Ayrıca, kodun yeniden yapılandırılmasını kolaylaştırır, hata ayıklamayı hızlandırır ve kodun güvenilirliğini artırır. Yazılım projelerinde Unit Test yazmak, genellikle Agile ve Test Driven Development (TDD) gibi yazılım geliştirme metodolojileriyle ilişkilendirilir.
+
 ### 11. NuGet Paket Yöneticisi nedir ve nasıl kullanılır?
 
 NuGet, .NET platformunda kullanılan paket yöneticisi ve paket deposudur. NuGet paketleri, tekrar kullanılabilir kod, framework bileşenleri, kütüphaneler ve araçlar gibi öğeleri içerir. NuGet, Visual Studio IDE'sinde veya .NET CLI (Command Line Interface) aracılığıyla kullanılabilir. Yeni bir paket eklemek veya mevcut paketleri güncellemek için kullanılabilir.
@@ -89,6 +89,7 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 ### 20. Sınıflar (Classes) ve Yapılar (Structs) arasındaki farklar nelerdir?
 
 #### Sınıflar (Classes):
+
 - Referans türüdür.
 - Heap bellek alanında depolanır.
 - Değer atandığında, bir referans oluşturulur ve bu referans, gerçek nesnenin bellekteki yerini gösterir.
@@ -97,6 +98,7 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 - Garbage Collector tarafından toplanırlar.
 
 #### Yapılar (Structs):
+
 - Değer türüdür.
 - Stack bellek alanında depolanır.
 - Değer atandığında, nesne doğrudan belleğe kopyalanır.
@@ -107,23 +109,28 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 ### 21. Sınıfların (Classes) ve Yapıların (Structs) Hangi Durumlarda Kullanılması Tercih Edilir?
 
 #### Sınıflar (Classes):
+
 - Referanslar aracılığıyla paylaşılacak büyük nesneler veya nesne koleksiyonları için.
 - Kalıtım (inheritance), soyut sınıflar veya arayüzler gerektiren durumlar için.
 - Alanlarla ilişkili davranış ve veri tutan somut nesneler için.
 
 #### Yapılar (Structs):
+
 - Küçük boyutlu ve hafif nesneler için.
 - Kopyalanma maliyetinden kaçınılması gereken durumlar için (örneğin, performans açısından hassas işlemler).
 - Bir nesne, başka bir nesneye bağımlı değilse ve soyutlanmış bir durumda kullanılacaksa.
+
 ### Interface ve Abstract Class Arasındaki Farklar:
 
 #### Interface:
+
 - Bir arayüz (interface), soyut bir yapıdır ve içerisinde sadece yöntem bildirimleri (method signatures), özellikler (properties) ve olaylar (events) bulunur.
 - Birden fazla arayüzü bir sınıfa uygulamak mümkündür (multiple inheritance).
 - Arayüzler, nesneler arasında sözleşmeler sağlar ve bu sözleşmeleri uygulayan sınıfların belirli bir davranışı garanti etmesini sağlar.
 - Arayüzler, genellikle bir nesnenin davranışını belirlemek için kullanılır.
 
 #### Abstract Class:
+
 - Soyut bir sınıf (abstract class), içerisinde hem soyut (abstract) hem de somut (concrete) üyeler (methods, properties, fields) bulundurabilir.
 - Bir sınıf yalnızca bir soyut sınıfı (abstract class) genişletebilir (inheritance), bu yüzden bir soyut sınıfın bir arayüz gibi birden fazla soyut sınıfa uygulanması mümkün değildir.
 - Soyut sınıflar, genellikle bir grup sınıfın ortak davranışlarını veya özelliklerini tanımlamak için kullanılır.
@@ -132,10 +139,12 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 ### 22. Interface ve Abstract Class Hangi Durumlarda Kullanılmalıdır?
 
 #### Interface:
+
 - Bir nesnenin belirli bir davranışı garanti etmesi gerekiyorsa ve bu davranışı birden fazla sınıf uygulayacaksa.
 - Nesneler arasında bir API sözleşmesi sağlamak istendiğinde.
 
 #### Abstract Class:
+
 - Ortak davranışları ve özellikleri paylaşan sınıflar için.
 - Bazı davranışların varsayılan uygulamalarını sağlamak ve alt sınıfların bu davranışları isteğe bağlı olarak geçersiz kılmasını sağlamak için.
 - Nesneler arasında bir tür hiyerarşisi oluşturmak ve genişletmek istendiğinde.
@@ -143,28 +152,35 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 ### 23. Partial, Virtual ve Static Anahtar Kelimeleri Nedir?
 
 #### Partial:
+
 - "Partial" anahtar kelimesi, bir sınıfın veya bir yapısal türün tanımının birden fazla dosyada ayrı ayrı oluşturulmasını sağlar. Bu özellik, büyük veya karmaşık sınıfların daha kolay yönetilmesini sağlar. Ayrıca, aynı sınıfın farklı kısımlarının farklı geliştiriciler tarafından aynı anda düzenlenmesine olanak tanır.
 
 #### Virtual:
+
 - "Virtual" anahtar kelimesi, bir metodun türetilmiş sınıflar tarafından geçersiz kılınabileceğini belirtmek için kullanılır. Bu, kalıtım hiyerarşisinde alt sınıfların, üst sınıfın metotlarını kendi ihtiyaçlarına göre yeniden tanımlayabileceği anlamına gelir. Böylece, çalışma zamanında polimorfik davranış elde edilir.
 
 #### Static:
+
 - "Static" anahtar kelimesi, bir sınıfa veya bir metoda bağlı olmayan bir öğeyi (alan, metod) ifade etmek için kullanılır. Bir sınıfa ait olan bir static öğe, sınıfın herhangi bir örneği oluşturulmadan doğrudan erişilebilir. Static metotlar, genellikle yardımcı işlevler veya sınıf düzeyinde ortak işlevler için kullanılır.
 
 ### 24. Virtual ve Abstract Arasındaki Fark Nedir?
 
 #### Virtual:
+
 - "Virtual" anahtar kelimesi, bir metodu türetilmiş sınıflar tarafından geçersiz kılınabilir hale getirir. Yani, alt sınıflar, üst sınıfın sanal (virtual) bir metodu üzerine yazarak kendi uygulamalarını sağlayabilirler. Virtual metotlar, genellikle üst sınıfın davranışını değiştirmek veya genişletmek için kullanılır.
 
 #### Abstract:
+
 - "Abstract" anahtar kelimesi, bir metodu sınıfların türetilmesi için zorunlu hale getirir. Soyut bir metodun gövdesi yoktur ve türetilmiş sınıflar bu metodu kendi ihtiyaçlarına göre uygulamak zorundadır. Soyut sınıflar, en az bir soyut metod içerdiklerinde soyut sınıf olarak işaretlenirler. Abstract metotlar, genellikle alt sınıfların belirli bir davranışı sağlamasını veya uygulamasını zorlamak için kullanılır.
 
 ### 25. Extension Method Nedir ve Nasıl Kullanılır?
 
 #### Extension Method:
+
 - Bir genişletme metodu, var olan bir sınıf veya arayüzün davranışını değiştirmek veya genişletmek için kullanılır. Bu metodlar, var olan bir türü değiştirmek veya kalıtım yoluyla genişletmek yerine, o türe dışarıdan yeni bir metod ekler. Extension metodlar, statik bir sınıf içinde statik metotlar olarak tanımlanır ve genellikle bir "this" anahtar kelimesiyle başlarlar.
 
 Örnek kullanım:
+
 ```csharp
  public static class StringExtensions
 {
@@ -195,20 +211,25 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 }
 
 ```
+
 ### 25. MVC (Model-View-Controller) Nedir ve Nasıl Çalışır?
 
 MVC, Model-View-Controller'ün kısaltmasıdır ve bir yazılım mimarisidir. Bu mimari, bir uygulamanın farklı katmanları arasındaki sorumlulukları net bir şekilde ayırarak daha düzenli ve yönetilebilir bir kod tabanı oluşturmayı amaçlar.
 
 #### Model:
+
 - Model, uygulamanın veri ve iş mantığını temsil eder. Veritabanından veri alır, işler ve View (görünüm) katmanına sunar. Model, uygulamanın durumunu (state) temsil eder ve genellikle nesne yönelimli programlama (OOP) prensiplerine dayalı sınıflar şeklinde uygulanır.
 
 #### View:
+
 - View, kullanıcı arayüzünü (UI) temsil eder. Kullanıcıya sunulan bilgileri gösterir ve kullanıcının etkileşimde bulunabileceği arayüz elemanlarını sağlar. View, genellikle HTML, CSS ve bazen JavaScript kullanılarak oluşturulur.
 
 #### Controller:
+
 - Controller, Model ve View arasındaki etkileşimi yöneten bileşendir. Kullanıcıdan gelen istekleri alır, gerekirse Model katmanına veri iletir, sonuçları alır ve uygun View'ı kullanıcıya sunar. Controller, genellikle bir web uygulamasında HTTP istekleri ile etkileşimde bulunur.
 
 #### Nasıl Çalışır?
+
 1. Kullanıcı bir web sayfasını açar veya bir istekte bulunur.
 2. İstek, Controller tarafından karşılanır.
 3. Controller, gerektiğinde Model katmanına veri talep eder.
@@ -219,9 +240,10 @@ MVC, Model-View-Controller'ün kısaltmasıdır ve bir yazılım mimarisidir. Bu
 
 ### 26. Nesne Yönelimli Programlama (OOP) nedir ve neden önemlidir?
 
-Nesne Yönelimli Programlama (OOP), yazılım geliştirmenin bir paradigmasıdır. OOP, gerçek dünya nesnelerini ve bunların birbirleriyle olan ilişkilerini yazılımın temel yapı taşları olarak ele alır. 
+Nesne Yönelimli Programlama (OOP), yazılım geliştirmenin bir paradigmasıdır. OOP, gerçek dünya nesnelerini ve bunların birbirleriyle olan ilişkilerini yazılımın temel yapı taşları olarak ele alır.
 
 OOP'nin temel kavramları şunlardır:
+
 - **Sınıf (Class):** Nesnelerin özelliklerini ve davranışlarını tanımlayan bir şablondur.
 - **Nesne (Object):** Sınıfın bir örneğidir ve veri alanları (fields) ile metodları (methods) içerir.
 - **Kalıtım (Inheritance):** Bir sınıfın, başka bir sınıfın özelliklerini ve davranışlarını miras alabilmesini sağlayan bir özelliktir.
@@ -263,6 +285,7 @@ Ancak, indekslerin oluşturulması ve yönetilmesi ek bir iş yükü getirebilir
 Concurrency ve parallelism, çoklu görevlerin yönetilmesinde önemli kavramlardır, ancak farklı çalışma prensiplerine dayanırlar.
 
 - **Concurrency (Eşzamanlılık):**
+
   - Concurrency, birden çok görevin aynı anda yürütülmesini sağlar, ancak bu görevler aynı anda aynı işlemci çekirdeğinde çalışabilir veya farklı işlemci çekirdeklerinde sırayla çalışabilir.
   - Concurrency, bir iş parçacığının (thread) başka bir iş parçacığını beklerken CPU'da başka bir işi yapmasıdır. Bu, bir CPU çekirdeğinin birden fazla işi zaman paylaşımı yoluyla işlemesini sağlar.
   - Örneğin, bir web sunucusu aynı anda birçok isteği kabul edebilir ve işleyebilir. Her istek, iş parçacıklarında eşzamanlı olarak işlenebilir.
@@ -279,6 +302,7 @@ Concurrency ve parallelism, çoklu görevlerin yönetilmesinde önemli kavramlar
 Asenkron ve senkron programlama, bir işlemin nasıl yönetildiği konusunda önemli kavramlardır ve programın davranışını belirlerler.
 
 - **Senkron Programlama:**
+
   - Senkron programlamada, işlemler sırayla ve adım adım gerçekleştirilir. Bir işlemin sonuçları alınmadan bir sonraki işlem başlatılmaz.
   - Senkron programlama, işlemlerin birbirini beklediği ve bir işlem tamamlanmadan diğerinin başlamadığı durumlarda kullanılır. Bu, işlemlerin belirli bir sıra ve zamanlama ile gerçekleştirildiği anlamına gelir.
   - Senkron programlama, basit ve lineer işlemler için uygundur ancak uzun sürecek işlemlerde programın performansını düşürebilir.
@@ -295,11 +319,13 @@ Asenkron ve senkron programlama, bir işlemin nasıl yönetildiği konusunda ön
 Unit Test, Integration Test ve End-to-End Test, yazılım testi sürecinde farklı seviyelerde yapılan test türleridir. Her biri farklı amaçlar doğrultusunda uygulanır.
 
 - **Unit Test (Birim Testi):**
+
   - Unit Test, yazılımın en küçük birimlerini (genellikle fonksiyonlar veya metodlar) test etmek için kullanılır.
   - Birim testleri, genellikle kodun yazılmasından hemen sonra geliştirici tarafından yazılır ve yazılımın her bir parçasının doğru çalıştığından emin olmak için kullanılır.
   - Unit Test, yazılımın izole edilmiş parçalarının (bölümlerinin) doğruluğunu test eder ve bu sayede kodun genel performansını artırır.
 
 - **Integration Test (Entegrasyon Testi):**
+
   - Integration Test, farklı yazılım bileşenlerinin bir araya gelerek doğru bir şekilde çalışıp çalışmadığını test etmek için kullanılır.
   - Entegrasyon testleri, birim testlerinden daha geniş kapsamlıdır ve farklı bileşenlerin birbiriyle etkileşimini test eder.
   - Yazılımın farklı modüllerinin veya servislerin bir araya gelerek beklendiği gibi çalıştığından emin olmak için kullanılır.
@@ -318,7 +344,7 @@ Cross-site Scripting (XSS), bir web uygulamasına kullanıcı tarafından sağla
 XSS saldırıları genellikle şu şekillerde gerçekleşir:
 
 1. **Stored XSS (Depolanmış XSS):** Kötü niyetli kodlar, veritabanında saklanır ve daha sonra kullanıcılar tarafından görüntülenen sayfalara enjekte edilir.
-  
+
 2. **Reflected XSS (Yansıtılmış XSS):** Kötü niyetli kodlar, kullanıcıya gösterilen URL'ler veya formlar aracılığıyla hedeflenen kullanıcının tarayıcısına gönderilir.
 
 XSS saldırıları, saldırganların kullanıcıların oturum bilgilerini çalmasına, kötü amaçlı işlemleri gerçekleştirmesine veya kullanıcıları sahte formlarla kandırmasına olanak tanır.
@@ -412,22 +438,27 @@ JWT'leri kullanmak için genellikle bir JWT kütüphanesi kullanılır. Bu küt�
 NoSQL veritabanları, geleneksel ilişkisel veritabanlarına alternatif olarak geliştirilen ve genellikle aşağıdaki kullanım durumları için uygun olan veritabanı sistemleridir:
 
 1. **Büyük Veri Depolama ve İşleme:**
+
    - NoSQL veritabanları, büyük miktarda veriyi depolamak ve işlemek için tasarlanmıştır.
    - Dağıtık mimarileri sayesinde, büyük veri kütlelerini paralel olarak işleyebilir ve yüksek performans sağlayabilirler.
 
 2. **Yüksek Ölçeklenebilirlik Gereksinimleri:**
+
    - Dikey ve yatay ölçeklenebilirlik gereksinimlerini karşılamak için tasarlanmışlardır.
    - Veri büyüdükçe, bu veritabanları daha fazla sunucu ekleyerek kolayca genişletilebilir.
 
 3. **Çoklu Veri Modelleri:**
+
    - NoSQL veritabanları, çeşitli veri modellerini destekler.
    - Belge tabanlı, sütun tabanlı, anahtar-değer tabanlı ve grafik tabanlı gibi farklı veri modellerini kullanarak çeşitli veri depolama gereksinimlerini karşılayabilirler.
 
 4. **Esnek Veri Yapıları:**
+
    - İlişkisel veritabanlarından daha esnek veri yapıları sunarlar.
    - Şema değişiklikleri, yeni alanlar eklenmesi veya varolan alanların kaldırılması gibi işlemler daha az sorun yaratır.
 
 5. **Yüksek Hızda Okuma ve Yazma İşlemleri:**
+
    - Genellikle yüksek performanslı okuma ve yazma işlemleri için optimize edilmişlerdir.
    - Bu, çevrimiçi uygulamalar ve büyük ölçekli sistemler için önemli bir avantajdır.
 
@@ -463,33 +494,36 @@ DevOps kültürü, modern yazılım geliştirme ve işletme ortamlarında gidere
 
 ### 38. Scrum, Kanban ve Agile Metodolojileri Arasındaki Farklar
 
-| **Özellikler** | **Scrum** | **Kanban** | **Agile** |
-|----------------|-----------|------------|-----------|
-| **Tanım**      | İteratif ve ölçeklenebilir bir proje yönetimi çerçevesidir. | Görsel bir iş tahta yönetimi sistemi ve akış yönetimi yöntemidir. | Esnek bir yazılım geliştirme metodolojisidir. |
-| **Odak**       | Sık sık tekrarlanan zaman aralıklarında işi teslim etmek üzerinedir. | İşin akışını optimize etmeye odaklanır, işi minimum zaman ve çaba ile tamamlamayı hedefler. | Müşteri ihtiyaçlarını önceliklendirir, müşteri geri bildirimine ve değişikliklere açıktır. |
-| **İş Yapısı**  | Sabit uzunluktaki zaman dilimlerinde, belirli rollerle (örneğin, Scrum Master, Product Owner, Development Team) tanımlanmış işler üzerinde çalışır. | İşler, genellikle iş tahtasındaki sütunlarda belirtilen kısıtlamalarla (örneğin, "Yapılacaklar", "Devam Eden", "Tamamlanan") akar. | Esnek ve adaptif bir yapıya sahiptir, genellikle cross-functional (çok disiplinli) ekiplerle çalışır. |
-| **İş Akışı**   | İterasyonlar (Sprints) şeklinde organize edilir, her iterasyon bir hedef üzerinde çalışılır ve sonunda iş teslim edilir. | İş tahtası üzerinde kartlar (task card) akar, işin durumu her zaman görsel olarak izlenebilir. | Sürekli olarak işi teslim eder, sık sık müşteri geri bildirimi alır ve gerektiğinde planı değiştirir. |
-| **Kısıtlamalar** | Sabit zaman dilimlerinde çalışır, her iterasyonun sonunda iş teslim edilir ve yeni bir iterasyon başlar. | İş tahtası sütunlarında belirtilen kısıtlamalara (örneğin, WIP - Work In Progress) uyulması gereklidir. | Hızlı ve sık teslimat yapar, müşteri geri bildirimini önemser. Planları sık sık revize eder. |
-| **Değişiklikler** | İterasyonlar arasında değişiklik yapılması zordur, ancak her iterasyon sonunda geri bildirim alınır ve gerektiğinde değişiklikler yapılabilir. | İş tahtası üzerinde esneklik sağlar, işin durumu her zaman güncellenebilir ve iyileştirilebilir. | Sürekli olarak değişiklik yapılabilir, müşteri ihtiyaçlarına ve geri bildirimlerine göre planlar revize edilir. |
-| **Takım Yapısı** | Belirli rollerle (Scrum Master, Product Owner, Development Team) tanımlanmıştır. | Daha az yapılandırılmış, iş tahtası üzerindeki işleri tamamlayacak ekiplerle çalışır. | Genellikle cross-functional (çok disiplinli) ve öz-organize olan ekiplerle çalışır. |
+| **Özellikler**    | **Scrum**                                                                                                                                           | **Kanban**                                                                                                                         | **Agile**                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Tanım**         | İteratif ve ölçeklenebilir bir proje yönetimi çerçevesidir.                                                                                         | Görsel bir iş tahta yönetimi sistemi ve akış yönetimi yöntemidir.                                                                  | Esnek bir yazılım geliştirme metodolojisidir.                                                                   |
+| **Odak**          | Sık sık tekrarlanan zaman aralıklarında işi teslim etmek üzerinedir.                                                                                | İşin akışını optimize etmeye odaklanır, işi minimum zaman ve çaba ile tamamlamayı hedefler.                                        | Müşteri ihtiyaçlarını önceliklendirir, müşteri geri bildirimine ve değişikliklere açıktır.                      |
+| **İş Yapısı**     | Sabit uzunluktaki zaman dilimlerinde, belirli rollerle (örneğin, Scrum Master, Product Owner, Development Team) tanımlanmış işler üzerinde çalışır. | İşler, genellikle iş tahtasındaki sütunlarda belirtilen kısıtlamalarla (örneğin, "Yapılacaklar", "Devam Eden", "Tamamlanan") akar. | Esnek ve adaptif bir yapıya sahiptir, genellikle cross-functional (çok disiplinli) ekiplerle çalışır.           |
+| **İş Akışı**      | İterasyonlar (Sprints) şeklinde organize edilir, her iterasyon bir hedef üzerinde çalışılır ve sonunda iş teslim edilir.                            | İş tahtası üzerinde kartlar (task card) akar, işin durumu her zaman görsel olarak izlenebilir.                                     | Sürekli olarak işi teslim eder, sık sık müşteri geri bildirimi alır ve gerektiğinde planı değiştirir.           |
+| **Kısıtlamalar**  | Sabit zaman dilimlerinde çalışır, her iterasyonun sonunda iş teslim edilir ve yeni bir iterasyon başlar.                                            | İş tahtası sütunlarında belirtilen kısıtlamalara (örneğin, WIP - Work In Progress) uyulması gereklidir.                            | Hızlı ve sık teslimat yapar, müşteri geri bildirimini önemser. Planları sık sık revize eder.                    |
+| **Değişiklikler** | İterasyonlar arasında değişiklik yapılması zordur, ancak her iterasyon sonunda geri bildirim alınır ve gerektiğinde değişiklikler yapılabilir.      | İş tahtası üzerinde esneklik sağlar, işin durumu her zaman güncellenebilir ve iyileştirilebilir.                                   | Sürekli olarak değişiklik yapılabilir, müşteri ihtiyaçlarına ve geri bildirimlerine göre planlar revize edilir. |
+| **Takım Yapısı**  | Belirli rollerle (Scrum Master, Product Owner, Development Team) tanımlanmıştır.                                                                    | Daha az yapılandırılmış, iş tahtası üzerindeki işleri tamamlayacak ekiplerle çalışır.                                              | Genellikle cross-functional (çok disiplinli) ve öz-organize olan ekiplerle çalışır.                             |
 
 Yukarıdaki tabloda, Scrum, Kanban ve Agile metodolojileri arasındaki temel farklar özetlenmiştir. Her metodolojinin kendi benimsediği prensipler ve çalışma şekilleri vardır, ancak hepsi yazılım geliştirme süreçlerini daha hızlı, verimli ve esnek hale getirmeyi amaçlar.
 
 ### 39. Değer Tipleri ve Referans Tipleri Arasındaki Farklar Nelerdir?
 
 **Değer Tipleri:**
+
 - Değer tipleri, bellekte değerlerini doğrudan içeren veri türleridir.
 - Değer tipleri belleğin stack bölgesinde saklanır.
 - Değer tipleri, değişkenin kendisini içerir, başka bir bellek adresine işaret etmezler.
 - Değer tiplerine örnek olarak, int, float, double, char, bool gibi temel veri tipleri (primitive data types) ve struct, enum gibi kullanıcı tanımlı veri tipleri verilebilir.
 
 **Referans Tipleri:**
+
 - Referans tipleri, bellekte değerlerinin yerine bir bellek adresini içeren veri türleridir.
 - Referans tipleri belleğin heap bölgesinde saklanır.
 - Referans tipleri, değişkenin bellek adresini içerir, gerçek değerler heap bellek bölgesinde saklanır.
 - Referans tiplerine örnek olarak, class, interface, array gibi veri tipleri verilebilir.
 
 **Farklar:**
+
 - **Bellek Yerleşimi:** Değer tipleri stack'te, referans tipleri heap'te saklanır.
 - **Bellek Yönetimi:** Değer tipleri bellekten otomatik olarak kaldırılır (garbage collection), referans tipleri manuel olarak bellekten serbest bırakılmalıdır (manual memory management).
 - **Kopyalama Davranışı:** Değer tipleri kopyalandığında orijinal değer değişmez, referans tipleri kopyalandığında sadece bellek adresi kopyalanır ve orijinal nesne ile kopya aynı bellek alanını paylaşır.
@@ -498,50 +532,60 @@ Yukarıdaki tabloda, Scrum, Kanban ve Agile metodolojileri arasındaki temel far
 Değer tipleri ve referans tipleri, farklı bellek yerleşimleri ve kopyalama davranışlarına sahiptirler, bu nedenle programlama dillerinde bellek yönetimi ve değişkenlerin davranışı üzerinde önemli etkilere sahiptirler.
 
 ### 40. EF Core ile veri tabanı işlemleri yaparken dikkat edilmesi gereken performans optimizasyonları nelerdir?
-   **Cevap:** EF Core ile performansı artırmak için şu optimizasyonlar yapılabilir:
-   - LINQ sorgularının optimize edilmesi ve gereksiz veri getirme (over-fetching) önlenmesi.
-   - Veritabanı bağlantılarının etkin yönetimi için connection pooling'in kullanılması.
-   - Veritabanı tablolarının ve ilişkilerin doğru şekilde indekslenmesi.
-   - Veri yüklemelerinin (data loading) optimize edilmesi için Include, ThenInclude ve AsNoTracking gibi yöntemlerin kullanılması.
-   - Asenkron programlama ve paralel sorguların kullanılması.
-   - Geçici bellek kullanımını minimize etmek için çıktı sorgularının izlenmesi ve gereksiz nesne yaratmaktan kaçınılması.
+
+**Cevap:** EF Core ile performansı artırmak için şu optimizasyonlar yapılabilir:
+
+- LINQ sorgularının optimize edilmesi ve gereksiz veri getirme (over-fetching) önlenmesi.
+- Veritabanı bağlantılarının etkin yönetimi için connection pooling'in kullanılması.
+- Veritabanı tablolarının ve ilişkilerin doğru şekilde indekslenmesi.
+- Veri yüklemelerinin (data loading) optimize edilmesi için Include, ThenInclude ve AsNoTracking gibi yöntemlerin kullanılması.
+- Asenkron programlama ve paralel sorguların kullanılması.
+- Geçici bellek kullanımını minimize etmek için çıktı sorgularının izlenmesi ve gereksiz nesne yaratmaktan kaçınılması.
 
 ### 41. EF Core ile veri tabanı modellemesi yaparken dikkat edilmesi gereken temel prensipler nelerdir?
-   **Cevap:** Veri tabanı modellemesi yaparken dikkat edilmesi gereken temel prensipler şunlardır:
-   - Doğru ilişkilerin kurulması ve gereksiz ilişkilerin önlenmesi.
-   - Veritabanı tablolarının normalize edilmesi ve gereksiz tekrarların önlenmesi.
-   - Performansı artırmak için veritabanı indekslerinin doğru şekilde oluşturulması.
-   - Veritabanı tablolarının uygun şekilde adlandırılması ve ilişkilerin net bir şekilde belirtilmesi.
-   - Veritabanı tablolarının güvenlik ve veri bütünlüğünü sağlayacak şekilde tasarlanması.
+
+**Cevap:** Veri tabanı modellemesi yaparken dikkat edilmesi gereken temel prensipler şunlardır:
+
+- Doğru ilişkilerin kurulması ve gereksiz ilişkilerin önlenmesi.
+- Veritabanı tablolarının normalize edilmesi ve gereksiz tekrarların önlenmesi.
+- Performansı artırmak için veritabanı indekslerinin doğru şekilde oluşturulması.
+- Veritabanı tablolarının uygun şekilde adlandırılması ve ilişkilerin net bir şekilde belirtilmesi.
+- Veritabanı tablolarının güvenlik ve veri bütünlüğünü sağlayacak şekilde tasarlanması.
 
 ### 42. EF Core ile doğrudan SQL sorguları nasıl çalıştırılır ve ne zaman tercih edilir?
-   **Cevap:** EF Core ile doğrudan SQL sorguları çalıştırmak için FromSqlRaw veya FromSqlInterpolated yöntemleri kullanılabilir. Bu yöntemler, EF Core ORM yeteneklerinin yetersiz kaldığı veya performansı artırmak için gereken durumlarda tercih edilebilir.
+
+**Cevap:** EF Core ile doğrudan SQL sorguları çalıştırmak için FromSqlRaw veya FromSqlInterpolated yöntemleri kullanılabilir. Bu yöntemler, EF Core ORM yeteneklerinin yetersiz kaldığı veya performansı artırmak için gereken durumlarda tercih edilebilir.
 
 ### 43. EF Core Code-First yaklaşımı nedir ve nasıl kullanılır?
-   **Cevap:** EF Core Code-First yaklaşımı, veri tabanını uygulama modelleri üzerinden otomatik olarak oluşturan bir yaklaşımdır. Bu yaklaşımda, veri tabanı modeli C# sınıfları şeklinde tanımlanır ve bu sınıflar üzerinden veritabanı oluşturulur veya güncellenir.
+
+**Cevap:** EF Core Code-First yaklaşımı, veri tabanını uygulama modelleri üzerinden otomatik olarak oluşturan bir yaklaşımdır. Bu yaklaşımda, veri tabanı modeli C# sınıfları şeklinde tanımlanır ve bu sınıflar üzerinden veritabanı oluşturulur veya güncellenir.
 
 ### 44. EF Core Migration'lar nedir ve nasıl kullanılır?
-   **Cevap:** EF Core Migration'lar, veritabanı şemalarını değişikliklerini kod haline getirir ve bu değişiklikleri veritabanına uygular. Migration'lar, add-migration ve update-database komutları kullanılarak oluşturulur ve uygulanır.
+
+**Cevap:** EF Core Migration'lar, veritabanı şemalarını değişikliklerini kod haline getirir ve bu değişiklikleri veritabanına uygular. Migration'lar, add-migration ve update-database komutları kullanılarak oluşturulur ve uygulanır.
 
 ### 45. EF Core ile performans testleri yaparken hangi yöntemler kullanılabilir?
-   **Cevap:** EF Core ile performans testleri yaparken şu yöntemler kullanılabilir:
-   - Yük ve stres testleri yaparak veritabanı işlemlerinin sınır kapasitesini belirleme.
-   - Doğrudan SQL sorguları kullanarak EF Core sorguları ile performans karşılaştırması yapma.
-   - Veri yüklemelerinin (data loading) ve ilişkisel sorguların performansını analiz etme.
-   - Önbellek kullanımını değerlendirme ve gerektiğinde optimize etme.
+
+**Cevap:** EF Core ile performans testleri yaparken şu yöntemler kullanılabilir:
+
+- Yük ve stres testleri yaparak veritabanı işlemlerinin sınır kapasitesini belirleme.
+- Doğrudan SQL sorguları kullanarak EF Core sorguları ile performans karşılaştırması yapma.
+- Veri yüklemelerinin (data loading) ve ilişkisel sorguların performansını analiz etme.
+- Önbellek kullanımını değerlendirme ve gerektiğinde optimize etme.
 
 ### 46. Sealed Class, Record Class ve Class Türleri
 
 **Sealed Class:**
+
 - Sealed class, miras alınamayan ve genişletilemeyen bir sınıf türüdür.
 - Sealed class'lar, genellikle belirli bir sınıfın alt sınıflarının oluşturulmasını engellemek için kullanılır.
 - Sealed class'lar, nihai olarak belirlenmiş, değiştirilemez ve istikrarlı sınıflar oluşturmak için kullanılabilir.
 
 **Record Class:**
+
 - Record class, C# 9.0 ile birlikte gelen bir dil özelliğidir.
 - Record class'lar, veri aktarım nesneleri oluşturmak ve veri gruplarını temsil etmek için kullanılır.
 - Record class'lar, bir veri yapısını temsil eden ve değerlerin değişmez olduğu bir tür olarak tasarlanmıştır.
-
 
 **Abstract Class:** Abstract class, tamamlanmamış veya somutlaştırılmamış bir sınıf türüdür. En az bir soyut yönteme sahip olmalıdır ve genellikle alt sınıflar tarafından uygulanması beklenir.
 
@@ -552,22 +596,27 @@ Değer tipleri ve referans tipleri, farklı bellek yerleşimleri ve kopyalama da
 ### 47. Thread Safe - ConcurrentQueue, ConcurrentDictionary, ConcurrentBag, ConcurrentStack ve BlockingCollection nedir ?
 
 **ConcurrentQueue:**
+
 - ConcurrentQueue, birden fazla iş parçacığı tarafından eş zamanlı olarak erişilebilen ve değiştirilebilen bir kuyruk yapısı sağlar.
 - ConcurrentQueue, FIFO (First-In-First-Out) mantığına göre çalışır ve kuyruğa hem ekleme (enqueue) hem de çıkarma (dequeue) işlemleri için thread-safe metodlar sunar.
 
 **ConcurrentDictionary:**
+
 - ConcurrentDictionary, birden fazla iş parçacığı tarafından eş zamanlı olarak erişilebilen ve değiştirilebilen bir sözlük yapısı sağlar.
 - ConcurrentDictionary, key-value çiftlerini depolar ve bu çiftlere thread-safe bir şekilde erişim sağlar.
 
 **ConcurrentBag:**
+
 - ConcurrentBag, birden fazla iş parçacığı tarafından eş zamanlı olarak erişilebilen ve değiştirilebilen bir çanta yapısı sağlar.
 - ConcurrentBag, bir koleksiyon içindeki öğelerin düzensiz olarak saklanmasına ve birden fazla iş parçacığı tarafından ekleme ve çıkarma işlemlerine izin verir.
 
 **ConcurrentStack:**
+
 - ConcurrentStack, birden fazla iş parçacığı tarafından eş zamanlı olarak erişilebilen ve değiştirilebilen bir yığın yapısı sağlar.
 - ConcurrentStack, LIFO (Last-In-First-Out) mantığına göre çalışır ve yığına hem ekleme (push) hem de çıkarma (pop) işlemleri için thread-safe metodlar sunar.
 
 **BlockingCollection:**
+
 - BlockingCollection, birden fazla iş parçacığı tarafından paylaşılan bir koleksiyonu yönetmek için kullanılır ve koleksiyon boş veya dolu olduğunda iş parçacıklarının beklemesini sağlar.
 - BlockingCollection, ekleme veya çıkarma işlemi yapılırken koleksiyonun kapasitesi aşılmışsa veya koleksiyon boşsa iş parçacıklarını bloklar.
 
@@ -600,7 +649,8 @@ ORM (Object-Relational Mapping), nesne-tablo eşleştirmesi olarak da bilinen bi
 
 - ORM, nesne-tablo eşleştirmesi yaparken SQL, ilişkisel veritabanı işlemlerini gerçekleştirir.
 - ORM, geliştiricilere veritabanı işlemlerini nesne yönelimli bir şekilde gerçekleştirebilme imkanı sunar.
-### 53.  Lazy Loading ve Eager Loading Arasındaki Farklar Nelerdir ve Hangisi Tercih Edilir?
+
+### 53. Lazy Loading ve Eager Loading Arasındaki Farklar Nelerdir ve Hangisi Tercih Edilir?
 
 - Lazy Loading: İlgili veriye erişilene kadar ilişkili veri yüklenmez.
 - Eager Loading: İlgili veriyle birlikte ilişkili veri de önceden yüklenir.
@@ -620,6 +670,7 @@ C# dilinde, `ref` ve `out` anahtar kelimeleri, fonksiyonlara argümanların değ
 - `out`: `out` anahtar kelimesi de bir değişkenin referansını fonksiyona geçirmek için kullanılır. Ancak `out` kullanımında, fonksiyon dışında bir değer atanmış olması gerekmez. `out` kullanılarak geçirilen değişken, fonksiyon içinde ilk defa atanır ve fonksiyon dışında kullanılabilir hale gelir.
 
 Örnek Kod:
+
 ```csharp
 using System;
 
@@ -648,6 +699,7 @@ class Program
     }
 }
 ```
+
 ### 56. "Pass by Value" ve "Pass by Reference" kavramları nedir?
 
 #### Pass by Value (Değer ile Geçme)
@@ -663,6 +715,7 @@ class Program
 - **Örnek Kullanım**: Bir method çağrısında bir değişkeni pass by reference olarak geçirirseniz, methodun işlemesi sırasında orijinal değişkenin adresi (yani referansı) geçirilir. Bu nedenle, method içinde yapılan değişiklikler, çağıran methodun kapsamında da etkili olur.
 
 ### Örnek Kod:
+
 ```csharp
 using System;
 
@@ -694,12 +747,12 @@ class Program
     }
 }
 ```
+
 ### 57. Access modifierlar nedir ve C# dilinde hangi access modifierlar bulunur?
 
 Access modifierlar, bir sınıfın, üyenin veya bir değişkenin erişim düzeyini belirleyen özelliklerdir. C# dilinde beş farklı access modifier bulunur:
 
 1. **public**: Herhangi bir kod parçasından erişilebilir. Diğer sınıfların içinde veya dışında erişim sağlar.
-   
 2. **private**: Sadece tanımlandığı sınıf içinden erişilebilir. Diğer sınıflar veya kod parçaları bu üyelere erişemez.
 
 3. **protected**: Tanımlandığı sınıfın içinden veya bu sınıftan türetilen alt sınıflar içinden erişilebilir.
@@ -709,6 +762,7 @@ Access modifierlar, bir sınıfın, üyenin veya bir değişkenin erişim düzey
 5. **protected internal**: Tanımlandığı sınıfın içinden veya türetilen alt sınıflardan veya aynı derlemeden erişilebilir.
 
 ### Örnek Kod:
+
 ```csharp
 using System;
 
@@ -744,6 +798,7 @@ class Program
     }
 }
 ```
+
 ### 58. OAuth 2.0 Nedir?
 
 OAuth 2.0, internet üzerinde güvenli ve yetkilendirilmiş erişim sağlamak için kullanılan bir kimlik doğrulama ve yetkilendirme protokolüdür. Bu protokol, bir kullanıcının, bir uygulamanın API'lerine erişimini kontrol etmek için yetkilendirme mekanizmaları sunar.
@@ -761,27 +816,31 @@ OAuth 2.0 protokolü, temel olarak iki farklı akış kullanır: yetkilendirme k
 
 Özetlemek gerekirse, OAuth 2.0 protokolü, kullanıcıların güvenli bir şekilde uygulamaların hizmetlerine erişimini yönetmek için kullanılan bir standarttır. Bu protokol, kullanıcıların gizli bilgilerinin korunmasını ve yetkilendirme işlemlerinin güvenli bir şekilde gerçekleştirilmesini sağlar.
 
-### 59. Dictionary, List, IReadOnlyList, HashSet, Stack, Queue, LinkedList, ObservableCollection  Arasındaki Farklar
+### 59. Dictionary, List, IReadOnlyList, HashSet, Stack, Queue, LinkedList, ObservableCollection Arasındaki Farklar
 
 **Dictionary**:
+
 - `Dictionary<TKey, TValue>`, anahtar-değer çiftlerini depolayan bir koleksiyon türüdür.
 - Her anahtar benzersiz olmalıdır ve bu anahtarlarla ilişkilendirilmiş değerlere erişim sağlanır.
 - Anahtarlar üzerinde hızlı arama işlemleri yapılabilir.
 - Örnek olarak, bir kelime sözlüğü uygulamasında kelime-çeviri çiftlerini depolamak için kullanılabilir.
 
 **List**:
+
 - `List<T>`, sıralı bir koleksiyon türüdür ve öğeleri dinamik olarak depolar.
 - Öğelere indekslerle erişilebilir.
 - Öğeleri eklemek, kaldırmak ve değiştirmek için kullanışlı metodlara sahiptir.
 - Örnek olarak, bir veri koleksiyonunu depolamak veya işlemek için sıkça kullanılır.
 
 **IReadOnlyList**:
+
 - `IReadOnlyList<T>`, salt okunur bir liste arabirimini temsil eder. Yani, koleksiyon sadece okunabilir ve değiştirilemez.
 - Listeye yalnızca okuma işlemleri (erişim ve dolaşma) uygulanabilir, koleksiyona yeni öğeler eklenemez veya varolan öğeler kaldırılamaz.
 - Veri öğelerine indekslerle erişilebilir.
 - Örnek olarak, bir metodun döndüğü bir veri koleksiyonunu okuma amacıyla `IReadOnlyList<T>` kullanılabilir.
 
 **HashSet**:
+
 - `HashSet<T>`, benzersiz öğeleri depolayan bir koleksiyon türüdür. Yani, koleksiyon içinde her öğe yalnızca bir kez bulunabilir.
 - Öğeler koleksiyona eklenirken veya koleksiyondan kaldırılırken, sıralama garantisi yoktur.
 - Ekleme, kaldırma ve arama işlemleri için performans açısından optimize edilmiştir.
@@ -789,29 +848,33 @@ OAuth 2.0 protokolü, temel olarak iki farklı akış kullanır: yetkilendirme k
 
 **Stack**
 Stack, LIFO (Last In, First Out) mantığına göre çalışan bir yığın veri yapısını temsil eder. Yani, en son eklenen öğe en üstte (en son) bulunur ve en son eklenen öğe en önce çıkarılır.
-  - Yalnızca üstteki öğe erişilebilir.
-  - Pop işlemi (en üstteki öğenin çıkarılması) ve push işlemi (yığının üstüne yeni bir öğenin eklenmesi) ile çalışır.
-  - Örneğin, geri alma işlemi uygulamak için kullanılabilir.
 
- **Queue**
--  Queue, FIFO (First In, First Out) mantığına göre çalışan bir kuyruk veri yapısını temsil eder. Yani, en önce eklenen öğe en başta (en önde) bulunur ve en önce eklenen öğe en önce çıkarılır.
+- Yalnızca üstteki öğe erişilebilir.
+- Pop işlemi (en üstteki öğenin çıkarılması) ve push işlemi (yığının üstüne yeni bir öğenin eklenmesi) ile çalışır.
+- Örneğin, geri alma işlemi uygulamak için kullanılabilir.
+
+**Queue**
+
+- Queue, FIFO (First In, First Out) mantığına göre çalışan bir kuyruk veri yapısını temsil eder. Yani, en önce eklenen öğe en başta (en önde) bulunur ve en önce eklenen öğe en önce çıkarılır.
 
 - En önce eklenen öğe ve en son eklenen öğe erişilebilir.
+
   - Dequeue işlemi (en baştaki öğenin çıkarılması) ve enqueue işlemi (kuyruğun sonuna yeni bir öğenin eklenmesi) ile çalışır.
   - Örneğin, işlem sırasını yönetmek için kullanılabilir.
 
- **LinkedList**
--  LinkedList, bağlantılı liste veri yapısını temsil eder. Her öğe, bir sonraki öğenin referansını içeren bir düğüm olarak depolanır.
+  **LinkedList**
+
+- LinkedList, bağlantılı liste veri yapısını temsil eder. Her öğe, bir sonraki öğenin referansını içeren bir düğüm olarak depolanır.
 
 - Her düğümün bir sonraki düğümü gösteren bir referansı vardır.
   - Düğümler arasında doğrudan erişim olmadığı için, belirli bir konumdan öğe eklemek veya kaldırmak hızlıdır.
   - Örneğin, bir metin düzenleyicisi için bir metin satırının tam olarak belirli bir konumuna hızlı erişim sağlamak için kullanılabilir.
 
 **ObservableCollection**
-- ObservableCollection, değişikliklerini otomatik olarak izleyen bir koleksiyon türüdür. Yani, koleksiyondaki herhangi bir değişiklik (ekleme, kaldırma, vb.) anında UI tarafında yansıtılır.
- - INotifyPropertyChanged ve INotifyCollectionChanged arabirimlerini uygular, böylece UI üzerindeki bağlantılı kontroller otomatik olarak güncellenir.
-  - Örneğin, bir ListBox veya ListView kontrolünde dinamik olarak güncellenen verileri görüntülemek için kullanılabilir.
 
+- ObservableCollection, değişikliklerini otomatik olarak izleyen bir koleksiyon türüdür. Yani, koleksiyondaki herhangi bir değişiklik (ekleme, kaldırma, vb.) anında UI tarafında yansıtılır.
+- INotifyPropertyChanged ve INotifyCollectionChanged arabirimlerini uygular, böylece UI üzerindeki bağlantılı kontroller otomatik olarak güncellenir.
+- Örneğin, bir ListBox veya ListView kontrolünde dinamik olarak güncellenen verileri görüntülemek için kullanılabilir.
 
 ### 60. LIFO ve FIFO Nedir ?
 
@@ -835,24 +898,27 @@ FIFO (First In, First Out), "ilk giren, ilk çıkar" prensibine dayanan bir veri
 
 #### Soru 62: Hangi Güvenlik Tedbirleri E-Ticaret Uygulamalarında Önemlidir ve .NET Core ile Nasıl Uygulanabilirler?
 
- E-ticaret uygulamalarında güvenlik son derece önemlidir. Bazı önemli güvenlik tedbirleri şunlardır:
+E-ticaret uygulamalarında güvenlik son derece önemlidir. Bazı önemli güvenlik tedbirleri şunlardır:
+
 - Kullanıcı kimlik doğrulama ve yetkilendirme: .NET Core Identity veya üçüncü taraf kimlik doğrulama sağlayıcıları kullanılarak kullanıcı kimlik doğrulama ve yetkilendirme işlemleri uygulanabilir.
 - SSL/TLS kullanımı: HTTPS üzerinden iletişim kurularak kullanıcı bilgilerinin güvenliği sağlanabilir.
 - Veri doğrulaması: Giriş doğrulaması, veri doğrulama ve güvenlik kontrolleri gibi önlemler alınarak gelen verilerin güvenliği sağlanabilir.
 - Saldırı koruması: SQL enjeksiyonu, XSS (Cross-Site Scripting), CSRF (Cross-Site Request Forgery) gibi saldırılara karşı koruma sağlayacak önlemler alınabilir.
 
-####  63: E-Ticaret Uygulamalarında Performans Optimizasyonu Nasıl Gerçekleştirilir ve .NET Core ile Hangi Araçlar Kullanılabilir?
+#### 63: E-Ticaret Uygulamalarında Performans Optimizasyonu Nasıl Gerçekleştirilir ve .NET Core ile Hangi Araçlar Kullanılabilir?
 
 E-ticaret uygulamalarında performans optimizasyonu, uygulamanın hızını artırmak ve yanıt sürelerini iyileştirmek için önemlidir. .NET Core ile performans optimizasyonu yaparken aşağıdaki araçlar ve teknikler kullanılabilir:
+
 - Caching: Önbellekleme mekanizmaları kullanarak sıkça erişilen verilerin tekrar tekrar sorgulanmasını önleyebiliriz.
 - Async/Await: Asenkron programlama kullanarak iş parçacıklarını daha etkin bir şekilde yönetebilir ve uygulama yanıt sürelerini iyileştirebiliriz.
 - Geliştirilmiş sorgu optimizasyonu: Entity Framework Core gibi ORM'lerle sorgu performansını artırmak için sorgu optimizasyonları yapılabilir.
 - Ölçeklendirme: İhtiyaç duyulduğunda uygulamayı yatay veya dikey olarak ölçeklendirme yöntemleri kullanılabilir.
 - Profiling araçları: .NET Core için çeşitli profiling araçları kullanarak uygulamanın performansını analiz edebilir ve iyileştirebiliriz.
 
-####  64: E-Ticaret Uygulamalarında SEO (Arama Motoru Optimizasyonu) Nasıl İyileştirilir ve .NET Core ile Hangi Teknikler Uygulanabilir?
+#### 64: E-Ticaret Uygulamalarında SEO (Arama Motoru Optimizasyonu) Nasıl İyileştirilir ve .NET Core ile Hangi Teknikler Uygulanabilir?
 
 E-ticaret uygulamalarının SEO performansını artırmak için aşağıdaki teknikler ve yöntemler kullanılabilir:
+
 - URL yapılandırması: Dostu URL'ler kullanarak, anahtar kelime odaklı ve anlaşılır URL yapıları oluşturulabilir.
 - Sayfa başlıkları ve meta açıklamalar: Sayfa başlıkları ve meta açıklamaları doğru bir şekilde ayarlanarak, arama motorlarının içeriği daha iyi anlaması sağlanabilir.
 - Site haritası oluşturma: XML site haritaları oluşturarak, arama motorlarının sitenin içeriğini daha kolay tarayabilmesi sağlanabilir.
@@ -907,6 +973,7 @@ Bu soru, adayın Entity Framework Core'daki farklı yaklaşımları ve bunların
 ### 67. `Abstract Class` ile `Interface` Arasındaki Farklar
 
 **Abstract Class:**
+
 - Abstract class, soyut bir sınıfı temsil eder ve somut ve soyut üyeleri içerebilir.
 - Abstract class, bir sınıfın yapısını tanımlayabilir ve bu yapının bir kısmını veya tamamını uygulayabilir.
 - Bir sınıf sadece bir abstract class'tan miras alabilir, çünkü C#'da çoklu kalıtım desteklenmez.
@@ -914,6 +981,7 @@ Bu soru, adayın Entity Framework Core'daki farklı yaklaşımları ve bunların
 - Abstract class'lar, concrete (somut) methodlar içerebilir ve bu methodlar varsayılan bir uygulamaya sahip olabilir.
 
 **Interface:**
+
 - Interface, tamamen soyut bir yapıyı temsil eder ve sadece metot imzaları, özellikler ve olaylar içerebilir.
 - Bir sınıf birden fazla interface'i uygulayabilir (C#'da çoklu arayüz uygulaması desteklenir).
 - Interface'ler, yalnızca genel erişim belirleyicilere (public) sahip olabilir ve üyeleri default uygulamalara sahip olamaz.
@@ -923,6 +991,7 @@ Bu soru, adayın Entity Framework Core'daki farklı yaklaşımları ve bunların
 ### 68. `Struct` ile `Class` Arasındaki Farklar
 
 **Struct:**
+
 - Struct, değer türü (value type) bir veri yapısını temsil eder.
 - Struct'lar, stack bellekte depolanır ve heap bellekte değil, dolayısıyla hafıza yönetimi açısından daha verimlidirler.
 - Struct'lar, inheritance (miras alma) desteklemez ve başka bir struct'tan türetilemezler.
@@ -930,6 +999,7 @@ Bu soru, adayın Entity Framework Core'daki farklı yaklaşımları ve bunların
 - Struct'lar, null değerini alamazlar ve varsayılan olarak tüm üyeleri initialize edilmelidir.
 
 **Class:**
+
 - Class, referans türü (reference type) bir veri yapısını temsil eder.
 - Class'lar, heap bellekte depolanır ve referanslar aracılığıyla erişilir, dolayısıyla hafıza yönetimi daha karmaşıktır.
 - Class'lar, inheritance (miras alma) destekler ve başka bir class'tan türetilebilirler.
@@ -973,9 +1043,11 @@ class Program
     }
 }
 ```
+
 ### 69. `Span<T>` ve `string` Arasındaki Farklar
 
 **`Span<T>`:**
+
 - `Span<T>`, bellek bloğunun bir görünümünü temsil eden bir değer türüdür.
 - Genellikle bellek tahsisi yapmadan bellek üzerinde işlem yapmak için kullanılır.
 - Değiştirilebilir (mutable) bir yapıya sahiptir, yani içeriği değiştirilebilir.
@@ -983,18 +1055,20 @@ class Program
 - `Span<T>`, genellikle performansı artırmak veya bellek tahsisini azaltmak için kullanılır.
 
 **`string` (String):**
+
 - `string`, metin verilerini temsil etmek için kullanılan bir referans türüdür.
 - Değiştirilemez (immutable) bir yapıya sahiptir, yani bir kez oluşturulduktan sonra içeriği değiştirilemez.
 - Genellikle metin işleme operasyonları için kullanılır ve `.NET` ekosisteminde en yaygın metin türüdür.
 - `string`, genellikle daha yüksek seviyeli operasyonlar ve metin işleme işlevleri için daha uygun bir seçenektir.
 
 **Hangisini Kullanmalıyım?**
+
 - `Span<T>`, bellek yönetimi veya performans gereksinimleri açısından avantaj sağlayabilir ancak dikkatli kullanılmalıdır.
 - Genellikle, metin işleme ve metin manipülasyonları için `string` tercih edilir, çünkü daha yüksek seviyeli işlemler için daha uygun ve güvenlidir.
 
 ### 70. Null birleştirme (coalescing) operatörü nedir ve nasıl kullanılır?
 
-Null birleştirme operatörü (`??`), bir değerin null olup olmadığını kontrol eder. Eğer değer null ise, alternatif bir değer döndürür. 
+Null birleştirme operatörü (`??`), bir değerin null olup olmadığını kontrol eder. Eğer değer null ise, alternatif bir değer döndürür.
 Örneğin:
 
 ```csharp
@@ -1002,6 +1076,7 @@ int? nullableNumber = null;
 int result = nullableNumber ?? 10;
 Console.WriteLine(result); // Çıktı: 10
 ```
+
 ### 71.Pattern Matching ve Discards Nedir?
 
 Pattern Matching Discards, C# 7.0'dan itibaren gelen bir dil özelliğidir. Bu özellik, bir değeri eşleme yaparken, değerin kullanılmadığı durumları ifade etmek için kullanılır.
@@ -1022,8 +1097,7 @@ if (tuple.Item2 is _)
 }
 ```
 
-
-### 72.  `Delegate` ve `Event` kavramları nedir ve aralarındaki farklar nelerdir?
+### 72. `Delegate` ve `Event` kavramları nedir ve aralarındaki farklar nelerdir?
 
 `delegate`, C# dilinde bir tür güvenli bir referans türüdür ve genellikle metot işaretçilerini temsil eder. `delegate`'ler, metotların referanslarını saklamak ve daha sonra çağırmak için kullanılır. Özellikle olay tabanlı programlama ve asenkron programlama gibi senaryolarda yaygın olarak kullanılırlar.
 
@@ -1048,6 +1122,7 @@ MVC, Model-View-Controller'ın kısaltması olup, bir web uygulamasının mimari
 - **Controller:** İstemciden gelen istekleri işleyen ve uygun model ve view'ları birleştiren kısımdır.
 
 **Diğer Kavramlar:**
+
 - **Razor:** ASP.NET MVC'de kullanılan bir view motorudur ve dinamik içerik oluşturmak için HTML içinde C# kodu kullanılmasını sağlar.
 - **HttpGet:** Bir action'ın yalnızca HTTP GET isteklerine yanıt vermesini sağlayan bir attribute'tur.
 - **HttpPost:** Bir action'ın yalnızca HTTP POST isteklerine yanıt vermesini sağlayan bir attribute'tur.
@@ -1063,39 +1138,37 @@ MVC, Model-View-Controller'ın kısaltması olup, bir web uygulamasının mimari
 
 #### Method overloading (method aşırı yüklenme) ve operator overloading (operator aşırı yüklenme) nedir ve nasıl kullanılır?
 
-
 - **Method Overloading (Method Aşırı Yüklenme):** Method overloading, aynı isimde fakat farklı parametre listeleriyle birden fazla metot tanımlama işlemidir. Böylece aynı işlevsellik farklı parametrelerle çağrılabilir. Örneğin:
 
-    ```csharp
-    public class Calculator
-    {
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
+  ```csharp
+  public class Calculator
+  {
+      public int Add(int a, int b)
+      {
+          return a + b;
+      }
 
-        public double Add(double a, double b)
-        {
-            return a + b;
-        }
-    }
-    ```
+      public double Add(double a, double b)
+      {
+          return a + b;
+      }
+  }
+  ```
 
 - **Operator Overloading (Operator Aşırı Yüklenme):** Operator overloading, bir operatörün farklı veri tipleri üzerinde farklı işlemler gerçekleştirmesine izin veren bir mekanizmadır. Özel operatör aşırı yüklenmiş işlevlerin tanımlanması, sınıfların daha doğal ve kolay anlaşılabilir kullanımını sağlar. Örneğin:
 
-    ```csharp
-    public class ComplexNumber
-    {
-        public int Real { get; set; }
-        public int Imaginary { get; set; }
+  ```csharp
+  public class ComplexNumber
+  {
+      public int Real { get; set; }
+      public int Imaginary { get; set; }
 
-        public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)
-        {
-            return new ComplexNumber { Real = c1.Real + c2.Real, Imaginary = c1.Imaginary + c2.Imaginary };
-        }
-    }
-    ```
-
+      public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)
+      {
+          return new ComplexNumber { Real = c1.Real + c2.Real, Imaginary = c1.Imaginary + c2.Imaginary };
+      }
+  }
+  ```
 
 ### 75. Implicit ve Explicit Dönüşümler
 
@@ -1104,17 +1177,21 @@ C# dilinde "implicit" ve "explicit" dönüşüm operatörleri nedir ve nasıl ku
 - **Implicit (Kapalı) Dönüşüm:** İmplicit dönüşüm, bir veri türünü başka bir veri türüne otomatik olarak ve veri kaybı olmadan dönüştürür. C# derleyicisi, iki tür arasında uygun bir dönüşüm olduğunda bu dönüşümü otomatik olarak gerçekleştirir. Ancak, bu tür dönüşümler genellikle küçük türlerden büyük türlere doğru yapılırken, veri kaybı olmaması koşuluyla gerçekleşir.
 
 Örneğin:
+
 ```csharp
 int num = 10;
 double dNum = num; // Implicit dönüşüm, int'ten double'a otomatik olarak gerçekleşir
 ```
+
 - **Explicit (Açık) Dönüşüm:** Explicit dönüşüm, bir veri türünü başka bir veri türüne dönüştürmek için açık olarak belirtilen bir dönüşüm operatörü kullanılarak gerçekleştirilir. Bu dönüşüm, bazı veri kaybı riski taşıdığı için açıkça belirtilmesi gerekir.
-Örneğin:
+  Örneğin:
+
 ```csharp
 
 double dNum = 10.5;
 int num = (int)dNum; // Explicit dönüşüm, double'dan int'e açık olarak belirtilir
 ```
+
 ### 76. C# dilinde "implicit", "explicit", "boxing" ve "unboxing" kavramları nedir ve aralarındaki farklar nelerdir?
 
 - **Implicit (Kapalı) Dönüşüm:** Bir veri türünü başka bir veri türüne otomatik olarak ve veri kaybı olmadan dönüştüren bir dönüşüm türüdür. Genellikle küçük türlerden büyük türlere doğru yapılır ve derleyici tarafından otomatik olarak gerçekleştirilir.
@@ -1134,9 +1211,11 @@ Tasarım desenleri, tekrar eden problemlere karşı genel çözümler sunan rehb
 Bu desenler, nesnelerin nasıl oluşturulacağına odaklanır. Bu, nesnelerin oluşturulması sürecini soyutlar ve istemciye hangi nesnelerin oluşturulacağına karar verme özgürlüğü sağlar.
 
 ### Abstract Factory Pattern (Fabrika Yöntemi Deseni)
+
 Bu desen, bir süper sınıfı arayüz olarak kullanan ve alt sınıfların hangi nesnenin oluşturulacağına karar verdiği bir desendir.
 
 Örnek Kod (C#):
+
 ```csharp
 public interface IProduct
 {
@@ -1438,7 +1517,7 @@ Bridge tasarım deseni, birbirine bağlı olan iki ayrı hiyerarşiyi birbirinde
 - Uygulanması gereken ekstra sınıflar nedeniyle kod karmaşıklığına yol açabilir.
 - Doğru şekilde tasarlanmadığında, gereksiz karmaşıklık oluşturabilir.
 
- **Örnek Kod (C#):**
+  **Örnek Kod (C#):**
 
 ```csharp
 using System;
@@ -1900,7 +1979,7 @@ Proxy tasarım deseni, bir nesnenin yerine geçerek erişimi kontrol eden ve ger
 
 - Proxy ve gerçek nesnenin arasındaki arayüz uyuşmazlıkları veya eşleşmeme durumlarında sorunlara yol açabilir.
 
- **Örnek Kod**
+  **Örnek Kod**
 
 ```csharp
 using System;
@@ -1947,14 +2026,14 @@ class Program
 }
 ```
 
-
-
 ## Behavioral Patterns (Davranışsal Desenler)
 
 Bu desenler, nesneler arasındaki etkileşimi ve sorumluluk dağılımını tanımlar.
 
 ### Observer Pattern (Gözlemci Deseni)
+
 Örnek Kod (C#):
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -2002,6 +2081,7 @@ public class ConcreteObserver : IObserver
     }
 }
 ```
+
 ## Chain of Responsibility Tasarım Deseni
 
 Chain of Responsibility tasarım deseni, bir isteğin bir dizi işleyici tarafından sırayla işlenmesini sağlayan ve her işleyicinin isteği işlemeyi denemesine olanak tanıyan bir davranışsal tasarım desenidir. Bu desen, bir isteğin birden fazla nesne tarafından işlenmesi gerektiği durumlarda kullanılır.
@@ -2094,6 +2174,7 @@ class Program
     }
 }
 ```
+
 ## Command Tasarım Deseni
 
 Command tasarım deseni, işlemleri nesne olarak soyutlar ve işlemleri tetikleyen nesneleri ayırır. Bu sayede işlemlerin isteklerle bağlantısını koparıp, isteği bir nesne içine paketler. Bu paketleme, isteği nesne ile sarmalayarak parametrelerle uğraşmayı ortadan kaldırır ve işlemlerin sonradan geri alınmasını veya kuyruğa alınmasını sağlar.
@@ -2167,6 +2248,7 @@ public class Program
     }
 }
 ```
+
 ## Interpreter Tasarım Deseni
 
 Interpreter tasarım deseni, belirli bir dilin sözdizimini yorumlamak ve yürütmek için kullanılır. Bu tasarım deseni, dilin her bir unsurunu temsil eden bir nesne hiyerarşisi oluşturur. Bu nesneleri bir araya getirerek, dilin belirli bir ifadesini yorumlayabilir ve yürütebiliriz.
@@ -2250,6 +2332,7 @@ public class Program
     }
 }
 ```
+
 ## Iterator Tasarım Deseni
 
 Iterator tasarım deseni, bir koleksiyonun elemanlarına erişmek için kullanılır ve koleksiyonun iç yapısını gizler. Bu tasarım deseni, koleksiyon üzerinde dolaşmak için bir arayüz sağlar ve koleksiyonun iç detaylarını istemciden gizler.
@@ -2265,7 +2348,7 @@ Iterator tasarım deseni, bir koleksiyonun elemanlarına erişmek için kullanı
 - Koleksiyonun altta yatan yapısını değiştirmeden dolaşma işlemlerini gerçekleştirebiliriz.
 - Çeşitli dolaşma stratejileri uygulayabiliriz.
 
- **Örnek Kod**
+  **Örnek Kod**
 
 ```csharp
 using System;
@@ -2354,6 +2437,7 @@ public class Program
     }
 }
 ```
+
 ## Mediator Tasarım Deseni
 
 Mediator tasarım deseni, bir grup nesne arasındaki etkileşimi düzenler ve merkezi bir iletişim noktası sağlar. Bu tasarım deseni, nesnelerin birbiriyle doğrudan iletişim kurmasını önler ve onların yalnızca bir aracı (mediator) üzerinden iletişim kurmasını sağlar.
@@ -2450,6 +2534,7 @@ public class Program
     }
 }
 ```
+
 ## Memento Tasarım Deseni
 
 Memento tasarım deseni, bir nesnenin iç durumunu yakalamak ve kaydetmek için kullanılır. Bu durum daha sonra geri yüklenmek istendiğinde kullanılabilir. Bu desen, bir nesnenin durumunu saklamak ve geri yüklemek için dışa bağımlı hale getirir, böylece nesne kendisini temizler.
@@ -2532,6 +2617,7 @@ public class Program
     }
 }
 ```
+
 ## State Tasarım Deseni
 
 State tasarım deseni, bir nesnenin davranışını durum değişikliklerine bağlı olarak değiştirmek için kullanılır. Bu desen, bir nesnenin iç durumunu temsil eden ayrı nesneler kullanarak karmaşık koşullu ifadeleri ortadan kaldırır ve nesnenin davranışını temsil eden farklı durumları yönetir.
@@ -2613,6 +2699,7 @@ public class Program
     }
 }
 ```
+
 ## Strategy Tasarım Deseni
 
 Strategy tasarım deseni, bir algoritmanın farklı varyasyonlarını tanımlamak ve bu algoritmaları birbirinden bağımsız hale getirmek için kullanılır. Bu desen, algoritmayı kullanıcı nesnelerden soyutlar ve farklı algoritma uygulamalarını değiştirilebilir hale getirir.
@@ -2802,7 +2889,7 @@ Visitor tasarım deseni, bir nesnenin yapısını (örneğin, bir nesne ağacı)
 - Yeni işlevselliğin eklenmesini ve mevcut işlevselliğin değiştirilmesini kolaylaştırır.
 - Bir nesne yapısını değiştirmeden işlevselliği ekler.
 - Birbirinden bağımsız işlevselliği uygulamayı sağlar.
- **Örnek Kod**
+  **Örnek Kod**
 
 ```csharp
 using System;
@@ -2903,12 +2990,12 @@ public class Program
 ```
 
 ## 78. Domain-Driven Design (DDD) Pattern Nedir ?
+
 Domain-Driven Design (DDD), bir yazılım projesini geliştirirken, özellikle de karmaşık iş domain'leriyle uğraşırken kullanılan bir tasarım metodolojisidir. Bu metodoloji, yazılımın karmaşıklığını azaltmak ve iş domain'ini yazılım modeline yansıtmak için çeşitli teknikler ve prensipler sağlar.
 
 ## Özellikler
 
 - **Zengin Model**: Yazılım modeli, iş domain'ine odaklanır ve iş gereksinimlerini doğrudan yansıtan zengin bir model oluşturulur.
-  
 - **Ubiquitous Language (Her Yerde Geçerli Dil)**: Geliştirme ekibi ve iş sahipleri arasında ortak bir dil oluşturulur. Bu dil, iş gereksinimlerini anlamak ve ifade etmek için kullanılır.
 
 - **Bounded Contexts (Sınırlı Bağlam)**: İş domain'i, sınırlı bağlamlara ayrılır. Her bağlam, belirli bir iş gereksinimini ele alır ve kendi sınırları içerisinde tanımlanır.
@@ -3041,7 +3128,9 @@ CQRS deseni, bir uygulamanın sorgu (query) ve komut (command) tarafını birbir
 - Event sourcing ile veri geçmişini takip etmek ve geriye dönük analiz yapmak mümkün olur.
 
 ## 80. Service-Oriented Architecture (SOA) Deseni Nedir ?
+
 SOA deseni, bir yazılım sistemini hizmetlere dayalı modüler bir yapıya dönüştürür. Her hizmet, belirli bir işlevi gerçekleştirir ve diğer hizmetlerle bağımsız olarak çalışır.
+
 ## Özellikler
 
 - **Servisler**: Bağımsız olarak çalışabilen işlevsel birimler.
@@ -3066,52 +3155,53 @@ Kalıtımın çalışma mekanizması şu adımları içerir:
 
 1. **Alt Sınıfın Tanımlanması**: Yeni bir sınıf tanımlanır ve bu sınıfın üst sınıfını belirlemek için ':' operatörü kullanılır.
 
-    ```csharp
-    // Üst sınıf tanımı
-    public class BaseClass
-    {
-        // Üst sınıfın özellikleri ve davranışları
-    }
+   ```csharp
+   // Üst sınıf tanımı
+   public class BaseClass
+   {
+       // Üst sınıfın özellikleri ve davranışları
+   }
 
-    // Alt sınıf tanımı
-    public class DerivedClass : BaseClass
-    {
-        // Alt sınıfın özellikleri ve davranışları
-    }
-    ```
+   // Alt sınıf tanımı
+   public class DerivedClass : BaseClass
+   {
+       // Alt sınıfın özellikleri ve davranışları
+   }
+   ```
 
 2. **Üst Sınıfın Özelliklerinin ve Davranışlarının Kullanılması**: Alt sınıf, üst sınıfın tüm public ve protected özelliklerine ve metodlarına erişebilir.
 
-    ```csharp
-    // Üst sınıf tanımı
-    public class BaseClass
-    {
-        public int Number { get; set; }
+   ```csharp
+   // Üst sınıf tanımı
+   public class BaseClass
+   {
+       public int Number { get; set; }
 
-        public void PrintMessage()
-        {
-            Console.WriteLine("Hello from BaseClass!");
-        }
-    }
+       public void PrintMessage()
+       {
+           Console.WriteLine("Hello from BaseClass!");
+       }
+   }
 
-    // Alt sınıf tanımı
-    public class DerivedClass : BaseClass
-    {
-        public void DisplayNumber()
-        {
-            Console.WriteLine($"Number: {Number}");
-        }
-    }
+   // Alt sınıf tanımı
+   public class DerivedClass : BaseClass
+   {
+       public void DisplayNumber()
+       {
+           Console.WriteLine($"Number: {Number}");
+       }
+   }
 
-    // Kullanım
-    static void Main(string[] args)
-    {
-        DerivedClass derivedObj = new DerivedClass();
-        derivedObj.Number = 10;
-        derivedObj.DisplayNumber(); // Sonuç: Number: 10
-        derivedObj.PrintMessage();  // Sonuç: Hello from BaseClass!
-    }
-    ```
+   // Kullanım
+   static void Main(string[] args)
+   {
+       DerivedClass derivedObj = new DerivedClass();
+       derivedObj.Number = 10;
+       derivedObj.DisplayNumber(); // Sonuç: Number: 10
+       derivedObj.PrintMessage();  // Sonuç: Hello from BaseClass!
+   }
+   ```
+
 ## 82. Sınıf Kalıtımının Avantajları Nelerdir ?
 
 Sınıf kalıtımı, bir sınıfın başka bir sınıftan özelliklerini ve davranışlarını miras almasını sağlayarak çeşitli avantajlar sunar.
@@ -3239,6 +3329,7 @@ class Program
     }
 }
 ```
+
 ## 84. Sanal Fonksiyonlar (Virtual Functions) ve Sanal Olmayan Fonksiyonlar (Non-Virtual Functions) Arasındaki Farklar
 
 Sanal fonksiyonlar ve sanal olmayan fonksiyonlar, C# dilinde çok biçimliliği (polymorphism) sağlamak için kullanılan önemli kavramlardır. İşte bu iki kavram arasındaki farklar:
@@ -3275,7 +3366,7 @@ Sanal fonksiyonların geçersiz kılınması (overriding), bir alt sınıfın, �
 
 3. **Miras Alanın İşlevselliğini Genişletme**: Alt sınıflar, üst sınıftan devralınan bir fonksiyonu yeniden tanımlayarak, miras aldıkları işlevselliği genişletebilir veya değiştirebilir. Bu, kodun daha modüler hale gelmesini ve yeniden kullanılabilirliğini artırır.
 
- **Örnek**
+**Örnek**
 
 ```csharp
 public class BaseClass
@@ -3294,6 +3385,7 @@ public class DerivedClass : BaseClass
     }
 }
 ```
+
 ## 85. CI Nedir? CD Nedir? Aralarındaki Fark Nedir?
 
 **Soru:** CI ve CD kavramlarını tanımlayın.
@@ -3317,31 +3409,37 @@ public class DerivedClass : BaseClass
 **Popüler CI/CD araçlarından bazılarını sıralayın ve her birinin işlevlerini açıklayın:**
 
 1. **Jenkins:**
+
    - Jenkins, açık kaynaklı bir CI/CD aracıdır.
    - Yazılım geliştirme sürecinde sürekli entegrasyon, yapım ve dağıtım süreçlerini otomatikleştirmek için kullanılır.
    - Jenkins, geniş eklenti desteğiyle esnek bir yapıya sahiptir ve farklı platformlarla uyumludur.
 
 2. **GitLab CI/CD:**
+
    - GitLab CI/CD, GitLab'in entegre CI/CD aracıdır.
    - GitLab projesi içinde yerleşik olarak bulunur ve GitLab CI/CD dosyaları ile yapılandırılır.
    - GitLab CI/CD, kod depolama, yapılandırma, test ve dağıtım süreçlerini tek bir arayüzde birleştirir.
 
 3. **CircleCI:**
+
    - CircleCI, bulut tabanlı bir CI/CD hizmetidir.
    - GitHub, Bitbucket ve GitLab gibi kod depolama platformları ile entegre çalışır.
    - CircleCI, kod değişikliklerini algılar, otomatik testler çalıştırır ve onaylanmış değişiklikleri belirlenen ortamlara dağıtır.
 
 4. **Travis CI:**
+
    - Travis CI, bulut tabanlı bir CI/CD hizmetidir.
    - GitHub ve Bitbucket gibi kod depolama platformları ile entegre çalışır.
    - Travis CI, projelerinizi otomatik olarak test eder ve belirli test sonuçlarına göre yapılandırılmış işlemleri gerçekleştirir.
 
 5. **TeamCity:**
+
    - TeamCity, JetBrains tarafından geliştirilen bir CI/CD aracıdır.
    - Java tabanlıdır ve Windows, macOS ve Linux gibi farklı işletim sistemlerinde çalışabilir.
    - TeamCity, esnek yapılandırma seçenekleri ve ölçeklenebilir mimarisi ile büyük ölçekli projelerde kullanılabilir.
 
 6. **GitHub Actions:**
+
    - GitHub Actions, GitHub'in entegre CI/CD hizmetidir.
    - GitHub deposu içinde yerleşik olarak bulunur ve GitHub Actions YAML dosyaları ile yapılandırılır.
    - GitHub Actions, GitHub deposundaki olaylara tepki verir ve belirli işlemleri otomatik olarak gerçekleştirir.
@@ -3478,6 +3576,7 @@ Redis, açık kaynaklı, anahtar-değer tabanlı bir in-memory veri depolama ç�
 Redis, açık kaynaklı bir anahtar-değer deposu (key-value store) olarak kullanılabilir ve veri saklama ve önbellekleme için geniş bir kullanım alanına sahiptir. İşte Redis ile veri saklama ve önbellekleme süreçlerinin genel adımları:
 
 1. **Veri Saklama:**
+
    - Redis, anahtar-değer çiftleri üzerinde çalışır. Veri saklamak için bir anahtar (key) ve bir değer (value) kullanılır.
    - Değerler olarak sadece basit veri tipleri (string, integer, float) değil, aynı zamanda karmaşık veri yapıları (listeler, kümeler, hash'ler) de saklanabilir.
    - Veri saklama işlemi, `SET` komutu kullanılarak gerçekleştirilir. Örneğin: `SET anahtar değer`.
@@ -3499,23 +3598,27 @@ Redis, açık kaynaklı bir anahtar-değer deposu (key-value store) olarak kulla
 Redis, çeşitli veri tiplerini destekleyen bir anahtar-değer deposudur. Her bir veri tipinin farklı kullanım alanları ve özellikleri vardır:
 
 1. **String:**
+
    - String veri tipi, basit metin veya sayısal verileri saklamak için kullanılır.
    - Tek bir değeri saklamak veya metin tabanlı verileri hızlı bir şekilde depolamak için idealdir.
    - Örneğin, kullanıcı oturum anahtarlarını, sayısal sayaçları veya basit metin verilerini saklamak için kullanılabilir.
 
 2. **List:**
+
    - List veri tipi, sıralı bir koleksiyon olarak elemanlar saklamak için kullanılır.
    - Liste, elemanların sıralı bir şekilde eklenmesine ve çıkarılmasına izin verir.
    - Sıralı veri işlemleri ve kuyruk (queue) mantığı için kullanılabilir.
    - Örneğin, son gönderilen mesajları, kullanıcı aktivitelerini veya işlenmesi gereken görevleri saklamak için kullanılabilir.
 
 3. **Set:**
+
    - Set veri tipi, benzersiz elemanları bir küme olarak saklamak için kullanılır.
    - Her bir eleman yalnızca bir kez saklanabilir, yani küme içinde yinelenen elemanlar bulunmaz.
    - Elemanların eşsizliği ve kesişim, birleşim ve fark gibi küme işlemleri için idealdir.
    - Örneğin, kullanıcıların etiketlerini saklamak, benzersiz ziyaretçileri izlemek veya ilişkilendirilmiş verileri saklamak için kullanılabilir.
 
 4. **Hash:**
+
    - Hash veri tipi, bir anahtar altında birden çok alanı (field) saklamak için kullanılır.
    - Her bir alan ve değer çifti, bir anahtar altında gruplanır.
    - İç içe veri yapılarını ve karmaşık veri yapılarını temsil etmek için kullanılabilir.
@@ -3536,19 +3639,23 @@ Redis, çeşitli veri tiplerini destekleyen bir anahtar-değer deposudur. Her bi
 Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde erişmek için kullanılabilir. Önbellekleme (caching) amacıyla Redis'in kullanımı şu şekildedir:
 
 1. **Veri Saklama:**
+
    - Redis, sıkça erişilen verileri bellekte saklamak için kullanılabilir.
    - Önbellek verileri, daha yavaş olan disk tabanlı veritabanlarına veya diğer veri kaynaklarına (örneğin, SQL veritabanlarına) erişimi azaltmak için kullanılabilir.
    - Sıkça kullanılan sorguların sonuçları, ara bellekte (cache) saklanarak daha hızlı erişim sağlanır.
 
 2. **Hızlı Erişim:**
+
    - Redis, in-memory veri deposu olarak çalıştığı için, önbelleğe alınan verilere çok hızlı bir şekilde erişim sağlar.
    - Önbellek verileri, Redis'in yüksek performansı sayesinde çok kısa yanıt süreleri ile erişilebilir.
 
 3. **Önbellek Yönetimi:**
+
    - Redis, önbellek verilerinin saklanması ve sona ermesi (expire) gibi işlemleri otomatik olarak yönetir.
    - Önbellek verilerinin zamanlamasını belirlemek için expire süreleri ayarlanabilir. Böylece veriler belirli bir süre sonra otomatik olarak temizlenir ve yer açılır.
 
 4. **Yüksek Erişilebilirlik:**
+
    - Redis, verileri bellekte yedekler ve yüksek erişilebilirlik sağlar.
    - Önbellek verilerinin kaybı durumunda, veri kaynaklarından (örneğin, veritabanlarından) yeniden oluşturulabilir.
 
@@ -3565,14 +3672,17 @@ Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde er
 ### Temel Kavramlar:
 
 1. **Producer (Üretici):**
+
    - Producer, mesajları oluşturan ve RabbitMQ'ya ileten bir uygulamadır.
    - Producer, mesajları belirli bir exchange'e gönderir.
 
 2. **Exchange (Değişim):**
+
    - Exchange, mesajların alıcı kuyruklara yönlendirilmesinden sorumlu olan bileşendir.
    - Mesajlar, exchange'e gönderilir ve exchange, mesajları ilgili kuyruklara yönlendirir.
 
 3. **Queue (Kuyruk):**
+
    - Queue, mesajların geçici olarak saklandığı ve tüketilmesi için beklediği bir yerdir.
    - Bir exchange tarafından yönlendirilen mesajlar, ilgili kuyruklara gönderilir.
 
@@ -3583,13 +3693,16 @@ Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde er
 ### Kullanım Senaryoları:
 
 1. **İş Kuyruğu (Job Queue):**
+
    - RabbitMQ, iş kuyruğu senaryolarında kullanılabilir. Üreticiler, iş parçalarını mesaj olarak gönderir ve tüketiciler bu iş parçalarını alarak işler.
    - Bu senaryoda, iş yükü dağıtımı ve iş akışı kontrolü sağlanır.
 
 2. **İşleme Dengeleme (Load Balancing):**
+
    - RabbitMQ, tüketiciler arasında iş yükünün dengeli bir şekilde dağıtılmasını sağlamak için kullanılabilir. Bir kuyruğa bağlanan birden fazla tüketici, gelen mesajları işleyerek yükü paylaşır.
 
 3. **Asenkron İletişim (Asynchronous Communication):**
+
    - RabbitMQ, asenkron iletişim senaryolarında kullanılabilir. Üreticiler, mesajları gönderir ve tüketiciler, bu mesajları alarak işler.
    - Bu senaryoda, sistem bileşenleri arasında asenkron veri alışverişi sağlanır.
 
@@ -3604,6 +3717,7 @@ Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde er
 **Cevap:**
 
 1. **Exchange (Değişim):**
+
    - Exchange, RabbitMQ'da mesajların yönlendirilmesi ve dağıtılması için kullanılan bir yapıdır.
    - Mesajları alır ve ilgili kuyruklara (queue) gönderir.
    - Mesajların nereye yönlendirileceğini belirlemek için Exchange tipi ve yönlendirme kuralları tanımlanır.
@@ -3614,7 +3728,6 @@ Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde er
    - Mesajları bekleyen bir yapı olarak düşünülebilir.
    - Bir veya birden çok üreticiden (publisher) gelen mesajları alır ve bunları bir veya birden çok tüketiciye (consumer) gönderir.
    - Mesajlar kuyrukta FIFO (First-In-First-Out) şeklinde saklanır ve tüketilir.
-   
 3. **Exchange ve Queue İlişkisi:**
    - Exchange ve Queue arasındaki ilişki, mesajların nasıl yönlendirileceğini belirler.
    - Bir Exchange, mesajları alır ve bunları bir veya birden çok Queue'ya yönlendirir.
@@ -3628,6 +3741,7 @@ Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde er
 **Cevap:**
 
 1. **Asenkron İletişim:**
+
    - RabbitMQ, mesaj kuyrukları üzerinden asenkron iletişimi sağlar.
    - Üreticiler (publishers) mesajları kuyruğa gönderir ve tüketici (consumer) bu mesajları kuyruktan alır ve işler.
    - Bu iletişimde üretici ve tüketici birbirine bağlı değildir; yani üretici bir mesajı gönderdikten sonra beklemek zorunda kalmaz ve tüketici de mesajın geldiği anda işlemesi gerekmez.
@@ -3648,11 +3762,13 @@ RabbitMQ, asenkron iletişim ve pub/sub modeli sayesinde dağıtık sistemler ar
 **Cevap:**
 
 1. **Jenkins Nedir?**
+
    - Jenkins, açık kaynaklı bir sürekli entegrasyon (CI) ve sürekli dağıtım (CD) aracıdır.
    - Yazılım geliştirme sürecindeki tekrar eden işleri otomatikleştirmek ve iyileştirmek için kullanılır.
    - Jenkins, çok çeşitli projeler için kullanılabilen geniş bir eklenti ve araç yelpazesi sunar.
 
 2. **Temel Özellikler:**
+
    - Otomatik sürekli entegrasyon (CI) ve sürekli dağıtım (CD) işlemlerini destekler.
    - Çeşitli programlama dilleri, proje tipleri ve platformlarla uyumludur.
    - Geniş eklenti ve entegrasyon desteği sayesinde esnek bir yapı sunar.
@@ -3675,6 +3791,7 @@ Jenkins, yazılım geliştirme sürecinde sürekli entegrasyon (CI) ve sürekli 
 **Cevap:**
 
 1. **Pipeline Oluşturma Süreci:**
+
    - Jenkins'te pipeline oluşturma süreci, Jenkinsfile adı verilen bir dosya kullanılarak gerçekleştirilir.
    - Pipeline, yazılım geliştirme sürecindeki adımları tanımlayan ve otomatikleştiren bir yapıdır.
    - Pipeline, derleme, test, paketleme, dağıtım gibi adımların sırasını ve koşullarını belirleyerek yazılım süreçlerini yönetir.
@@ -3696,6 +3813,7 @@ Jenkinsfile, Jenkins pipeline'ın tanımlandığı ve yönetildiği bir dosya ol
 **Cevap:**
 
 1. **Otomatik Testlerin Yapılandırılması:**
+
    - Jenkins, otomatik testlerin yapılandırılması için farklı eklentiler ve araçlar sağlar.
    - Proje yapılandırması sırasında Jenkins, test işlemlerini otomatikleştirmek için gerekli eklentilerin ve araçların kurulumunu sağlar.
    - Otomatik testler, projenin bir parçası olarak Jenkins'te tanımlanır ve yapılandırılır.
@@ -3717,6 +3835,7 @@ Jenkins, otomatik testlerin yapılandırılması ve test sonuçlarının raporla
 **Cevap:**
 
 1. **Docker Nedir?**
+
    - Docker, yazılım uygulamalarını hızlı bir şekilde dağıtmak, paketlemek ve çalıştırmak için kullanılan bir konteynerizasyon platformudur.
    - Docker, uygulamaların altyapıya bağımlılıklarını ortadan kaldırarak yazılım geliştirme sürecini hızlandırır ve kolaylaştırır.
    - Docker, yazılım uygulamalarını container adı verilen hafif, taşınabilir ve izole edilmiş birimlerde çalıştırır.
@@ -3736,12 +3855,14 @@ Docker, yazılım uygulamalarını hızlı bir şekilde paketlemek, dağıtmak v
 **Cevap:**
 
 1. **Docker Image Nedir?**
+
    - Docker image, bir uygulamanın çalıştırılabilir durumunu tanımlayan bir paketlemedir.
    - Bir Docker image, uygulamanın çalışması için gereken tüm dosyaları (uygulama kodu, bağımlılıklar, çalıştırılabilir dosyalar vb.) ve yapılandırma bilgilerini içerir.
    - Docker image, bir veya birden çok katman (layer) şeklinde oluşturulur ve önceden tanımlanmış bir yapıya (örneğin Dockerfile) göre inşa edilir.
    - Docker image'lar, Docker Hub gibi merkezi bir depoda bulunabilir veya yerel olarak oluşturulabilir.
 
 2. **Docker Container Nedir?**
+
    - Docker container, bir Docker image'in çalıştırılabilir bir örneğidir.
    - Bir Docker container, bir image'in bir kopyasıdır ve çalışma zamanında uygulamanın çalıştırılmasını sağlar.
    - Docker container'lar, izole edilmiş bir ortamda çalışır ve kendi dosya sistemlerine ve ağ bağlantılarına sahiptir.
@@ -3762,12 +3883,14 @@ Docker image, bir uygulamanın çalıştırılabilir durumunu tanımlayan bir pa
 **Cevap:**
 
 1. **Docker Compose Nedir?**
+
    - Docker Compose, çoklu container uygulamalarının tanımlanması, yönetilmesi ve çalıştırılmasını sağlayan bir araçtır.
    - Docker Compose, YAML dosyaları kullanarak uygulamaların altyapısını tanımlar ve bu uygulamaların birden fazla container'da nasıl çalıştırılacağını belirtir.
    - Docker Compose, Docker container'larının ortak bir ağ üzerinde bir araya gelerek bir uygulama oluşturmasını sağlar.
    - Birden fazla container'ı tek bir komutla yönetebilme, aynı ağ üzerinde çalışmalarını sağlama ve bağımlılıkları yönetme gibi görevleri üstlenir.
 
 2. **Docker Compose'un Kullanım Senaryoları:**
+
    - Geliştirme Ortamı Yönetimi: Docker Compose, geliştirme ortamında birden fazla container'ın bir araya getirilmesi ve yönetilmesi için kullanılabilir. Örneğin, bir web uygulaması için web sunucusu, veritabanı sunucusu ve önbellek sunucusu gibi farklı container'ların bir araya getirilmesi.
    - Test Ortamı Yönetimi: Docker Compose, test senaryolarının çalıştırılması için birden fazla container'ın otomatik olarak başlatılmasını ve yapılandırılmasını sağlar. Örneğin, bir test süiti için farklı testlerin farklı container'lar üzerinde çalıştırılması.
    - Üretim Ortamı Yönetimi: Docker Compose, üretim ortamında birden fazla container'ın yönetilmesi ve dağıtılması için kullanılabilir. Örneğin, bir mikroservis mimarisi için farklı servislerin bir araya getirilmesi ve çalıştırılması.
@@ -3786,11 +3909,13 @@ Docker Compose, çoklu container uygulamalarının tanımlanması, yönetilmesi 
 **Cevap:**
 
 1. **Kubernetes Nedir?**
+
    - Kubernetes, konteyner tabanlı uygulamaların dağıtımı, ölçeklenmesi ve yönetilmesi için açık kaynaklı bir konteyner orkestrasyon platformudur.
    - Kubernetes, uygulamaların birden fazla container üzerinde otomatik olarak dağıtılmasını, denetlenmesini ve ölçeklendirilmesini sağlar.
    - Kubernetes, yüksek kullanılabilirlik, otomatik düzenleme, hata toleransı gibi özellikleriyle karmaşık mikro servis tabanlı uygulamaları yönetmek için ideal bir platformdur.
 
 2. **Kullanım Senaryoları:**
+
    - Otomatik Yönetim ve Ölçeklendirme: Kubernetes, uygulamaları belirli bir durumda tutmak için gereken container sayısını otomatik olarak yönetir. Taleplere göre otomatik olarak ölçeklendirme yapabilir.
    - Servis Dağıtımı: Kubernetes, uygulama servislerini birden fazla container üzerinde dengeli bir şekilde dağıtır ve trafik yönlendirmesini sağlar.
    - Depolama ve Yönetim: Kubernetes, farklı depolama seçeneklerini destekler ve uygulama verilerinin yönetimini kolaylaştırır.
@@ -3810,16 +3935,19 @@ Kubernetes, konteyner tabanlı uygulamaların dağıtımı, ölçeklenmesi ve y�
 **Cevap:**
 
 1. **Pod Nedir?**
+
    - Pod, Kubernetes'in en küçük birimi olan ve bir veya birden fazla container'ı içeren bir grup container'ı temsil eder.
    - Pod içindeki container'lar birlikte çalışır ve aynı ağ ve depolama alanını paylaşır.
    - Pod, kapsayıcılığı, ağ bağlantısını ve depolama özelliklerini tanımlayan YAML dosyaları kullanılarak oluşturulur.
 
 2. **Deployment Nedir?**
+
    - Deployment, pod'ların dağıtılması ve yönetilmesi için Kubernetes tarafından kullanılan bir kaynaktır.
    - Deployment, belirli bir pod konfigürasyonunu tanımlar ve bu konfigürasyonu uygulamak için gerekli adımları sağlar.
    - Deployment, pod'ların yeniden başlatılması, ölçeklendirilmesi ve güncellenmesi gibi işlemleri otomatikleştirir.
 
 3. **Service Nedir?**
+
    - Service, bir veya birden fazla pod'a erişim sağlayan bir abstraksiyondur.
    - Service, pod'ların IP adresi ve portları gibi ağ detaylarını gizleyerek uygulamalara hizmet verir.
    - Service, yük dengeleme, DNS isim çözümü ve uygulama yüksek erişilebilirlik gibi özellikleri sağlar.
@@ -3838,6 +3966,7 @@ Pod, deployment ve service kavramları Kubernetes'in farklı seviyelerinde uygul
 **Cevap:**
 
 1. **Yüksek Erişilebilirlik Nasıl Sağlanır?**
+
    - Kubernetes, yüksek erişilebilirlik (HA) sağlamak için çeşitli stratejiler kullanır.
    - Kubernetes cluster'ı, birden fazla master ve worker node'dan oluşur. Bu, tek bir noktada meydana gelebilecek bir arıza durumunda sistemin çalışmasını sağlar.
    - Kubernetes, otomatik olarak pod'ları yeniden başlatarak, etkilenen pod'ların yerine yeni pod'lar oluşturarak ve yük dengeleme özelliklerini kullanarak yüksek erişilebilirlik sağlar.
@@ -3857,6 +3986,7 @@ Kubernetes, yüksek erişilebilirlik sağlamak için birden fazla strateji kulla
 **Cevap:**
 
 1. **Teknolojilerin Kullanımı:**
+
    - Redis: Hafızada anahtar-değer çiftleri depolamak için kullanılır. Önbellekleme ve veri depolama için idealdir.
    - RabbitMQ: Mesaj kuyruğu sistemi olarak kullanılır. Farklı sistemler arasında asenkron iletişim sağlar.
    - Jenkins: Sürekli entegrasyon (CI) ve sürekli dağıtım (CD) süreçlerini yönetmek için kullanılır. Yazılım geliştirme sürecini otomatikleştirir.
@@ -3870,3 +4000,683 @@ Kubernetes, yüksek erişilebilirlik sağlamak için birden fazla strateji kulla
    - Docker ve Kubernetes, uygulamaların konteynerlerde izole edilmesini ve yüksek erişilebilirlik ve ölçeklenebilirlik sağlar.
 
 Redis, RabbitMQ, Jenkins, Docker ve Kubernetes gibi teknolojilerin birlikte kullanılmasıyla, otomatikleştirilmiş bir yazılım geliştirme ve dağıtım süreci sağlanır. Veri depolama, iletişim, derleme, paketleme, dağıtım ve yönetim gibi farklı ihtiyaçlar, bu teknolojilerin bir araya getirilmesiyle karşılanabilir.
+
+## 106. DTO, Entity, ViewModel ve Model Kavramları
+
+**Soru:** DTO (Data Transfer Object), Entity, ViewModel ve Model kavramları nedir? Aralarındaki farklar nelerdir ve ne zaman kullanılırlar?
+
+**Cevap:**
+
+1. **DTO (Data Transfer Object):**
+
+   - DTO, veri transferi amacıyla kullanılan bir tasarım desenidir.
+   - DTO'lar, genellikle farklı katmanlar arasında veri alışverişi yapmak için kullanılır.
+   - DTO'lar, veri tabanından alınan verilerin, servis çağrılarında veya web API'lerinde kullanılabilir formata dönüştürülmesini sağlar.
+   - DTO'lar, genellikle iş mantığından arındırılmış, sadece veri taşıyan nesnelerdir.
+
+2. **Entity:**
+
+   - Entity, genellikle bir veritabanı tablosunu temsil eden ve veri tabanı işlemlerini gerçekleştiren nesnelerdir.
+   - Entity'ler, genellikle ORM (Object-Relational Mapping) araçları kullanılarak veri tabanı tablolarıyla eşleştirilir.
+   - Entity'ler, veritabanı işlemlerini gerçekleştirmek ve veritabanı tablolarının alanlarını temsil etmek için kullanılır.
+
+3. **ViewModel:**
+
+   - ViewModel, genellikle bir kullanıcı arayüzünü temsil eden ve kullanıcı arayüzü ile iş mantığı arasında veri aktarımını sağlayan nesnelerdir.
+   - ViewModel'ler, kullanıcı arayüzünde görüntülenecek verileri içerir ve kullanıcıdan alınan girişleri işlemek için kullanılır.
+   - ViewModel'ler, iş mantığına ilişkin karmaşık veri yapılarını basitleştirmek ve kullanıcı arayüzüne uygun bir şekilde düzenlemek için kullanılır.
+
+4. **Model:**
+
+   - Model, genel bir terim olup, uygulama içinde kullanılan herhangi bir nesneyi ifade eder.
+   - Model, genellikle iş mantığını veya uygulamanın domain katmanını temsil eden nesnelerdir.
+   - Model, DTO, Entity veya ViewModel gibi belirli bir amaca hizmet eden nesnelerin genel adıdır.
+
+5. **Farklar ve Kullanım Durumları:**
+   - DTO, veri transferi için kullanılırken, Entity veri tabanı işlemleri için kullanılır.
+   - ViewModel, kullanıcı arayüzü ve iş mantığı arasında veri aktarımı için kullanılırken, Model genel olarak uygulama içindeki herhangi bir nesneyi ifade eder.
+   - Model, genel bir terim olup, DTO, Entity ve ViewModel gibi belirli amaçlara hizmet eden nesnelerin genel adıdır.
+
+DTO, Entity, ViewModel ve Model kavramları, farklı amaçlar için kullanılan ve farklı katmanlarda işlev gören nesnelerdir. Bu kavramların doğru şekilde kullanılması, uygulama geliştirmede verimliliği artırabilir ve kodun daha iyi organize edilmesini sağlayabilir.
+
+## 106. ASP.NET Core'un middleware tabanlı yapısı ve HTTP pipeline'ı hakkında ne biliyorsunuz? Middleware nedir ve nasıl çalışır?
+
+1. **Middleware ve Pipeline Kavramları:**
+
+   - ASP.NET Core, HTTP isteklerini işlemek için bir middleware tabanlı yapıya sahiptir.
+   - Middleware'ler, HTTP istekleri ve yanıtları üzerinde işlemler gerçekleştiren komponentlerdir.
+   - HTTP Pipeline, gelen isteklerin sırayla geçtiği bir dizi middleware'den oluşur.
+
+2. **Middleware Nedir ve Nasıl Çalışır?**
+
+   - Middleware, gelen isteği ele alır, isteği işler ve ardından bir sonraki middleware'e zincirlemek için bir sonraki middleware'i çağırır.
+   - Bir middleware, gelen isteği inceleyebilir, değiştirebilir veya tamamen yeni bir yanıt oluşturabilir.
+   - Middleware'ler, ConfigureServices metodu içinde UseMiddleware veya UseExtension metodları aracılığıyla uygulanır.
+   - Middleware'ler, ConfigureServices metodu içinde UseMiddleware veya UseExtension metodları aracılığıyla uygulanır.
+   - Middleware'ler, Startup sınıfında Configure metodu içinde sıralı olarak tanımlanır.
+
+3. **HTTP Pipeline:**
+
+   - HTTP Pipeline, gelen isteklerin sırayla geçtiği bir dizi middleware'den oluşur.
+   - Middleware'ler, bu pipeline'da isteğin işlenme sürecini kontrol eder.
+   - İstek, pipeline boyunca ilgili middleware'lerden geçer ve her biri isteği işler veya değiştirir.
+   - Pipeline'da son middleware, isteği bir HTTP yanıtı olarak gönderir.
+
+4. **Örnek Kullanım:**
+   - Örneğin, Authentication Middleware, gelen isteği kimlik doğrulaması yapmak için işler ve isteği yetkilendirme işlemine yönlendirir.
+   - Routing Middleware, gelen isteği belirtilen rotaya göre yönlendirir ve ilgili işlem metodunu çağırır.
+
+ASP.NET Core'un middleware tabanlı yapısı ve HTTP pipeline'ı, gelen istekleri işlemek ve yanıtlamak için kullanılan güçlü bir mekanizmadır. Middleware'ler, gelen isteği işleyen ve bir sonraki middleware'e ileten bileşenlerdir ve HTTP Pipeline, bu middleware'lerin bir araya getirildiği sıralı bir zincirdir.
+
+## 107. Action Filter ve Middleware Farkları ve Benzerlikleri
+
+### Farklar:
+
+1. **Kullanım Amacı:**
+
+   - Action Filter: Action Filter'lar, MVC (Model-View-Controller) yapısında Controller sınıflarının action metodlarına eklenen özel işlevleri sağlar. Bu, işlemlerin öncesi veya sonrasında belirli davranışlar eklemek için kullanılır.
+   - Middleware: Middleware'ler, ASP.NET Core'un HTTP request/response pipeline'ına entegre edilen işlemlerdir. HTTP isteği üzerinde işlemler gerçekleştirerek, isteği işleyen birimler arasında belirli davranışlar eklemek için kullanılır.
+
+2. **Uygulanma Yeri:**
+
+   - Action Filter: Action Filter'lar, MVC Controller sınıflarında veya action metodlarında `[Attribute]` olarak uygulanabilir.
+   - Middleware: Middleware'ler, `Startup` sınıfının `Configure` metodu içinde pipeline'a eklenir.
+
+3. **Kapsam:**
+   - Action Filter: Action Filter'lar, bir Controller veya action metodu için belirli bir işlemi gerçekleştiren özellikleri sağlar. Bu, MVC Controller'larına özgüdür.
+   - Middleware: Middleware'ler, tüm HTTP istekleri üzerinde çalışır ve tüm uygulama için genel işlemler eklemek için kullanılabilir.
+
+### Benzerlikler:
+
+1. **HTTP İsteği/Response'ı İşleme:**
+
+   - Action Filter ve Middleware, HTTP isteklerini ve yanıtlarını işlemek için kullanılır.
+   - Her ikisi de HTTP pipeline'ına entegre edilerek, gelen isteği işleyen birimler arasında belirli davranışları eklemek için kullanılır.
+
+2. **Zincirleme (Chaining):**
+
+   - Hem Action Filter hem de Middleware, istek veya yanıtın işlenmesi sırasında zincirleme olarak çalışır.
+   - Birden fazla Action Filter veya Middleware, sırayla çalıştırılabilir ve birbirini tamamlayan işlemleri gerçekleştirebilir.
+
+3. **Modülerlik:**
+
+   - Her ikisi de ASP.NET Core uygulamalarında modüler bir yapı sağlar, böylece belirli işlevleri izole ederek uygulamanın bakımını ve geliştirilmesini kolaylaştırır.
+
+   ## Action Filter Örneği
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System;
+
+public class CustomActionFilterAttribute : ActionFilterAttribute
+{
+    public override void OnActionExecuting(ActionExecutingContext context)
+    {
+        Console.WriteLine("Action öncesi işlemler...");
+    }
+
+    public override void OnActionExecuted(ActionExecutedContext context)
+    {
+        Console.WriteLine("Action sonrası işlemler...");
+    }
+}
+
+[Route("api/[controller]")]
+[ApiController]
+public class SampleController : ControllerBase
+{
+    [HttpGet]
+    [CustomActionFilter] // Action Filter'ı burada uyguluyoruz
+    public IActionResult Get()
+    {
+        return Ok("Veri getirildi.");
+    }
+}
+```
+
+## Action Filter Örneği
+
+```csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Threading.Tasks;
+
+public class CustomMiddleware
+{
+  private readonly RequestDelegate _next;
+
+  public CustomMiddleware(RequestDelegate next)
+  {
+      _next = next;
+  }
+
+  public async Task Invoke(HttpContext context)
+  {
+      // Middleware öncesi işlemler
+      Console.WriteLine("Middleware öncesi işlemler...");
+
+      // Sonraki middleware veya endpoint çağrısı
+      await _next(context);
+
+      // Middleware sonrası işlemler
+      Console.WriteLine("Middleware sonrası işlemler...");
+  }
+}
+
+public static class CustomMiddlewareExtensions
+{
+  public static IApplicationBuilder UseCustomMiddleware(this IApplicationBuilder builder)
+  {
+      return builder.UseMiddleware<CustomMiddleware>();
+  }
+}
+
+public class Startup
+{
+  public void Configure(IApplicationBuilder app)
+  {
+      app.UseCustomMiddleware(); // Middleware'ı pipeline'a ekliyoruz
+
+      app.Run(async (context) =>
+      {
+          await context.Response.WriteAsync("Hello from Middleware!");
+      });
+  }
+}
+```
+
+## 108. Authentication ve Authorization Soruları
+
+**1. Authentication (Kimlik Doğrulama) Nedir?**
+
+- **Soru:** Authentication (Kimlik Doğrulama) nedir?
+- **Cevap:** Authentication, bir kullanıcının kimlik bilgilerini doğrulama işlemidir. Bu, kullanıcının kimlik bilgilerinin (kullanıcı adı, parola, vb.) geçerli olup olmadığının kontrol edilmesini içerir.
+
+**2. Authorization (Yetkilendirme) Nedir?**
+
+- **Soru:** Authorization (Yetkilendirme) nedir?
+- **Cevap:** Authorization, bir kullanıcının belirli kaynaklara (veri, sayfa, hizmet vb.) erişim izinlerinin kontrol edilmesi işlemidir. Bu, kimlik doğrulamasının başarılı olmasının ardından, kullanıcının erişim yetkilerinin belirlenmesini içerir.
+
+  **3. Authentication ve Authorization Arasındaki Fark Nedir?**
+
+- **Soru:** Authentication ve Authorization arasındaki fark nedir?
+- **Cevap:** Authentication, bir kullanıcının kimlik bilgilerini doğrulama sürecidir, Authorization ise bir kullanıcının erişim yetkilerinin kontrol edilmesidir. Authentication, kullanıcının kimliğini belirleme işlemi iken, Authorization, belirli kaynaklara erişim izinlerini belirleme işlemidir.
+
+  **4. ASP.NET Core'da Kullanıcı Kimlik Doğrulaması Nasıl Yapılır?**
+
+- **Soru:** ASP.NET Core'da kullanıcı kimlik doğrulaması nasıl yapılır?
+- **Cevap:** ASP.NET Core'da, Authentication Middleware ve Identity API'leri kullanılarak kullanıcı kimlik doğrulaması yapılır. Bu, çeşitli kimlik doğrulama yöntemleriyle (JWT, OAuth, Cookie tabanlı kimlik doğrulama vb.) gerçekleştirilebilir.
+
+**5. ASP.NET Core'da Authorization Nasıl Yapılır?**
+
+- **Soru:** ASP.NET Core'da Authorization nasıl yapılır?
+- **Cevap:** ASP.NET Core'da Authorization, genellikle Action Filter'ları, Policy'leri ve Require metotlarını kullanarak gerçekleştirilir. Bu yöntemler, kullanıcının erişim yetkilerini belirler ve isteği işlerken bu yetkilere göre işlem yapılmasını sağlar.
+
+## 109. Routing ve Controller Soruları
+
+**1. Routing (Yönlendirme) Nedir?**
+
+- **Soru:** Routing (Yönlendirme) nedir?
+- **Cevap:** Routing, gelen HTTP isteklerinin, hangi Controller metoduna yönlendirileceğini belirleme işlemidir. Bu, isteğin URL'sine, HTTP metodu ve diğer kriterlere göre gerçekleştirilir.
+
+**2. Controller Nedir?**
+
+- **Soru:** Controller nedir?
+- **Cevap:** Controller, bir MVC (Model-View-Controller) yapısında kullanılan bir bileşendir. Controller, gelen istekleri işlemek için action metodlarını içerir. Her bir action metodu, belirli bir isteği işleyen ve sonuç üreten birimlerdir.
+
+**3. ASP.NET Core'da Routing Nasıl Yapılır?**
+
+- **Soru:** ASP.NET Core'da Routing nasıl yapılır?
+- **Cevap:** ASP.NET Core'da Routing, `Startup` sınıfının `Configure` metodu içinde yapılandırılır. Bu, `UseEndpoints` metodu kullanılarak gerçekleştirilir ve URL şablonlarına göre hangi Controller ve action metotlarının çağrılacağı belirlenir.
+
+**4. Controller Sınıfları Nasıl Oluşturulur ve Kullanılır?**
+
+- **Soru:** Controller sınıfları nasıl oluşturulur ve kullanılır?
+- **Cevap:** Bir Controller sınıfı, MVC uygulamasında, Controller ismiyle biten bir sınıf oluşturarak başlatılır. Bu sınıf, `ControllerBase` sınıfından türetilir ve action metotlarını içerir. Bu action metotları, gelen isteklere yanıt olarak belirli işlemleri gerçekleştirir.
+
+**5. ASP.NET Core'da RESTful API Nasıl Oluşturulur?**
+
+- **Soru:** ASP.NET Core'da RESTful API nasıl oluşturulur?
+- **Cevap:** ASP.NET Core'da RESTful API oluşturmak için Controller sınıfları kullanılır. Bu Controller sınıfları, HTTP isteklerini işleyen action metotlarını içerir. Bu metotlar, HTTP GET, POST, PUT, DELETE gibi HTTP metotlarına karşılık gelir ve uygun şekilde yapılandırılır.
+
+## 110 Swagger ve API Dokümantasyonu Soruları
+
+**1. Swagger Nedir ve Ne İşe Yarar?**
+
+- **Soru:** Swagger nedir ve ne işe yarar?
+- **Cevap:** Swagger, RESTful API'lerin dokümantasyonunu otomatik olarak oluşturan ve görselleştiren açık kaynaklı bir API dokümantasyon aracıdır. Swagger, API'nin kullanımını ve özelliklerini tanımlayan bir açıklama dosyası üretir ve bu sayede geliştiricilere API'nin nasıl kullanılacağı konusunda rehberlik eder.
+
+**2. Swagger Nasıl Kullanılır?**
+
+- **Soru:** Swagger nasıl kullanılır?
+- **Cevap:** Bir ASP.NET Core projesinde Swagger kullanmak için öncelikle Swashbuckle NuGet paketini projeye eklemek gerekmektedir. Daha sonra, `Startup` sınıfında `ConfigureServices` metodunda Swagger'ı yapılandırabilir ve `Configure` metodunda middleware olarak ekleyebilirsiniz. Bu adımların ardından, Swagger API dokümantasyonunuz otomatik olarak oluşturulacaktır.
+
+**3. Swagger UI Nedir ve Ne İşe Yarar?**
+
+- **Soru:** Swagger UI nedir ve ne işe yarar?
+- **Cevap:** Swagger UI, Swagger tarafından üretilen API dokümantasyonunu interaktif bir şekilde görüntülemek için kullanılan bir kullanıcı arayüzüdür. Swagger UI, API endpoint'lerini gösterir, her bir endpoint için parametreleri ve dönen veriyi belirtir ve API'yi test etmek için bir arayüz sunar.
+
+**4. Swagger Belgesi Nasıl Özelleştirilir?**
+
+- **Soru:** Swagger belgesi nasıl özelleştirilir?
+- **Cevap:** Swagger belgesi, XML öznitelikleri, özel Swagger açıklamaları ve Swagger konfigürasyon seçenekleri gibi çeşitli yöntemlerle özelleştirilebilir. Bu sayede, API'nizin dokümantasyonunu istediğiniz şekilde biçimlendirebilir ve ek bilgiler ekleyebilirsiniz.
+
+**5. API Dokümantasyonu Neden Önemlidir?**
+
+- **Soru:** API dokümantasyonu neden önemlidir?
+- **Cevap:** API dokümantasyonu, geliştiricilere API'nin nasıl kullanılacağı konusunda rehberlik eder, API'nin sunduğu özellikleri ve parametreleri açıklar, hata durumlarını belirtir ve API sürümleri arasındaki değişiklikleri belgeler. Doğru ve kapsamlı bir API dokümantasyonu, API'nin daha kolay anlaşılmasını sağlar ve uygulamaların hızlı bir şekilde geliştirilmesine yardımcı olur.
+
+## 111. ASP.NET Core ile React, Angular veya Vue.js gibi JavaScript Çerçeveleri Nasıl Entegre Edilir?
+
+- **Soru:** ASP.NET Core ile React, Angular veya Vue.js gibi JavaScript çerçeveleri nasıl entegre edilir?
+- **Cevap:** ASP.NET Core ile React, Angular veya Vue.js gibi JavaScript çerçevelerini entegre etmek için genellikle iki yöntem kullanılır: Server-Side Rendering (SSR) ve Client-Side Rendering (CSR). SSR, .NET tarafında oluşturulan HTML sayfalarına JavaScript çerçevesini entegre etmek için kullanılırken, CSR'de ise JavaScript çerçevesi ayrı bir uygulama olarak çalışır ve .NET ile sadece veri alışverişi yapılır.
+
+
+**2. React, Angular veya Vue.js ile ASP.NET Core Web API Nasıl Çağrılır?**
+
+- **Soru:** React, Angular veya Vue.js ile ASP.NET Core Web API nasıl çağrılır?
+- **Cevap:** React, Angular veya Vue.js gibi JavaScript çerçeveleri, Axios, Fetch API veya Angular'ın HttpClient modülü gibi HTTP isteklerini yapmak için çeşitli araçlar sağlar. Bu araçlar kullanılarak ASP.NET Core Web API'lerine HTTP istekleri gönderilebilir ve veri alışverişi yapılabilir.
+
+ **3. Client-Side Routing Nasıl Yapılır?**
+
+- **Soru:** Client-Side Routing nedir ve nasıl yapılır?
+- **Cevap:** Client-Side Routing, tek sayfa uygulamalarında (SPA) tarayıcı tarafında yapılan yönlendirmeleri ifade eder. React, Angular ve Vue.js gibi JavaScript çerçeveleri, kendi router modülleriyle client-side routing sağlarlar. Bu modüller, URL değişikliklerini dinler ve ilgili bileşenleri yükleyerek sayfa içeriğini günceller.
+
+ **4. ASP.NET Core Web API'den Veri Alma ve Gösterme**
+
+- **Soru:** ASP.NET Core Web API'den veri alma ve gösterme işlemi nasıl yapılır?
+- **Cevap:** React, Angular veya Vue.js gibi JavaScript çerçeveleri, HTTP istekleriyle ASP.NET Core Web API'lerinden veri alabilirler. Alınan veriler, çerçevenin içindeki bileşenlerde kullanılarak kullanıcı arayüzünde gösterilebilir.
+
+**5. SPA ve ASP.NET Core Identity Entegrasyonu**
+
+- **Soru:** Single Page Application (SPA) ve ASP.NET Core Identity entegrasyonu nasıl yapılır?
+- **Cevap:** SPA ve ASP.NET Core Identity entegrasyonunda, genellikle token tabanlı kimlik doğrulama yöntemleri kullanılır. Kullanıcı, SPA üzerinden kimlik bilgileriyle giriş yapar ve ASP.NET Core Identity tarafından bir JWT (JSON Web Token) oluşturulur. Bu token, daha sonra API isteklerinde yetkilendirme için kullanılır.
+
+## 112. ## Web Socket ve SignalR Soruları
+
+- **Soru:** Web Socket nedir ve ne işe yarar?
+- **Cevap:** Web Socket, iki yönlü iletişim sağlayan ve gerçek zamanlı veri aktarımına imkan tanıyan bir iletişim protokolüdür. Web Socket, sunucu ve istemci arasında sürekli açık bir iletişim kanalı kurarak, anlık veri akışı sağlar.
+
+**2. ASP.NET Core'da Web Socket Nasıl Kullanılır?**
+
+- **Soru:** ASP.NET Core'da Web Socket nasıl kullanılır?
+- **Cevap:** ASP.NET Core'da Web Socket kullanmak için `System.Net.WebSockets` isim alanındaki sınıfları kullanabilirsiniz. Bir ASP.NET Core uygulamasında, Web Socket'leri işleyecek özel bir işleme yönlendirebilir ve istemci ile sunucu arasındaki veri alışverişini gerçekleştirebilirsiniz.
+
+**3. SignalR Nedir ve Ne İşe Yarar?**
+
+- **Soru:** SignalR nedir ve ne işe yarar?
+- **Cevap:** SignalR, ASP.NET Core ve diğer platformlarda gerçek zamanlı iletişim sağlamak için kullanılan bir kütüphanedir. SignalR, Web Socket ve diğer teknolojileri kullanarak istemci ve sunucu arasında sürekli açık bir iletişim kanalı oluşturur ve anlık veri akışını kolaylaştırır.
+
+**4. ASP.NET Core'da SignalR Nasıl Kullanılır?**
+
+- **Soru:** ASP.NET Core'da SignalR nasıl kullanılır?
+- **Cevap:** ASP.NET Core'da SignalR kullanmak için öncelikle `Microsoft.AspNetCore.SignalR` NuGet paketini projeye eklemelisiniz. Daha sonra, bir SignalR hub sınıfı oluşturabilir ve istemci tarafında bu hub'a bağlanarak veri alışverişi yapabilirsiniz.
+
+**5. SignalR ve Web Socket Arasındaki Farklar Nelerdir?**
+
+- **Soru:** SignalR ve Web Socket arasındaki farklar nelerdir?
+- **Cevap:** Web Socket, doğrudan istemci ve sunucu arasında bir iletişim protokolüdür ve düşük seviyeli bir API sunar. SignalR ise Web Socket gibi altta yatan teknolojileri kullanarak gerçek zamanlı iletişim sağlayan bir kütüphanedir. SignalR, Web Socket'lerin yönetimini kolaylaştırır ve daha yüksek seviyeli bir API sunar.
+
+## 113. Global Error Handling (Hata İşleme)
+
+**Soru:** ASP.NET Core uygulamasında global error handling nasıl yapılır? Uygulama hatalarının nasıl ele alınacağı ve işleneceği hakkında neler biliyorsunuz?
+
+**Cevap:**
+
+1. **Global Error Handling:**
+   - ASP.NET Core uygulamalarında global error handling, uygulama düzeyinde oluşan hataların merkezi olarak ele alınmasını sağlar.
+   - Global error handling, uygulamanın herhangi bir yerinde meydana gelen istisnai durumların (exception) nasıl işleneceğini belirler.
+
+2. **Middleware Kullanımı:**
+   - ASP.NET Core'da global error handling için genellikle middleware'lerden yararlanılır.
+   - Özel bir middleware, uygulamanın HTTP pipeline'ı boyunca istisnai durumları yakalar ve işler.
+
+3. **UseExceptionHandler Middleware:**
+   - ASP.NET Core'da UseExceptionHandler middleware'i, uygulamanın HTTP pipeline'ı içinde belirli bir noktada hata işleme sağlar.
+   - Bu middleware, uygulamada meydana gelen istisnai durumları ele alır ve uygun bir hata yanıtı döndürür.
+
+4. **Startup Sınıfı Kullanımı:**
+   - Global error handling ayarları genellikle uygulamanın Startup sınıfında yapılır.
+   - ConfigureServices metodunda AddExceptionHandler metodu kullanılarak hata işleme middleware'i eklenir.
+   - Configure metodunda UseExceptionHandler metodu, hata işleme middleware'inin uygulama pipeline'ına eklenir.
+
+5. **Exception Filtreleri:**
+   - Bazı durumlarda, belirli controller veya action'larda özelleştirilmiş hata işleme gerekebilir.
+   - Bunun için exception filtreleri kullanılabilir. Bu filtreler, belirli bir action veya controller'da meydana gelen hataları özel olarak işleyebilir.
+
+Global error handling, uygulamanın kararlılığını artırır ve kullanıcı deneyimini iyileştirir. ASP.NET Core'un sağladığı middleware ve filtrelerle, uygulamanın herhangi bir noktasında meydana gelen hatalar merkezi olarak ele alınabilir ve uygun şekilde işlenebilir.
+
+## 114. ASP.NET Core Güvenliği
+
+**Soru:** ASP.NET Core uygulamalarında güvenlik önlemleri nelerdir? CORS politikaları, güvenlik açıkları ve yaygın saldırılarla ilgili neler biliyorsunuz?
+
+**Cevap:**
+
+1. **CORS Politikaları:**
+   - CORS (Cross-Origin Resource Sharing), tarayıcı güvenliği politikaları arasında yer alır ve tarayıcıların hangi kaynaklara erişebileceğini belirler.
+   - ASP.NET Core uygulamalarında CORS politikaları, ConfigureServices metodu içindeki AddCors metodu kullanılarak yapılandırılır.
+   - CORS politikaları, farklı kökenlerden gelen isteklerin uygulamanın kaynaklarına erişimini denetleyebilir.
+
+2. **Güvenlik Açıkları:**
+   - ASP.NET Core uygulamalarında güvenlik açıkları genellikle Cross-Site Scripting (XSS), SQL Injection, Cross-Site Request Forgery (CSRF) gibi yaygın web saldırılarından kaynaklanır.
+   - Güvenlik açıklarını önlemek için, uygulama içinde giriş doğrulama, veri doğrulama, güvenli iletişim kanalları kullanımı gibi önlemler alınmalıdır.
+
+3. **Doğrulama ve Yetkilendirme:**
+   - ASP.NET Core uygulamalarında, Authentication ve Authorization middleware'leri kullanılarak kullanıcı kimlik doğrulaması ve yetkilendirme sağlanır.
+   - Kullanıcı kimlik doğrulaması, OAuth, JWT gibi tekniklerle yapılabilirken, yetkilendirme roller ve izinlerle kontrol edilir.
+
+4. **HTTPS Kullanımı:**
+   - Güvenli iletişim kanallarının kullanılması önemlidir. ASP.NET Core uygulamaları HTTPS protokolünü destekler ve kullanması önerilir.
+   - HTTPS kullanımı, veri iletimini şifreler ve saldırılara karşı daha güvenli bir ortam sağlar.
+
+5. **Güvenlik Denetimleri:**
+   - ASP.NET Core uygulamalarında güvenlik denetimleri düzenli olarak yapılmalıdır.
+   - Güvenlik denetimleri, uygulama kodunda potansiyel güvenlik açıklarını belirlemek ve gidermek için yapılır.
+
+ASP.NET Core uygulamalarının güvenliği, önemli bir konudur ve birçok farklı yönü içerir. CORS politikaları, güvenlik açıkları ve yaygın web saldırılarına karşı korunma gibi konular, geliştiricilerin dikkat etmesi gereken ana noktalardan bazılarıdır.
+
+## 115. Nginx nedir ve ne işe yarar? Hangi senaryolarda tercih edilir?
+
+- **Nginx (Engine X)**, açık kaynaklı bir HTTP ve ters proxy sunucusudur.
+- Nginx, yüksek performanslı, hafif ve ölçeklenebilir bir web sunucusu olarak bilinir.
+- Nginx, aynı zamanda bir ters proxy sunucusu olarak kullanılabilir ve istemciler ve uygulama sunucuları arasında trafik yönlendirme ve dengelenmesi sağlar.
+- Nginx, statik içerik sunumu, HTTP/HTTPS trafik yönlendirmesi, yük dengeleme, ters proxy, SSL/TLS şifreleme, gzip sıkıştırma, güvenlik duvarı ve HTTP caching gibi birçok işlevi destekler.
+- Nginx, genellikle yüksek trafikli web siteleri, içerik dağıtım ağları (CDN'ler), API gateway'ler, ters proxy'ler ve yük dengeleyicileri gibi senaryolarda tercih edilir.
+
+Nginx, performansı, hafifliği ve esnekliği nedeniyle modern web sunucuları ve uygulama altyapılarının vazgeçilmez bir parçasıdır. Ayrıca, yüksek erişilebilirlik ve güvenlik sağlama yetenekleri sayesinde birçok farklı senaryoda başarılı bir şekilde kullanılmaktadır.
+
+## 116. .NET'te Önbelleğe Alma Türleri
+
+.NET uygulamalarında önbelleğe alma, performansı artırmak ve veri erişimini optimize etmek için önemli bir rol oynar. .NET platformunda farklı önbellek türleri bulunmaktadır ve bu türlerin her biri belirli senaryolara uygun olarak kullanılabilir.
+
+ **1. Bellek Önbelleği (Memory Cache)**
+
+- **Açıklama:** Bellek önbelleği, uygulama içindeki bellek alanında verilerin geçici olarak saklanmasını sağlar. Bu önbellek türü, sık kullanılan verilere hızlı erişim sağlar ve veri erişim maliyetini azaltır.
+- **Kullanım Alanları:** Sık kullanılan verilerin geçici olarak saklanması, veritabanı sorgularının sonuçlarının önbelleğe alınması, hesaplama maliyeti yüksek işlemlerin sonuçlarının önbelleğe alınması.
+
+**2. Disk Önbelleği (Disk Cache)**
+
+- **Açıklama:** Disk önbelleği, verilerin disk üzerinde geçici olarak saklanmasını sağlar. Bu önbellek türü, bellek önbelleğine göre daha büyük veri setlerini saklamak için kullanılır ve uygulama yeniden başlatıldığında bile verilere erişim sağlar.
+- **Kullanım Alanları:** Büyük veri setlerinin saklanması, disk tabanlı veri erişiminde performansı artırmak.
+
+**3. Web Önbelleği (Web Cache)**
+
+- **Açıklama:** Web önbelleği, web uygulamalarında sunulan içeriklerin geçici olarak saklanmasını sağlar. Bu önbellek türü, tarayıcılar ve arka plandaki sunucular arasında veri transferini azaltır ve web sayfalarının daha hızlı yüklenmesini sağlar.
+- **Kullanım Alanları:** Web sayfalarının önbelleğe alınması, tarayıcılar arası veri paylaşımı, CDN (Content Delivery Network) kullanımı.
+
+**4. Dağıtılmış Önbellek (Distributed Cache)**
+
+- **Açıklama:** Dağıtılmış önbellek, bir ağ üzerinde birden çok sunucu arasında verilerin paylaşılmasını ve senkronize edilmesini sağlar. Bu önbellek türü, büyük ölçekli uygulamalarda performansı artırmak ve yüksek erişilebilirlik sağlamak için kullanılır.
+- **Kullanım Alanları:** Büyük ölçekli uygulamalarda önbelleğe alma, sunucu kümesi arasında veri paylaşımı, yüksek erişilebilirlik gerektiren sistemler.
+
+**5. Anlık Önbellek (Snapshot Cache)**
+
+- **Açıklama:** Anlık önbellek, belirli bir anda mevcut veri durumunun kopyalanmasını sağlar. Bu önbellek türü, verilerin belirli bir zamandaki durumunu korumak ve geri dönüş işlemleri için kullanılır.
+- **Kullanım Alanları:** Veri geri dönüş işlemleri, veri durumunun geçici olarak korunması, veri bütünlüğünün sağlanması.
+
+Her bir önbellek türü, farklı senaryolara ve gereksinimlere uygun olarak seçilir ve kullanılır. Doğru önbellek stratejisi seçimi, uygulamanın performansını artırabilir ve veri erişimini optimize edebilir.
+
+## 117. CTS Nedir?
+
+**Common Type System (CTS)**, .NET Framework ve .NET Core gibi platformlarda kullanılan tüm veri türlerinin ve nesne türlerinin ortak bir tanımını sağlayan bir bileşenidir. CTS, .NET dil bağımsızlığını ve farklı .NET dilleri arasında tip uyumluluğunu sağlar. Tüm .NET dil bağımsızlığına sahip olan nesne türleri CTS uyumlu olmalıdır.
+
+## 118. CLR Nedir?
+
+**Common Language Runtime (CLR)**, .NET Framework ve .NET Core gibi platformlarda çalışan ortak bir çalışma zamanı ortamıdır. CLR, .NET uygulamalarının derlenmesi, yürütülmesi, yönetilmesi ve hata ayıklanması gibi görevleri gerçekleştirir. Aynı zamanda kodun güvenlik kontrollerini yapar, bellek yönetimini sağlar ve platform bağımsızlığını sağlar.
+
+## 119. JIT Nedir? JIT Ne İşe Yarar?
+
+**Just-In-Time (JIT)** derleyicisi, .NET Framework ve .NET Core gibi platformlarda kullanılan bir derleme yöntemidir. JIT, MSIL (Microsoft Intermediate Language) olarak adlandırılan ara bir dil olan .NET kodunu, makine diline (native code) dönüştürür. Bu dönüşüm, uygulama çalıştırıldığında gerçekleşir ve kodun doğrudan işlemci tarafından yürütülmesini sağlar. JIT derleme, uygulamanın performansını artırırken platform bağımsızlığını da korur.
+
+## 120. BCL Nedir?
+
+**Base Class Library (BCL)**, .NET Framework ve .NET Core gibi platformların temel sınıf kitaplığıdır. BCL, genel olarak .NET uygulamalarında yaygın olarak kullanılan temel sınıfları ve işlevleri içerir. Dosya işlemleri, veri yapıları, ağ işlemleri, giriş/çıkış işlemleri, metin işlemleri, koleksiyonlar ve daha fazlasını içerir. BCL, .NET uygulamalarının geliştirilmesi ve işlevselliğinin sağlanması için temel alınan önemli bir bileşendir.
+
+## 121. Namespaces ile Derleme Arasındaki Fark Nedir?
+
+### Namespaces (Ad Alanları)
+
+- **Namespaces (Ad Alanları)**, .NET programlamasında kodu organize etmek için kullanılan bir yapıdır. Bir namespace içindeki tüm sınıflar, yapılar, arabirimler ve diğer türler, belirli bir isim alanı altında gruplanır.
+- Namespaces, kodun okunabilirliğini artırır, çakışan isimleri önler ve kodun mantıksal olarak düzenlenmesini sağlar.
+- Birden fazla namespace, projenin farklı parçalarını temsil edebilir ve birlikte çalışabilir.
+
+### Derleme (Compilation)
+
+- **Derleme (Compilation)**, .NET programının kaynak kodunun, derleyici tarafından işlenerek makine diline (native code) çevrilmesi ve bir uygulama veya bileşen oluşturulması sürecidir.
+- Derleme, kaynak kodunun makine diline dönüştürülmesini içerir ve genellikle .exe veya .dll dosyalarının oluşturulmasıyla sonuçlanır.
+- Derleme, kodun çalıştırılabilir hale gelmesini sağlar ve sonuç olarak bir uygulama veya kütüphane oluşturulur.
+
+### Farklar
+
+1. **Amaç**: Namespaces, kodun organize edilmesi ve gruplanması için kullanılırken, derleme kodun çalıştırılabilir hale getirilmesini sağlar.
+   
+2. **Kullanım Alanı**: Namespaces, kaynak kodunun içinde kullanılırken, derleme sonucu oluşan çalıştırılabilir dosyalar kullanım için dağıtılır veya yüklenir.
+
+3. **Zamanlama**: Namespaces, kod yazımı sırasında kullanılır ve genellikle kod düzenlemesi sırasında belirlenir. Derleme, kodun tamamlandıktan sonra gerçekleşir ve çalıştırılabilir dosyalar üretilir.
+
+## 122. MDI ve SDI Nedir?
+
+### MDI (Multiple Document Interface)
+
+- **MDI (Multiple Document Interface)**, bir uygulamanın içinde birden fazla belge veya pencerenin aynı ana pencere içinde görüntülendiği bir kullanıcı arayüzü tasarımıdır.
+- MDI, birden çok belge veya pencerenin tek bir ana pencere içinde gruplanmasına ve yönetilmesine olanak tanır.
+- Örneğin, bir metin düzenleyici uygulamasında, kullanıcı birden fazla metin belgesini aynı ana pencere içinde açabilir ve düzenleyebilir.
+
+### SDI (Single Document Interface)
+
+- **SDI (Single Document Interface)**, her bir belge veya pencerenin kendi ayrı ana penceresi olan bir kullanıcı arayüzü tasarımıdır.
+- SDI, her belgenin veya pencerenin kendi başına bir ana pencere olarak yönetildiği daha basit bir arayüz sağlar.
+- Örneğin, bir web tarayıcısı uygulamasında, her açılan web sayfası kendi penceresinde görüntülenir ve kullanıcı her bir pencereyi bağımsız olarak yönetir.
+
+### Farklar
+
+1. **Belge Yönetimi**: MDI'da birden çok belge veya pencere tek bir ana pencere içinde yönetilirken, SDI'da her belge veya pencere kendi başına bir ana penceredir.
+   
+2. **Kullanıcı Arayüzü**: MDI, birden çok belge veya pencerenin tek bir ana pencere içinde gruplandığı karmaşık bir arayüz sağlarken, SDI her bir belgenin veya pencerenin kendi başına bir ana pencere olarak yönetildiği daha basit bir arayüz sağlar.
+
+## 123. Attribute Nedir ve Nasıl Kullanılır?
+
+### Attribute (Öznitelik)
+
+- **Attribute (Öznitelik)**, .NET platformunda kodda metaveri (metadata) sağlamak için kullanılan bir yapıdır. 
+- Bir attribute, bir türün, bir tür üyesinin veya kod bloğunun üzerine eklenen bir yapıdır ve bu yapı, kodu açıklamak, davranışını değiştirmek veya yapılandırmak için kullanılır.
+
+### Nasıl Kullanılır?
+
+1. **Attribute Tanımlama**: Bir attribute tanımlamak için `Attribute` sınıfından bir türetilmiş bir sınıf oluşturulur ve `AttributeUsage` özniteliğiyle bu attribute'ün nasıl kullanılacağı belirtilir.
+
+    ```csharp
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class CustomAttribute : Attribute
+    {
+        // Attribute özellikleri ve davranışları burada tanımlanır
+    }
+    ```
+
+2. **Attribute Kullanımı**: Attribute, bir tür, tür üyesi veya kod bloğunun üzerine `[]` parantezleri içinde eklenir.
+
+    ```csharp
+    [Custom]
+    public class MyClass
+    {
+        [Custom]
+        public void MyMethod() { }
+    }
+    ```
+
+3. **Attribute Parametreleri**: Attribute'ler, isteğe bağlı parametrelerle özelleştirilebilir.
+
+    ```csharp
+    [Custom("value")]
+    public class MyClass { }
+    ```
+
+4. **Attribute Kullanımı Okuma**: Reflection kullanılarak, bir attribute ve onun parametre değerleri okunabilir ve çalışma zamanında kullanılabilir.
+
+    ```csharp
+    Type type = typeof(MyClass);
+    var attributes = type.GetCustomAttributes(typeof(CustomAttribute), false);
+    ```
+
+Attribute'ler, kodun anlamını ve davranışını açıklamak için kullanılır ve aynı zamanda kodun çalışma zamanındaki davranışını da etkileyebilir. Özellikle refleksiyon gibi özelliklerle birlikte kullanılarak kodun dinamik olarak yönetilmesini sağlarlar.
+
+## 124. Generics Nedir ve Neden Kullanılır?
+
+### Generics
+
+- **Generics (Jenerikler)**, .NET platformunda tip güvenliği sağlamak için kullanılan bir yapıdır. 
+- Bir generic sınıf veya metot, parametre olarak tür bilgisini alarak, farklı veri türlerinde çalışabilen ve tekrar kullanılabilir kod blokları oluşturmayı sağlar.
+
+### Neden Kullanılır?
+
+1. **Tip Güvenliği**: Generics, derleme zamanında tip güvenliği sağlar. Kodun compile-time (derleme zamanı) hatalarını ortaya çıkarır ve kodun daha sağlam olmasını sağlar.
+
+2. **Tekrar Kullanılabilirlik**: Generics, farklı veri türlerinde çalışabilen ve tekrar kullanılabilir kod blokları oluşturmanın bir yoludur. Aynı kod parçası, farklı veri tipleriyle kullanılabilir.
+
+3. **Performans**: Generics, tip dönüşümlerine ihtiyaç duymadan çalışır ve böylece performansı artırır. Aynı zamanda bellek kullanımını optimize eder ve boxing/unboxing işlemlerini azaltır.
+
+4. **Kod Tekrarını Azaltma**: Generics, aynı işlevselliği sağlayan ancak farklı veri tipleriyle kullanılan kod parçalarını tek bir yerde toplar. Bu şekilde, kodun tekrarlanması önlenir ve bakımı kolaylaşır.
+
+### Örnek Kullanım
+
+```csharp
+public class Stack<T>
+{
+    private T[] items;
+    private int top;
+
+    public Stack(int size)
+    {
+        items = new T[size];
+        top = -1;
+    }
+
+    public void Push(T item)
+    {
+        items[++top] = item;
+    }
+
+    public T Pop()
+    {
+        return items[top--];
+    }
+}
+```
+## 125. Checked ve Unchecked Exceptionlar Nedir?
+
+### Checked Exception (Kontrollü İstisna)
+
+- **Checked Exception (Kontrollü İstisna)**, derleme zamanında kontrol edilen ve istisna (exception) oluşabileceğini belirten durumları temsil eder.
+- Checked exceptionlar, genellikle kodda bir hata olduğunu ve bu hatanın önceden belirlenmiş bir şekilde ele alınması gerektiğini gösterir.
+- Örnek olarak, dosya okuma veya ağ bağlantısı kurma gibi dış kaynaklarla ilgili işlemlerde oluşabilecek IOException gibi istisnalar checked exceptionlardır.
+
+### Unchecked Exception (Kontrolsüz İstisna)
+
+- **Unchecked Exception (Kontrolsüz İstisna)**, derleme zamanında kontrol edilmeyen ve istisna durumlarını belirtmeyen istisnaları temsil eder.
+- Unchecked exceptionlar, genellikle programın mantıksal hatalarını veya beklenmeyen durumları temsil eder.
+- Örnek olarak, NullPointerException veya ArrayIndexOutOfBoundsException gibi runtime hatası (runtime exception) olan istisnalar unchecked exceptionlardır.
+
+### Farklar
+
+1. **Derleme Zamanı Kontrolü**: Checked exceptionlar, derleme zamanında kontrol edilir ve kodun derlenmesi sırasında belirlenir. Unchecked exceptionlar ise derleme zamanında kontrol edilmez ve kodun çalışma zamanında ortaya çıkabilir.
+
+2. **Zorunluluk**: Checked exceptionlar, kodun belirli durumları ele almasını zorunlu kılar ve genellikle try-catch veya throws ifadeleri ile işlenir. Unchecked exceptionlar ise kodun belirli durumları ele almasını zorunlu kılmaz ve genellikle kodun mantıksal hatasını belirtir.
+
+3. **İstisna Yönetimi**: Checked exceptionlar, dış kaynaklarla (dosya işlemleri, ağ bağlantıları vb.) ilgili istisnaları belirtmek için kullanılırken, unchecked exceptionlar genellikle programın mantıksal hatalarını veya beklenmeyen durumları belirtmek için kullanılır.
+
+## 126. final Anahtar Kelimesi Nedir ve Ne İşe Yarar?
+
+### final Anahtar Kelimesi
+
+- **final** anahtar kelimesi, C# programlama dilinde **readonly** ve **sealed** anahtar kelimeleriyle benzer işlevleri yerine getirir.
+
+### readonly Anahtar Kelimesi
+
+- **readonly** anahtar kelimesi, bir alanın sadece bir kez atanabileceğini belirtir. Ancak, bir constructor içinde veya doğrudan alan tanımında değer atanabilir.
+
+```csharp
+public class MyClass
+{
+    public readonly int MAX_VALUE = 100;
+
+    public MyClass()
+    {
+        MAX_VALUE = 200; // Constructor içinde değer atanabilir
+    }
+}
+```
+## 127. Encapsulation Nedir?
+
+### Encapsulation (Kapsülleme)
+
+- **Encapsulation (Kapsülleme)**, bir nesnenin durumunu (alanlar) ve davranışını (metotlar) bir araya getirerek, verilerin gizlenmesi ve sınırlı erişim sağlanması prensibidir.
+- Bu prensip, bir sınıfın içindeki verilerin (alanlar) doğrudan erişime kapatılması ve sınıfın dışındaki kullanıcıların sadece belirlenen arayüzler üzerinden bu verilere erişmesine izin verilmesi anlamına gelir.
+- Encapsulation, nesne yönelimli programlama (OOP) paradigmalarından biridir ve OOP'nin temel prensiplerinden biri olan "data hiding" (veri gizleme) ile yakından ilişkilidir.
+
+### Avantajları
+
+1. **Gizlilik (Privacy)**: Encapsulation, sınıf içindeki verilere doğrudan erişimi kapatır ve sadece belirli metotlar aracılığıyla erişilebilir. Bu şekilde, verilerin gizliliği sağlanır ve güvenlik artar.
+2. **Esneklik (Flexibility)**: Encapsulation, sınıfın iç yapısını değiştirmeden dış arayüzünü korumasını sağlar. Bu sayede, sınıfın iç detaylarındaki değişiklikler dışarıdaki kodları etkilemez ve kodun daha esnek olmasını sağlar.
+3. **Gelişmiş Bakım (Ease of Maintenance)**: Encapsulation, sınıfın iç yapısını gizlediği için, sınıfın dışındaki kullanıcıların sadece belirlenen arayüzler üzerinden sınıfa erişmesine izin verir. Bu, kodun daha kolay anlaşılmasını ve bakımını sağlar.
+4. **Kodun Yeniden Kullanılabilirliği (Code Reusability)**: Encapsulation, sınıfın iç yapısını kapsüllediği için, sınıfın dış arayüzü aynı kalırken, iç yapısı değişebilir. Bu, kodun daha kolay yeniden kullanılmasını sağlar ve kodun modülerliğini artırır.
+
+### Örnek Kullanım
+
+```csharp
+public class EncapsulationExample
+{
+    private int _age;
+
+    public int Age
+    {
+        get { return _age; }
+        set
+        {
+            if (value >= 0)
+                _age = value;
+            else
+                throw new ArgumentException("Age cannot be negative.");
+        }
+    }
+}
+```
+## 128. readonly ile const Arasındaki Fark Nedir?
+
+### const Anahtar Kelimesi
+
+- **const** anahtar kelimesi, derleme zamanında sabit bir değere atanmış bir alanı tanımlar. Bu değer, başlangıçta atanır ve sonrasında değiştirilemez.
+
+```csharp
+public class MyClass
+{
+    public const int MAX_VALUE = 100;
+}
+```
+- const alanlar, sadece değer tipi (value type) veri türlerine atanabilirler ve başlatma anında değer atamak zorundadırlar.
+
+### readonly Anahtar Kelimesi
+
+**readonly** anahtar kelimesi, bir alanın sadece bir kez atanabileceğini belirtir. Ancak, değer, alanın tanımlandığı yerde veya sınıfın constructor'ında atanabilir.
+
+```csharp
+public class MyClass
+{
+    public readonly int MAX_VALUE;
+
+    public MyClass()
+    {
+        MAX_VALUE = 100; // Constructor içinde değer atanabilir
+    }
+}
+```
+ - readonly alanlar, runtime sırasında değer atanabilir ve değer tipi (value type) veya referans tipi (reference type) veri türlerine atanabilirler.
+
+ ## Farklar
+
+**Derleme Zamanı**: const alanlar derleme zamanında değer atanırken, readonly alanlar runtime sırasında değer atanabilir.
+**Değişmezlik**: const alanlar değişmez (immutable) olup değeri sonradan değiştirilemezken, readonly alanlar sadece bir kez atanabilir ve sonradan değiştirilemez.
+**Atama Zamanı**: const alanlar tanımlandığı yerde veya sınıfın başlatıcılarında atanırken, readonly alanlar sadece sınıfın başlatıcılarında veya constructor'larında atanabilir.
+**Veri Türleri**: const alanlar sadece değer tipi (value type) veri türlerine atanabilirken, readonly alanlar herhangi bir veri türüne atanabilirler.
+
