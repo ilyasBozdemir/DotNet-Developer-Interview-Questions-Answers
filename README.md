@@ -1,4 +1,9 @@
-## .NET Developer Mülakat Soruları ve Cevapları
+<center>
+<h2>
+.NET Developer Mülakat Soruları ve Cevapları
+</h2>
+</center>
+
 
 ### 1. .NET Framework ile .NET Core arasındaki farklar nelerdir?
 
@@ -161,16 +166,34 @@ Unit Test, bir yazılım biriminin (fonksiyon, metod veya sınıf) belirli bir g
 
 Örnek kullanım:
 ```csharp
-public static class StringExtensions
+ public static class StringExtensions
 {
-    public static bool IsPalindrome(this string str)
+  public static bool IsPalindrome(this string str)
+  {
+    if (string.IsNullOrEmpty(str))
     {
-        // Palindrome kontrolü için gerekli kodlar burada
+      return true;
     }
+
+    string cleanStr = new string(str.ToLower().Where(c => char.IsLetterOrDigit(c)).ToArray());
+
+    int left = 0;
+    int right = cleanStr.Length - 1;
+
+    while (left < right)
+    {
+      if (cleanStr[left] != cleanStr[right])
+      {
+        return false;
+      }
+      left++;
+      right--;
+    }
+
+    return true;
+  }
 }
-// Kullanım:
-string text = "level";
-bool isPalindrome = text.IsPalindrome();
+
 ```
 ### 25. MVC (Model-View-Controller) Nedir ve Nasıl Çalışır?
 
@@ -548,5 +571,3302 @@ Değer tipleri ve referans tipleri, farklı bellek yerleşimleri ve kopyalama da
 - BlockingCollection, birden fazla iş parçacığı tarafından paylaşılan bir koleksiyonu yönetmek için kullanılır ve koleksiyon boş veya dolu olduğunda iş parçacıklarının beklemesini sağlar.
 - BlockingCollection, ekleme veya çıkarma işlemi yapılırken koleksiyonun kapasitesi aşılmışsa veya koleksiyon boşsa iş parçacıklarını bloklar.
 
+### 48. Object-Relational Mapping (ORM) Nedir ve Ne İşe Yarar?
+
+ORM (Object-Relational Mapping), nesne-tablo eşleştirmesi olarak da bilinen bir yazılım geliştirme tekniğidir. ORM, ilişkisel veritabanları ile nesne yönelimli programlama dilleri arasında bir köprü görevi görür. Veritabanı tablolarını nesne modellerine eşler ve veritabanı işlemlerini nesne yönelimli bir şekilde gerçekleştirmeyi sağlar. Bu sayede, geliştiricilerin veritabanı işlemleri için SQL sorguları yazmaları gerekmez ve daha soyutlanmış bir veritabanı erişim katmanı sağlanır. ORM'nin temel amacı, veritabanı işlemlerini basitleştirmek, kod tekrarını azaltmak ve uygulamanın bakımını kolaylaştırmaktır.
+
+### 49. ORM Kullanmanın Avantajları Nelerdir?
+
+- Kod Tekrarını Azaltır
+- Daha Az SQL Bilgisi Gerektirir
+- Daha Hızlı Geliştirme Süreci
+- Daha İyi Taşınabilirlik
+- Veri Modellemesi ve Nesne Modeli Arasında Uyum
+- Gelişmiş Güvenlik
+
+### 50. En Sık Kullanılan ORM Framework'leri Hangileridir?
+
+- Entity Framework (.NET)
+- Hibernate (Java)
+- SQLAlchemy (Python)
+- Sequelize (Node.js)
+
+### 51. ORM Framework'lerinin Performansı Nasıl Ölçülür ve İyileştirilir?
+
+- Profiling Araçları Kullanarak Performans Ölçümü
+- İlişki Yüklemesi ve Sorgu Optimizasyonu Yaparak İyileştirme
+
+### 52. ORM ve SQL Arasındaki Farklar Nelerdir?
+
+- ORM, nesne-tablo eşleştirmesi yaparken SQL, ilişkisel veritabanı işlemlerini gerçekleştirir.
+- ORM, geliştiricilere veritabanı işlemlerini nesne yönelimli bir şekilde gerçekleştirebilme imkanı sunar.
+### 53.  Lazy Loading ve Eager Loading Arasındaki Farklar Nelerdir ve Hangisi Tercih Edilir?
+
+- Lazy Loading: İlgili veriye erişilene kadar ilişkili veri yüklenmez.
+- Eager Loading: İlgili veriyle birlikte ilişkili veri de önceden yüklenir.
+- Tercih Edilen Yaklaşım: İhtiyaca Bağlı Yüklemeyi (Lazy Loading) Tercih Etmek.
+
+### 54. ORM'de Veri Erişim Nesneleri (DAO) Nedir ve Nasıl Kullanılır?
+
+- DAO (Data Access Object), veritabanına erişim işlemlerini soyutlayan ve yöneten bir tasarım desenidir.
+- ORM kullanırken, genellikle DAO gibi veri erişim nesneleri kullanılır. DAO, veritabanına erişim kodunu diğer katmanlardan izole eder ve tekrar kullanılabilirlik sağlar.
+
+### 55. C# dilinde, `ref` ve `out` anahtar kelimeleri hangi amaçlarla kullanılır? Bu anahtar kelimelerin `pass by value` ve `pass by reference` kavramlarıyla ilişkisi nedir?
+
+C# dilinde, `ref` ve `out` anahtar kelimeleri, fonksiyonlara argümanların değerlerinin referansları veya çıktılarını geçirmek için kullanılır. Bu anahtar kelimeler, "pass by value" ve "pass by reference" kavramlarını kontrol etmek için kullanılan mekanizmalardır.
+
+- `ref`: Bu anahtar kelimeyi kullanarak, bir değişkenin referansını fonksiyona geçirebilirsiniz. Bu, fonksiyon içinde yapılan değişikliklerin orijinal değişkeni etkilemesini sağlar.
+
+- `out`: `out` anahtar kelimesi de bir değişkenin referansını fonksiyona geçirmek için kullanılır. Ancak `out` kullanımında, fonksiyon dışında bir değer atanmış olması gerekmez. `out` kullanılarak geçirilen değişken, fonksiyon içinde ilk defa atanır ve fonksiyon dışında kullanılabilir hale gelir.
+
+Örnek Kod:
+```csharp
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int a = 10;
+        int b;
+
+        ModifyValueRef(ref a);
+        Console.WriteLine("a (ref): " + a); // Output: a (ref): 20
+
+        ModifyValueOut(out b);
+        Console.WriteLine("b (out): " + b); // Output: b (out): 30
+    }
+
+    static void ModifyValueRef(ref int x)
+    {
+        x += 10;
+    }
+
+    static void ModifyValueOut(out int y)
+    {
+        y = 30;
+    }
+}
+```
+### 56. "Pass by Value" ve "Pass by Reference" kavramları nedir?
+
+#### Pass by Value (Değer ile Geçme)
+
+- **Tanım**: Pass by value, bir method çağrısında argümanların, değerlerinin kopyaları olarak iletilmesidir. Bu şekilde, orijinal değişkenlerin değerleri method içinde değiştirilse bile, çağıran methodun kapsamında değişiklik olmaz.
+
+- **Örnek Kullanım**: Bir method çağrısında bir değişkeni pass by value olarak geçirirseniz, methodun kendi yerel kopyası oluşturulur ve bu kopya üzerinde yapılan değişiklikler orijinal değişkeni etkilemez.
+
+#### Pass by Reference (Referans ile Geçme)
+
+- **Tanım**: Pass by reference, bir method çağrısında argümanların referanslarının geçirilmesidir. Bu durumda, argümanlar methodun kapsamında doğrudan değiştirilebilir, bu da çağıran methodun kapsamında da değişiklik yapılmasını sağlar.
+
+- **Örnek Kullanım**: Bir method çağrısında bir değişkeni pass by reference olarak geçirirseniz, methodun işlemesi sırasında orijinal değişkenin adresi (yani referansı) geçirilir. Bu nedenle, method içinde yapılan değişiklikler, çağıran methodun kapsamında da etkili olur.
+
+### Örnek Kod:
+```csharp
+using System;
+
+class Program
+{
+    static void PassByValueExample(int x)
+    {
+        x += 10;
+        Console.WriteLine("Method içinde x: " + x); // 15
+    }
+
+    static void PassByReferenceExample(ref int x)
+    {
+        x += 10;
+        Console.WriteLine("Method içinde x: " + x); // 15
+    }
+
+    static void Main()
+    {
+        int a = 5;
+
+        // Pass by Value örneği
+        PassByValueExample(a);
+        Console.WriteLine("Method dışında a: " + a); // 5
+
+        // Pass by Reference örneği
+        PassByReferenceExample(ref a);
+        Console.WriteLine("Method dışında a: " + a); // 15
+    }
+}
+```
+### 57. Access modifierlar nedir ve C# dilinde hangi access modifierlar bulunur?
+
+Access modifierlar, bir sınıfın, üyenin veya bir değişkenin erişim düzeyini belirleyen özelliklerdir. C# dilinde beş farklı access modifier bulunur:
+
+1. **public**: Herhangi bir kod parçasından erişilebilir. Diğer sınıfların içinde veya dışında erişim sağlar.
+   
+2. **private**: Sadece tanımlandığı sınıf içinden erişilebilir. Diğer sınıflar veya kod parçaları bu üyelere erişemez.
+
+3. **protected**: Tanımlandığı sınıfın içinden veya bu sınıftan türetilen alt sınıflar içinden erişilebilir.
+
+4. **internal**: Tanımlandığı derleme içinde erişilebilir. Farklı bir derlemeden erişim sağlanamaz.
+
+5. **protected internal**: Tanımlandığı sınıfın içinden veya türetilen alt sınıflardan veya aynı derlemeden erişilebilir.
+
+### Örnek Kod:
+```csharp
+using System;
+
+public class MyClass
+{
+    public int publicVariable; // Her yerden erişilebilir
+    private int privateVariable; // Sadece bu sınıf içinden erişilebilir
+    protected int protectedVariable; // Bu sınıfın içinden veya alt sınıflardan erişilebilir
+    internal int internalVariable; // Bu derleme içinden erişilebilir
+    protected internal int protectedInternalVariable; // Bu sınıfın içinden veya alt sınıflardan veya bu derleme içinden erişilebilir
+
+    public void MyMethod()
+    {
+        // Method içinde tüm değişkenlere erişim sağlanabilir
+        publicVariable = 10;
+        privateVariable = 20;
+        protectedVariable = 30;
+        internalVariable = 40;
+        protectedInternalVariable = 50;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        MyClass myObject = new MyClass();
+
+        // Sınıf dışından erişim sağlanabilir
+        myObject.publicVariable = 100;
+        myObject.internalVariable = 200;
+        myObject.protectedInternalVariable = 300;
+    }
+}
+```
+### 58. OAuth 2.0 Nedir?
+
+OAuth 2.0, internet üzerinde güvenli ve yetkilendirilmiş erişim sağlamak için kullanılan bir kimlik doğrulama ve yetkilendirme protokolüdür. Bu protokol, bir kullanıcının, bir uygulamanın API'lerine erişimini kontrol etmek için yetkilendirme mekanizmaları sunar.
+
+OAuth 2.0, kullanıcının bir uygulamaya (istemci) erişim yetkisi vermesini sağlar, ancak uygulamanın kullanıcının kimlik bilgilerine erişmesine veya bunları saklamasına izin vermez. Bu şekilde, kullanıcıların hassas verileri güvende kalırken, uygulamaların hizmetlerine erişim sağlanır.
+
+OAuth 2.0 protokolü, birden fazla rol tarafından yönetilir:
+
+- **Resource Owner**: Kaynak sahibi, genellikle bir kullanıcıdır ve kaynağa (veriye) erişim yetkisine sahiptir.
+- **Client**: İstemci, kullanıcının kaynağa erişim talebinde bulunduğu uygulamadır. OAuth 2.0 protokolü, kaynağa erişim talebinin güvenliğini ve yetkilendirilmesini sağlamak için istemciyi kullanır.
+- **Authorization Server**: Yetkilendirme sunucusu, kullanıcının kimlik doğrulamasını ve erişim taleplerini işleyen sunucudur.
+- **Resource Server**: Kaynak sunucusu, kullanıcının erişim taleplerine yanıt veren sunucudur.
+
+OAuth 2.0 protokolü, temel olarak iki farklı akış kullanır: yetkilendirme kodu akışı (authorization code flow) ve yalnızca istemci sırrı akışı (client credentials flow). Bu akışlar, kullanıcının yetkilendirme işlemlerini güvenli bir şekilde gerçekleştirmesini sağlar.
+
+Özetlemek gerekirse, OAuth 2.0 protokolü, kullanıcıların güvenli bir şekilde uygulamaların hizmetlerine erişimini yönetmek için kullanılan bir standarttır. Bu protokol, kullanıcıların gizli bilgilerinin korunmasını ve yetkilendirme işlemlerinin güvenli bir şekilde gerçekleştirilmesini sağlar.
+
+### 59. Dictionary, List, IReadOnlyList, HashSet, Stack, Queue, LinkedList, ObservableCollection  Arasındaki Farklar
+
+**Dictionary**:
+- `Dictionary<TKey, TValue>`, anahtar-değer çiftlerini depolayan bir koleksiyon türüdür.
+- Her anahtar benzersiz olmalıdır ve bu anahtarlarla ilişkilendirilmiş değerlere erişim sağlanır.
+- Anahtarlar üzerinde hızlı arama işlemleri yapılabilir.
+- Örnek olarak, bir kelime sözlüğü uygulamasında kelime-çeviri çiftlerini depolamak için kullanılabilir.
+
+**List**:
+- `List<T>`, sıralı bir koleksiyon türüdür ve öğeleri dinamik olarak depolar.
+- Öğelere indekslerle erişilebilir.
+- Öğeleri eklemek, kaldırmak ve değiştirmek için kullanışlı metodlara sahiptir.
+- Örnek olarak, bir veri koleksiyonunu depolamak veya işlemek için sıkça kullanılır.
+
+**IReadOnlyList**:
+- `IReadOnlyList<T>`, salt okunur bir liste arabirimini temsil eder. Yani, koleksiyon sadece okunabilir ve değiştirilemez.
+- Listeye yalnızca okuma işlemleri (erişim ve dolaşma) uygulanabilir, koleksiyona yeni öğeler eklenemez veya varolan öğeler kaldırılamaz.
+- Veri öğelerine indekslerle erişilebilir.
+- Örnek olarak, bir metodun döndüğü bir veri koleksiyonunu okuma amacıyla `IReadOnlyList<T>` kullanılabilir.
+
+**HashSet**:
+- `HashSet<T>`, benzersiz öğeleri depolayan bir koleksiyon türüdür. Yani, koleksiyon içinde her öğe yalnızca bir kez bulunabilir.
+- Öğeler koleksiyona eklenirken veya koleksiyondan kaldırılırken, sıralama garantisi yoktur.
+- Ekleme, kaldırma ve arama işlemleri için performans açısından optimize edilmiştir.
+- Örnek olarak, bir veri kümesinde benzersiz öğeleri depolamak için `HashSet<T>` kullanılabilir.
+
+**Stack**
+Stack, LIFO (Last In, First Out) mantığına göre çalışan bir yığın veri yapısını temsil eder. Yani, en son eklenen öğe en üstte (en son) bulunur ve en son eklenen öğe en önce çıkarılır.
+  - Yalnızca üstteki öğe erişilebilir.
+  - Pop işlemi (en üstteki öğenin çıkarılması) ve push işlemi (yığının üstüne yeni bir öğenin eklenmesi) ile çalışır.
+  - Örneğin, geri alma işlemi uygulamak için kullanılabilir.
+
+ **Queue**
+-  Queue, FIFO (First In, First Out) mantığına göre çalışan bir kuyruk veri yapısını temsil eder. Yani, en önce eklenen öğe en başta (en önde) bulunur ve en önce eklenen öğe en önce çıkarılır.
+
+- En önce eklenen öğe ve en son eklenen öğe erişilebilir.
+  - Dequeue işlemi (en baştaki öğenin çıkarılması) ve enqueue işlemi (kuyruğun sonuna yeni bir öğenin eklenmesi) ile çalışır.
+  - Örneğin, işlem sırasını yönetmek için kullanılabilir.
+
+ **LinkedList**
+-  LinkedList, bağlantılı liste veri yapısını temsil eder. Her öğe, bir sonraki öğenin referansını içeren bir düğüm olarak depolanır.
+
+- Her düğümün bir sonraki düğümü gösteren bir referansı vardır.
+  - Düğümler arasında doğrudan erişim olmadığı için, belirli bir konumdan öğe eklemek veya kaldırmak hızlıdır.
+  - Örneğin, bir metin düzenleyicisi için bir metin satırının tam olarak belirli bir konumuna hızlı erişim sağlamak için kullanılabilir.
+
+**ObservableCollection**
+- ObservableCollection, değişikliklerini otomatik olarak izleyen bir koleksiyon türüdür. Yani, koleksiyondaki herhangi bir değişiklik (ekleme, kaldırma, vb.) anında UI tarafında yansıtılır.
+ - INotifyPropertyChanged ve INotifyCollectionChanged arabirimlerini uygular, böylece UI üzerindeki bağlantılı kontroller otomatik olarak güncellenir.
+  - Örneğin, bir ListBox veya ListView kontrolünde dinamik olarak güncellenen verileri görüntülemek için kullanılabilir.
 
 
+### 60. LIFO ve FIFO Nedir ?
+
+**LIFO (Last In, First Out)**
+
+LIFO (Last In, First Out), "son giren, ilk çıkar" prensibine dayanan bir veri yapısıdır. Bu yapıda, en son eklenen öğe en önce çıkarılır. LIFO yapısı genellikle bir yığın (stack) olarak tanımlanır ve geri alma işlemleri gibi senaryolarda kullanılır.
+
+**FIFO (First In, First Out)**
+
+FIFO (First In, First Out), "ilk giren, ilk çıkar" prensibine dayanan bir veri yapısıdır. Bu yapıda, en başta eklenen öğe en önce çıkarılır. FIFO yapısı genellikle bir kuyruk (queue) olarak tanımlanır ve işlem sırasının yönetimi gibi senaryolarda kullanılır.
+
+### 61. `AddScope`, `AddSingleton` ve `AddTransient` nedir? Aralarındaki farklar nelerdir?
+
+**Açıklama:**
+
+- **AddScope:** Bu metot, hizmetlerin bir istek boyunca yaşam sürelerini belirtmek için kullanılır. İlgili hizmet, her bir HTTP isteği için bir kere oluşturulur ve o istek süresince aynı örneği kullanır. Bu genellikle bir HTTP isteği kapsamında aynı nesneye ihtiyaç duyulduğunda kullanılır. Örneğin, bir web uygulamasında veritabanı bağlantısı gibi durumlar için AddScope kullanılabilir.
+
+- **AddSingleton:** Bu metot, hizmetlerin uygulama yaşam süresi boyunca tek bir örneğini sağlamak için kullanılır. İlgili hizmet, uygulama başladığında oluşturulur ve uygulama sonlandığında yok edilir. Bu genellikle uygulama seviyesinde tek bir örneğe ihtiyaç duyulduğunda kullanılır. Örneğin, bir konfigürasyon servisi gibi.
+
+- **AddTransient:** Bu metot, her istek için yeni bir hizmet örneği oluşturmak için kullanılır. Her çağrıldığında yeni bir örnek oluşturulur ve her istek için ayrı bir örnek kullanılır. Bu genellikle hizmetin hafif olduğu ve her bir istek için ayrı bir durum gerektiği durumlarda kullanılır. Örneğin, bir servis çağrısı gibi.
+
+#### Soru 62: Hangi Güvenlik Tedbirleri E-Ticaret Uygulamalarında Önemlidir ve .NET Core ile Nasıl Uygulanabilirler?
+
+ E-ticaret uygulamalarında güvenlik son derece önemlidir. Bazı önemli güvenlik tedbirleri şunlardır:
+- Kullanıcı kimlik doğrulama ve yetkilendirme: .NET Core Identity veya üçüncü taraf kimlik doğrulama sağlayıcıları kullanılarak kullanıcı kimlik doğrulama ve yetkilendirme işlemleri uygulanabilir.
+- SSL/TLS kullanımı: HTTPS üzerinden iletişim kurularak kullanıcı bilgilerinin güvenliği sağlanabilir.
+- Veri doğrulaması: Giriş doğrulaması, veri doğrulama ve güvenlik kontrolleri gibi önlemler alınarak gelen verilerin güvenliği sağlanabilir.
+- Saldırı koruması: SQL enjeksiyonu, XSS (Cross-Site Scripting), CSRF (Cross-Site Request Forgery) gibi saldırılara karşı koruma sağlayacak önlemler alınabilir.
+
+####  63: E-Ticaret Uygulamalarında Performans Optimizasyonu Nasıl Gerçekleştirilir ve .NET Core ile Hangi Araçlar Kullanılabilir?
+
+E-ticaret uygulamalarında performans optimizasyonu, uygulamanın hızını artırmak ve yanıt sürelerini iyileştirmek için önemlidir. .NET Core ile performans optimizasyonu yaparken aşağıdaki araçlar ve teknikler kullanılabilir:
+- Caching: Önbellekleme mekanizmaları kullanarak sıkça erişilen verilerin tekrar tekrar sorgulanmasını önleyebiliriz.
+- Async/Await: Asenkron programlama kullanarak iş parçacıklarını daha etkin bir şekilde yönetebilir ve uygulama yanıt sürelerini iyileştirebiliriz.
+- Geliştirilmiş sorgu optimizasyonu: Entity Framework Core gibi ORM'lerle sorgu performansını artırmak için sorgu optimizasyonları yapılabilir.
+- Ölçeklendirme: İhtiyaç duyulduğunda uygulamayı yatay veya dikey olarak ölçeklendirme yöntemleri kullanılabilir.
+- Profiling araçları: .NET Core için çeşitli profiling araçları kullanarak uygulamanın performansını analiz edebilir ve iyileştirebiliriz.
+
+####  64: E-Ticaret Uygulamalarında SEO (Arama Motoru Optimizasyonu) Nasıl İyileştirilir ve .NET Core ile Hangi Teknikler Uygulanabilir?
+
+E-ticaret uygulamalarının SEO performansını artırmak için aşağıdaki teknikler ve yöntemler kullanılabilir:
+- URL yapılandırması: Dostu URL'ler kullanarak, anahtar kelime odaklı ve anlaşılır URL yapıları oluşturulabilir.
+- Sayfa başlıkları ve meta açıklamalar: Sayfa başlıkları ve meta açıklamaları doğru bir şekilde ayarlanarak, arama motorlarının içeriği daha iyi anlaması sağlanabilir.
+- Site haritası oluşturma: XML site haritaları oluşturarak, arama motorlarının sitenin içeriğini daha kolay tarayabilmesi sağlanabilir.
+- Hız optimizasyonu: Uygulamanın hızını artırmak için performans optimizasyonu tekniklerini kullanarak, kullanıcı deneyimini iyileştirebiliriz.
+
+Bu tekniklerin .NET Core ile uygulanması genellikle standart web geliştirme tekniklerine dayanır ve ASP.NET Core MVC veya Razor Pages gibi yapılar kullanılarak gerçekleştirilebilir.
+
+#### 65: EntityTypeBuilder Nedir ve Entity Framework Core'da Hangi Amaçlarla Kullanılır?
+
+EntityTypeBuilder, Entity Framework Core ile ilişkili bir sınıftır ve veritabanı tablolarının modelleme ve yapılandırma işlemlerini kolaylaştırır. Aşağıda bir örnek verilmiştir:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+public class ApplicationDbContext : DbContext
+{
+    public DbSet<Product> Products { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.ToTable("Products");
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Price).HasColumnType("decimal(18,2)");
+        });
+    }
+}
+
+```
+
+### 66 . Entity Framework Core'da Kaç Çeşit Yaklaşım Vardır ve Bunlar Arasındaki Farklar Nelerdir?
+
+Bu soru, adayın Entity Framework Core'daki farklı yaklaşımları ve bunların nasıl farklılık gösterdiğini anlamasını sağlar.
+
+İlgili cevapları, temelde üç ana yaklaşım şeklinde ele alabiliriz:
+
+1. **Database First Yaklaşımı:** Veritabanı odaklı bir yaklaşım olan Database First yaklaşımında, var olan bir veritabanı modeli veya şeması üzerinden başlanır. Veritabanı şeması varlıklara (entity) dönüştürülür ve ardından veritabanıyla etkileşim kuracak Entity Framework modelleri oluşturulur.
+
+2. **Code First Yaklaşımı:** Kod odaklı bir yaklaşım olan Code First yaklaşımında, öncelikle C# sınıfları ve ilişkileri tanımlanır. Entity Framework Core, bu C# sınıflarını veritabanı tablolarına dönüştürerek veritabanını oluşturur. Bu yaklaşım, geliştiricilere daha fazla esneklik ve kontrol sağlar.
+
+3. **Model First Yaklaşımı:** Model First yaklaşımında, görsel bir arayüz veya tasarım aracı kullanılarak bir veri modeli oluşturulur. Bu model daha sonra Entity Framework tarafından kullanılarak veritabanı şeması oluşturulur. Bu yaklaşım, veritabanı tasarımına odaklanmak isteyen ekipler için uygun olabilir.
+
+### 67. `Abstract Class` ile `Interface` Arasındaki Farklar
+
+**Abstract Class:**
+- Abstract class, soyut bir sınıfı temsil eder ve somut ve soyut üyeleri içerebilir.
+- Abstract class, bir sınıfın yapısını tanımlayabilir ve bu yapının bir kısmını veya tamamını uygulayabilir.
+- Bir sınıf sadece bir abstract class'tan miras alabilir, çünkü C#'da çoklu kalıtım desteklenmez.
+- Abstract class'lar, özel (private) veya korumalı (protected) üyelere sahip olabilir.
+- Abstract class'lar, concrete (somut) methodlar içerebilir ve bu methodlar varsayılan bir uygulamaya sahip olabilir.
+
+**Interface:**
+- Interface, tamamen soyut bir yapıyı temsil eder ve sadece metot imzaları, özellikler ve olaylar içerebilir.
+- Bir sınıf birden fazla interface'i uygulayabilir (C#'da çoklu arayüz uygulaması desteklenir).
+- Interface'ler, yalnızca genel erişim belirleyicilere (public) sahip olabilir ve üyeleri default uygulamalara sahip olamaz.
+- Interface'ler, sadece metot imzalarını tanımlar ve bunların gerçek uygulamaları sınıflar tarafından sağlanır.
+- Interface'ler, bir sınıfın davranışını belirleyen bir sözleşme sağlar ve bu sayede farklı sınıfların aynı davranışı paylaşmasını sağlar.
+
+### 68. `Struct` ile `Class` Arasındaki Farklar
+
+**Struct:**
+- Struct, değer türü (value type) bir veri yapısını temsil eder.
+- Struct'lar, stack bellekte depolanır ve heap bellekte değil, dolayısıyla hafıza yönetimi açısından daha verimlidirler.
+- Struct'lar, inheritance (miras alma) desteklemez ve başka bir struct'tan türetilemezler.
+- Struct'lar, default olarak public erişim belirleyicisine sahiptirler.
+- Struct'lar, null değerini alamazlar ve varsayılan olarak tüm üyeleri initialize edilmelidir.
+
+**Class:**
+- Class, referans türü (reference type) bir veri yapısını temsil eder.
+- Class'lar, heap bellekte depolanır ve referanslar aracılığıyla erişilir, dolayısıyla hafıza yönetimi daha karmaşıktır.
+- Class'lar, inheritance (miras alma) destekler ve başka bir class'tan türetilebilirler.
+- Class'lar, default olarak private erişim belirleyicisine sahiptirler.
+- Class'lar, null değerini alabilirler ve üyeleri initialize etmek zorunda değildirler.
+
+```csharp
+using System;
+
+// Struct tanımı
+struct PointStruct
+{
+    public int X;
+    public int Y;
+}
+
+// Class tanımı
+class PointClass
+{
+    public int X;
+    public int Y;
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Struct örneği oluşturma
+        PointStruct structPoint = new PointStruct();
+        structPoint.X = 10;
+        structPoint.Y = 20;
+
+        // Class örneği oluşturma
+        PointClass classPoint = new PointClass();
+        classPoint.X = 30;
+        classPoint.Y = 40;
+
+        // Struct ve Class örneklerini yazdırma
+        Console.WriteLine("Struct Point: X = {0}, Y = {1}", structPoint.X, structPoint.Y);
+        Console.WriteLine("Class Point: X = {0}, Y = {1}", classPoint.X, classPoint.Y);
+    }
+}
+```
+### 69. `Span<T>` ve `string` Arasındaki Farklar
+
+**`Span<T>`:**
+- `Span<T>`, bellek bloğunun bir görünümünü temsil eden bir değer türüdür.
+- Genellikle bellek tahsisi yapmadan bellek üzerinde işlem yapmak için kullanılır.
+- Değiştirilebilir (mutable) bir yapıya sahiptir, yani içeriği değiştirilebilir.
+- `Span<T>`, işaretçi aritmetiği ve bellek işaretçisi manipülasyonu gibi düşük seviye işlemleri destekler.
+- `Span<T>`, genellikle performansı artırmak veya bellek tahsisini azaltmak için kullanılır.
+
+**`string` (String):**
+- `string`, metin verilerini temsil etmek için kullanılan bir referans türüdür.
+- Değiştirilemez (immutable) bir yapıya sahiptir, yani bir kez oluşturulduktan sonra içeriği değiştirilemez.
+- Genellikle metin işleme operasyonları için kullanılır ve `.NET` ekosisteminde en yaygın metin türüdür.
+- `string`, genellikle daha yüksek seviyeli operasyonlar ve metin işleme işlevleri için daha uygun bir seçenektir.
+
+**Hangisini Kullanmalıyım?**
+- `Span<T>`, bellek yönetimi veya performans gereksinimleri açısından avantaj sağlayabilir ancak dikkatli kullanılmalıdır.
+- Genellikle, metin işleme ve metin manipülasyonları için `string` tercih edilir, çünkü daha yüksek seviyeli işlemler için daha uygun ve güvenlidir.
+
+### 70. Null birleştirme (coalescing) operatörü nedir ve nasıl kullanılır?
+
+Null birleştirme operatörü (`??`), bir değerin null olup olmadığını kontrol eder. Eğer değer null ise, alternatif bir değer döndürür. 
+Örneğin:
+
+```csharp
+int? nullableNumber = null;
+int result = nullableNumber ?? 10;
+Console.WriteLine(result); // Çıktı: 10
+```
+### 71.Pattern Matching ve Discards Nedir?
+
+Pattern Matching Discards, C# 7.0'dan itibaren gelen bir dil özelliğidir. Bu özellik, bir değeri eşleme yaparken, değerin kullanılmadığı durumları ifade etmek için kullanılır.
+
+Örneğin, bir tuple (demet) içinde sadece belirli bir değeri kullanmak istiyorsak ve diğer değerler bizi ilgilendirmiyorsa, Pattern Matching Discards kullanabiliriz. Aşağıdaki örnekte bunu görebiliriz:
+
+```csharp
+var tuple = (10, "hello", 3.14);
+if (tuple.Item1 == 10)
+{
+    Console.WriteLine("Item1 is 10");
+}
+
+// Discard kullanarak diğer değerlere ihtiyaç duymadığımızı belirtiyoruz
+if (tuple.Item2 is _)
+{
+    Console.WriteLine("Item2 is ignored");
+}
+```
+
+
+### 72.  `Delegate` ve `Event` kavramları nedir ve aralarındaki farklar nelerdir?
+
+`delegate`, C# dilinde bir tür güvenli bir referans türüdür ve genellikle metot işaretçilerini temsil eder. `delegate`'ler, metotların referanslarını saklamak ve daha sonra çağırmak için kullanılır. Özellikle olay tabanlı programlama ve asenkron programlama gibi senaryolarda yaygın olarak kullanılırlar.
+
+`event` ise bir tür delegate'dir ve genellikle bir olayın tetiklenmesini ve bu olaya abone olan metotların çalıştırılmasını sağlar. `event`, bir sınıf içinde bir olayın tanımlanması için kullanılır ve genellikle olay tabanlı programlamada kullanılır.
+
+Aralarındaki temel farklardan biri, `delegate`'lerin işaretçi gibi davranması ve genellikle bir sınıf içinde veya bir metodun içinde tanımlanmasıdır. `event` ise genellikle bir sınıf içinde bir olayın tanımlanması ve bu olayın tetiklenmesi için kullanılır.
+
+Başka bir fark da, `event`'lerin sadece `delegate` türünden oluşmasıdır. Yani, bir olaya abone olmak için kullanılan değişkenler yalnızca `delegate` türünde olabilir. Bu, olayların kontrol edilebilirliğini ve güvenliğini sağlar.
+
+Kısacası, `delegate`'ler genellikle metot işaretçilerini temsil ederken, `event`'ler genellikle olayları temsil eder ve bu olaylara abone olan metotların çağrılmasını sağlar.
+
+### 73. MVC Kavramları
+
+**Soru:**
+MVC (Model-View-Controller) nedir ve MVC'nin temel kavramları nelerdir?
+
+**Cevap:**
+MVC, Model-View-Controller'ın kısaltması olup, bir web uygulamasının mimarisini organize etmek için kullanılan bir tasarım desenidir. MVC'nin temel kavramları şunlardır:
+
+- **Model:** Uygulamanın iş mantığını ve veri yapısını temsil eden kısımdır.
+- **View:** Kullanıcı arayüzünün (UI) temsil edildiği kısımdır. HTML, CSS ve JavaScript ile birlikte kullanılır.
+- **Controller:** İstemciden gelen istekleri işleyen ve uygun model ve view'ları birleştiren kısımdır.
+
+**Diğer Kavramlar:**
+- **Razor:** ASP.NET MVC'de kullanılan bir view motorudur ve dinamik içerik oluşturmak için HTML içinde C# kodu kullanılmasını sağlar.
+- **HttpGet:** Bir action'ın yalnızca HTTP GET isteklerine yanıt vermesini sağlayan bir attribute'tur.
+- **HttpPost:** Bir action'ın yalnızca HTTP POST isteklerine yanıt vermesini sağlayan bir attribute'tur.
+- **ViewBag:** Controller'dan view'a veri taşımak için kullanılan bir dinamik nesnedir.
+- **ViewData:** ViewBag gibi veri taşımak için kullanılan bir sözlük nesnesidir.
+- **TempData:** Bir istek ve yanıt arasında veri taşımak için kullanılan bir mekanizmadır.
+- **Controller:** Kullanıcının isteklerini işleyen ve modeli ve view'ı birleştiren MVC'nin bir parçasıdır.
+- **View:** Kullanıcı arayüzünün HTML ve diğer web içeriği ile birleştirildiği kısımdır.
+- **PartialView:** Bir view'in parçası olan ve başka bir view içinde kullanılabilen yeniden kullanılabilir bir view bileşenidir.
+- **Filter:** MVC uygulamasındaki action veya controller davranışlarını değiştirmek veya özelleştirmek için kullanılan öğelerdir.
+
+### 74. Method ve Operator Overloading
+
+#### Method overloading (method aşırı yüklenme) ve operator overloading (operator aşırı yüklenme) nedir ve nasıl kullanılır?
+
+
+- **Method Overloading (Method Aşırı Yüklenme):** Method overloading, aynı isimde fakat farklı parametre listeleriyle birden fazla metot tanımlama işlemidir. Böylece aynı işlevsellik farklı parametrelerle çağrılabilir. Örneğin:
+
+    ```csharp
+    public class Calculator
+    {
+        public int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        public double Add(double a, double b)
+        {
+            return a + b;
+        }
+    }
+    ```
+
+- **Operator Overloading (Operator Aşırı Yüklenme):** Operator overloading, bir operatörün farklı veri tipleri üzerinde farklı işlemler gerçekleştirmesine izin veren bir mekanizmadır. Özel operatör aşırı yüklenmiş işlevlerin tanımlanması, sınıfların daha doğal ve kolay anlaşılabilir kullanımını sağlar. Örneğin:
+
+    ```csharp
+    public class ComplexNumber
+    {
+        public int Real { get; set; }
+        public int Imaginary { get; set; }
+
+        public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)
+        {
+            return new ComplexNumber { Real = c1.Real + c2.Real, Imaginary = c1.Imaginary + c2.Imaginary };
+        }
+    }
+    ```
+
+
+### 75. Implicit ve Explicit Dönüşümler
+
+C# dilinde "implicit" ve "explicit" dönüşüm operatörleri nedir ve nasıl kullanılır?
+
+- **Implicit (Kapalı) Dönüşüm:** İmplicit dönüşüm, bir veri türünü başka bir veri türüne otomatik olarak ve veri kaybı olmadan dönüştürür. C# derleyicisi, iki tür arasında uygun bir dönüşüm olduğunda bu dönüşümü otomatik olarak gerçekleştirir. Ancak, bu tür dönüşümler genellikle küçük türlerden büyük türlere doğru yapılırken, veri kaybı olmaması koşuluyla gerçekleşir.
+
+Örneğin:
+```csharp
+int num = 10;
+double dNum = num; // Implicit dönüşüm, int'ten double'a otomatik olarak gerçekleşir
+```
+- **Explicit (Açık) Dönüşüm:** Explicit dönüşüm, bir veri türünü başka bir veri türüne dönüştürmek için açık olarak belirtilen bir dönüşüm operatörü kullanılarak gerçekleştirilir. Bu dönüşüm, bazı veri kaybı riski taşıdığı için açıkça belirtilmesi gerekir.
+Örneğin:
+```csharp
+
+double dNum = 10.5;
+int num = (int)dNum; // Explicit dönüşüm, double'dan int'e açık olarak belirtilir
+```
+### 76. C# dilinde "implicit", "explicit", "boxing" ve "unboxing" kavramları nedir ve aralarındaki farklar nelerdir?
+
+- **Implicit (Kapalı) Dönüşüm:** Bir veri türünü başka bir veri türüne otomatik olarak ve veri kaybı olmadan dönüştüren bir dönüşüm türüdür. Genellikle küçük türlerden büyük türlere doğru yapılır ve derleyici tarafından otomatik olarak gerçekleştirilir.
+
+- **Explicit (Açık) Dönüşüm:** Bir veri türünü başka bir veri türüne dönüştürmek için açık olarak belirtilen bir dönüşüm türüdür. Açıkça belirtilmesi gerektiği için veri kaybı olabilecek durumlarda kullanılır.
+
+- **Boxing (Kutulama):** Bir değer türündeki bir veriyi referans türüne dönüştürme işlemidir. Değer türü olan bir değişkenin değeri, Object türünde bir referansa atanarak kutulanır. Bu işlem genellikle bir değer türünü bir koleksiyon içinde saklamak istediğimizde veya bir değer türünü bir methoda Object türünde bir parametre olarak geçirmek istediğimizde kullanılır.
+
+- **Unboxing (Kutudan Çıkarma):** Bir referans türünden alınan veriyi değer türüne geri dönüştürme işlemidir. Kutulanmış bir değer, orijinal değer türüne geri dönüştürülerek kullanılabilir. Bu işlem, Object türünden alınan bir veriyi değer türüne dönüştürmek istediğimizde kullanılır.
+
+### 77. Tasarım Desenleri
+
+Tasarım desenleri, tekrar eden problemlere karşı genel çözümler sunan rehberlerdir. Yazılım geliştirme sürecinde sıkça karşılaşılan sorunlara karşı en iyi uygulama yöntemlerini sağlarlar. Ayrıca, kodun daha okunabilir, esnek ve bakımı daha kolay hale gelmesine yardımcı olurlar.
+
+## Creational Patterns (Oluşturucu Desenler)
+
+Bu desenler, nesnelerin nasıl oluşturulacağına odaklanır. Bu, nesnelerin oluşturulması sürecini soyutlar ve istemciye hangi nesnelerin oluşturulacağına karar verme özgürlüğü sağlar.
+
+### Abstract Factory Pattern (Fabrika Yöntemi Deseni)
+Bu desen, bir süper sınıfı arayüz olarak kullanan ve alt sınıfların hangi nesnenin oluşturulacağına karar verdiği bir desendir.
+
+Örnek Kod (C#):
+```csharp
+public interface IProduct
+{
+    void Operation();
+}
+
+public class ConcreteProductA : IProduct
+{
+    public void Operation()
+    {
+        Console.WriteLine("ConcreteProductA Operation");
+    }
+}
+
+public class ConcreteProductB : IProduct
+{
+    public void Operation()
+    {
+        Console.WriteLine("ConcreteProductB Operation");
+    }
+}
+
+public abstract class Creator
+{
+    public abstract IProduct FactoryMethod();
+}
+
+public class ConcreteCreatorA : Creator
+{
+    public override IProduct FactoryMethod()
+    {
+        return new ConcreteProductA();
+    }
+}
+
+public class ConcreteCreatorB : Creator
+{
+    public override IProduct FactoryMethod()
+    {
+        return new ConcreteProductB();
+    }
+}
+```
+
+### Singleton Pattern (Tekil Örnek Deseni)
+
+Bu desen, bir sınıfın yalnızca bir örneğine sahip olduğundan emin olmak için kullanılır ve genellikle küresel erişim sağlamak için kullanılır.
+
+```csharp
+public class Singleton
+{
+    private static Singleton instance;
+
+    private Singleton() { }
+
+    public static Singleton Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    }
+
+    public void SomeMethod()
+    {
+        Console.WriteLine("SomeMethod called.");
+    }
+}
+```
+
+### Builder Tasarım Deseni
+
+Builder tasarım deseni, karmaşık nesnelerin oluşturulmasını ve temsil edilmesini kolaylaştıran bir creational (oluşturucu) tasarım desenidir. Bu desen, bir nesnenin oluşturulma sürecini adım adım tanımlar ve istemciye nesnenin farklı parçalarını farklı şekillerde yapılandırma esnekliği sağlar.
+
+1. Kullanım Senaryoları
+
+- Nesnelerin karmaşık yapısına sahip olduğu durumlarda.
+- Farklı nesne yapılarının aynı oluşturma işlemiyle oluşturulması gerektiğinde.
+- Bir nesnenin oluşturulma sürecini aşama aşama yürütme gerekliliği olduğunda.
+
+2. Avantajlar
+
+- Nesne oluşturma sürecini adım adım kontrol etmeyi sağlar.
+- Karmaşık nesnelerin oluşturulmasını kolaylaştırır ve sınıfın basit bir arayüze sahip olmasını sağlar.
+- Oluşturulacak nesnenin iç yapısını değiştirmeden nesne oluşturma sürecini değiştirmeyi mümkün kılar.
+
+3. Dezavantajlar
+
+- Birçok builder sınıfının oluşturulması gerekebilir, bu da kod karmaşıklığına neden olabilir.
+- Builder deseni kullanıldığında, nesnenin oluşturulması biraz daha maliyetli olabilir.
+
+4. Örnek Kod (C#)
+
+```csharp
+using System;
+
+// Karmaşık nesne
+public class Product
+{
+    public string Part1 { get; set; }
+    public string Part2 { get; set; }
+}
+
+// Builder arayüzü
+public interface IBuilder
+{
+    void BuildPart1();
+    void BuildPart2();
+    Product GetResult();
+}
+
+// ConcreteBuilder sınıfı
+public class ConcreteBuilder : IBuilder
+{
+    private Product product = new Product();
+
+    public void BuildPart1()
+    {
+        product.Part1 = "Part1 of the product";
+    }
+
+    public void BuildPart2()
+    {
+        product.Part2 = "Part2 of the product";
+    }
+
+    public Product GetResult()
+    {
+        return product;
+    }
+}
+
+// Director sınıfı
+public class Director
+{
+    private IBuilder builder;
+
+    public Director(IBuilder builder)
+    {
+        this.builder = builder;
+    }
+
+    public void Construct()
+    {
+        builder.BuildPart1();
+        builder.BuildPart2();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Builder oluştur
+        IBuilder builder = new ConcreteBuilder();
+
+        // Director oluştur ve builder'ı kullanarak nesneyi oluştur
+        Director director = new Director(builder);
+        director.Construct();
+
+        // Sonucu al ve kullan
+        Product product = builder.GetResult();
+        Console.WriteLine("Product Parts: {0}, {1}", product.Part1, product.Part2);
+    }
+}
+```
+
+### Prototype Tasarım Deseni
+
+Prototype tasarım deseni, var olan bir nesnenin kopyasını oluşturmayı sağlayan bir creational (oluşturucu) tasarım desenidir. Bu desen, nesnelerin oluşturulmasını karmaşık hale getirecek adımları atlamak için kullanılır ve mevcut bir nesnenin kopyasının oluşturulması sürecini basitleştirir.
+
+1. Kullanım Senaryoları
+
+- Nesne oluşturma süreci karmaşık veya maliyetli olduğunda.
+- Bir nesne, farklı durumları temsil eden ve bu durumların bazıları değişken olan, başka bir nesne tarafından prototipler aracılığıyla oluşturulduğunda.
+
+2. Avantajlar
+
+- Nesne kopyalamayı kolaylaştırır ve performansı artırır.
+- Oluşturulan nesnelerin tipi ve iç yapısı değişse bile, yeni nesneler oluşturmak için tek bir prototip kullanılabilir.
+
+3. Dezavantajlar
+
+- Bazı dillerde nesne kopyalama süreci karmaşık olabilir ve doğru şekilde uygulanması gerekebilir.
+
+4. Örnek Kod (C#)
+
+```csharp
+using System;
+
+// Prototip arayüzü
+public interface IPrototype
+{
+    IPrototype Clone();
+}
+
+// ConcretePrototype sınıfı
+public class ConcretePrototype : IPrototype
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public ConcretePrototype(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+
+    // Kopya oluşturma metodu
+    public IPrototype Clone()
+    {
+        // Derin kopya oluşturulabilir veya nesne serileştirilip deserileştirilerek kopya oluşturulabilir
+        return new ConcretePrototype(Id, Name);
+    }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}";
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Prototip oluştur
+        var prototype = new ConcretePrototype(1, "Prototype");
+
+        // Prototipin kopyasını oluştur
+        var clone = prototype.Clone() as ConcretePrototype;
+
+        // Kopyanın özelliklerini kontrol et
+        Console.WriteLine("Prototype: " + prototype);
+        Console.WriteLine("Clone: " + clone);
+    }
+}
+```
+
+## Structural Patterns (Yapısal Desenler)
+
+Bu desenler, sınıfların veya nesnelerin nasıl bir araya getirileceği ve nasıl birlikte çalışacağı hakkında fikir verir.
+
+### Adapter Pattern (Adaptör Deseni)
+
+Bu desen, iki farklı arayüzü birbirine uyumlu hale getirmek için kullanılır.
+
+Örnek Kod (C#):
+
+```csharp
+public interface ITarget
+{
+    void Request();
+}
+
+public class Adaptee
+{
+    public void SpecificRequest()
+    {
+        Console.WriteLine("Adaptee's SpecificRequest");
+    }
+}
+
+public class Adapter : ITarget
+{
+    private readonly Adaptee adaptee;
+
+    public Adapter(Adaptee adaptee)
+    {
+        this.adaptee = adaptee;
+    }
+
+    public void Request()
+    {
+        adaptee.SpecificRequest();
+    }
+}
+```
+
+## Bridge Tasarım Deseni
+
+Bridge tasarım deseni, birbirine bağlı olan iki ayrı hiyerarşiyi birbirinden bağımsız olarak değiştirebilme esnekliği sağlayan bir yapısal tasarım desenidir. Bu desen, soyutlamayı ve implementasyonu birbirinden ayırarak, değişikliklerin sınıflar arasında daha az bağımlılık oluşturmasını sağlar.
+
+1. Kullanım Senaryoları
+
+- Hem somut sınıfların hem de arayüzlerin birbirinden bağımsız olarak genişletilmesi gerektiğinde.
+- Hem soyutlama hem de implementasyon hiyerarşisinin değişiklik göstermesi durumunda.
+
+2. Avantajlar
+
+- Soyutlama ve implementasyonun birbirinden ayrılmasını sağlar, böylece her ikisinin de bağımsız olarak değiştirilmesine olanak tanır.
+- Yeni soyutlamalar veya implementasyonlar eklemek kolaydır çünkü sınıflar arasındaki bağımlılıklar minimize edilir.
+
+3. Dezavantajlar
+
+- Uygulanması gereken ekstra sınıflar nedeniyle kod karmaşıklığına yol açabilir.
+- Doğru şekilde tasarlanmadığında, gereksiz karmaşıklık oluşturabilir.
+
+ **Örnek Kod (C#):**
+
+```csharp
+using System;
+
+// Bridge arayüzü
+public interface IImplementor
+{
+    void OperationImpl();
+}
+
+// Somut Implementor sınıfları
+public class ConcreteImplementorA : IImplementor
+{
+    public void OperationImpl()
+    {
+        Console.WriteLine("ConcreteImplementorA operation");
+    }
+}
+
+public class ConcreteImplementorB : IImplementor
+{
+    public void OperationImpl()
+    {
+        Console.WriteLine("ConcreteImplementorB operation");
+    }
+}
+
+// Abstraction sınıfı
+public abstract class Abstraction
+{
+    protected IImplementor implementor;
+
+    public Abstraction(IImplementor implementor)
+    {
+        this.implementor = implementor;
+    }
+
+    public abstract void Operation();
+}
+
+// RefinedAbstraction sınıfları
+public class RefinedAbstraction : Abstraction
+{
+    public RefinedAbstraction(IImplementor implementor) : base(implementor) { }
+
+    public override void Operation()
+    {
+        implementor.OperationImpl();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Implementor örnekleri oluştur
+        IImplementor implementorA = new ConcreteImplementorA();
+        IImplementor implementorB = new ConcreteImplementorB();
+
+        // Abstraction örnekleri oluştur ve farklı implementorlarla bağlantı kur
+        Abstraction abstraction1 = new RefinedAbstraction(implementorA);
+        Abstraction abstraction2 = new RefinedAbstraction(implementorB);
+
+        // Operation çağrıları
+        abstraction1.Operation();
+        abstraction2.Operation();
+    }
+}
+```
+
+## Composite Tasarım Deseni
+
+Composite tasarım deseni, birlikte çalışabilir nesne yapılarının ağaç yapısını oluşturmak için kullanılan bir yapısal tasarım desenidir. Bu desen, tek bir nesnenin veya nesne grubunun aynı şekilde davranmasını sağlar, böylece istemci tarafından tek bir nesne gibi işlem yapılabilir.
+
+1. Kullanım Senaryoları
+
+- Parçaların bir ağaç yapısı oluşturduğu ve bu parçaların aynı şekilde ele alınması gerektiği durumlarda.
+- Nesnelerin hiyerarşik bir şekilde birleştirilerek karmaşık bir yapı oluşturulması gerektiğinde.
+
+2. Avantajlar
+
+- Parçaların tek tek veya bir arada işlem yapılabilmesini sağlar, böylece kod tekrarını azaltır.
+- Yeni bileşenler eklemek veya var olan bileşenleri kaldırmak kolaydır çünkü sınıflar arasındaki hiyerarşik ilişkiyi korur.
+
+3. Dezavantajlar
+
+- Bileşenler arasındaki farklılıkların belirtilmesi zor olabilir ve bazı durumlarda kod karmaşıklığına neden olabilir.
+
+**Örnek Kod :**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Component sınıfı
+public abstract class Component
+{
+    protected string name;
+
+    public Component(string name)
+    {
+        this.name = name;
+    }
+
+    public abstract void Operation();
+}
+
+// Leaf sınıfı
+public class Leaf : Component
+{
+    public Leaf(string name) : base(name) { }
+
+    public override void Operation()
+    {
+        Console.WriteLine($"Leaf {name} operation");
+    }
+}
+
+// Composite sınıfı
+public class Composite : Component
+{
+    private List<Component> children = new List<Component>();
+
+    public Composite(string name) : base(name) { }
+
+    public void Add(Component component)
+    {
+        children.Add(component);
+    }
+
+    public void Remove(Component component)
+    {
+        children.Remove(component);
+    }
+
+    public override void Operation()
+    {
+        Console.WriteLine($"Composite {name} operation");
+
+        foreach (Component component in children)
+        {
+            component.Operation();
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Leaf ve Composite örnekleri oluştur
+        var leaf1 = new Leaf("Leaf 1");
+        var leaf2 = new Leaf("Leaf 2");
+        var leaf3 = new Leaf("Leaf 3");
+
+        var composite1 = new Composite("Composite 1");
+        composite1.Add(leaf1);
+        composite1.Add(leaf2);
+
+        var composite2 = new Composite("Composite 2");
+        composite2.Add(leaf3);
+
+        var root = new Composite("Root");
+        root.Add(composite1);
+        root.Add(composite2);
+
+        // Operation çağrıları
+        root.Operation();
+    }
+}
+```
+
+## Composite Tasarım Deseni
+
+Composite tasarım deseni, bir nesnenin tek bir nesne gibi davranmasını sağlayan ve bir grup nesneyi tek bir nesne gibi işleyen bir yapısal tasarım desenidir. Bu desen, parçaların veya alt nesnelerin hiyerarşik bir şekilde birleştirilmesi gereken durumlarda kullanılır.
+
+1. Kullanım Senaryoları
+
+- Nesnelerin ağaç yapısında düzenlenmesi ve bu yapının tek bir nesne gibi işlenmesi gerektiğinde.
+- Bir nesnenin alt nesnelerini tek bir nesne gibi kullanmak istendiğinde.
+
+2. Avantajlar
+
+- Parçaların veya alt nesnelerin birleştirilmesi ve tek bir nesne gibi işlenmesini sağlar.
+- Yeni parçalar eklemek veya var olanları kaldırmak kolaydır, çünkü tüm nesneleri birleştiren ortak bir arayüz kullanılır.
+
+3. Dezavantajlar
+
+- Parçaların ve bütünün birbirine karışmasına neden olabilir, bu da kodun anlaşılabilirliğini azaltabilir.
+- Uygulama gereksinimlerine uygun bir şekilde ağaç yapısının tasarlanması ve yönetilmesi zor olabilir.
+
+**Örnek Kod (C#)**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Component arayüzü
+public abstract class Component
+{
+    protected string name;
+
+    public Component(string name)
+    {
+        this.name = name;
+    }
+
+    public abstract void Display(int depth);
+}
+
+// Leaf sınıfı
+public class Leaf : Component
+{
+    public Leaf(string name) : base(name) { }
+
+    public override void Display(int depth)
+    {
+        Console.WriteLine(new string('-', depth) + name);
+    }
+}
+
+// Composite sınıfı
+public class Composite : Component
+{
+    private List<Component> children = new List<Component>();
+
+    public Composite(string name) : base(name) { }
+
+    public void Add(Component component)
+    {
+        children.Add(component);
+    }
+
+    public void Remove(Component component)
+    {
+        children.Remove(component);
+    }
+
+    public override void Display(int depth)
+    {
+        Console.WriteLine(new string('-', depth) + name);
+
+        foreach (Component component in children)
+        {
+            component.Display(depth + 2);
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Composite root = new Composite("Root");
+        root.Add(new Leaf("Leaf A"));
+        root.Add(new Leaf("Leaf B"));
+
+        Composite composite = new Composite("Composite X");
+        composite.Add(new Leaf("Leaf XA"));
+        composite.Add(new Leaf("Leaf XB"));
+
+        root.Add(composite);
+
+        Leaf leaf = new Leaf("Leaf C");
+        root.Add(leaf);
+        root.Remove(leaf);
+
+        root.Display(1);
+    }
+}
+```
+
+## Facade Tasarım Deseni
+
+Facade tasarım deseni, bir alt sistemi daha kolay kullanılabilir hale getiren ve istemci ile alt sistem arasındaki etkileşimi basitleştiren bir yapısal tasarım desenidir. Bu desen, karmaşık alt sistemlerin arka planında çalışırken istemci kodunu basitleştirmek için kullanılır.
+
+1. Kullanım Senaryoları
+
+- Karmaşık alt sistemlerin basit bir arayüzle sunulması gerektiğinde.
+- İstemci kodunun alt sistemlere bağımlılığını azaltmak ve alt sistemler arasındaki etkileşimi gizlemek istendiğinde.
+
+2. Avantajlar
+
+- Alt sistemlerin karmaşıklığını gizleyerek istemci kodunu basitleştirir.
+- Alt sistemlerdeki değişiklikleri absorbe ederek istemci kodunu etkilemez.
+
+3. Dezavantajlar
+
+- Fazla sayıda alt sistem varsa, Facede sınıfının aşırı büyümesine ve karmaşıklığa neden olabilir.
+
+**Örnek Kod (C#)**
+
+```csharp
+using System;
+
+// Alt sistem 1
+public class Subsystem1
+{
+    public void Operation1()
+    {
+        Console.WriteLine("Subsystem1 Operation1");
+    }
+
+    public void Operation2()
+    {
+        Console.WriteLine("Subsystem1 Operation2");
+    }
+}
+
+// Alt sistem 2
+public class Subsystem2
+{
+    public void Operation1()
+    {
+        Console.WriteLine("Subsystem2 Operation1");
+    }
+
+    public void Operation2()
+    {
+        Console.WriteLine("Subsystem2 Operation2");
+    }
+}
+
+// Facade sınıfı
+public class Facade
+{
+    private Subsystem1 subsystem1;
+    private Subsystem2 subsystem2;
+
+    public Facade()
+    {
+        subsystem1 = new Subsystem1();
+        subsystem2 = new Subsystem2();
+    }
+
+    public void Operation()
+    {
+        Console.WriteLine("Facade Operation:");
+        subsystem1.Operation1();
+        subsystem1.Operation2();
+        subsystem2.Operation1();
+        subsystem2.Operation2();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Facade kullanarak alt sistemleri kullanma
+        Facade facade = new Facade();
+        facade.Operation();
+    }
+}
+```
+
+## Flyweight Tasarım Deseni
+
+Flyweight tasarım deseni, çok sayıda benzer nesnenin bellek kullanımını azaltmak için paylaşılan durumu (intrinsic state) kullanarak nesnelerin paylaşılmasını sağlayan bir yapısal tasarım desenidir. Bu desen, bellek kullanımını azaltmak ve performansı artırmak için kullanılır.
+
+1. Kullanım Senaryoları
+
+- Uygulamada çok sayıda benzer nesne oluşturulması gerektiğinde.
+- Nesnelerin paylaşılabilir bir duruma sahip olduğu durumlarda.
+
+2. Avantajlar
+
+- Bellek kullanımını azaltır ve performansı artırır.
+- Nesneler arasındaki paylaşılabilir durumlar sayesinde bellek tüketimini minimize eder.
+
+3. Dezavantajlar
+
+- Nesneler arasında paylaşılan durumun olmaması durumunda avantaj sağlamaz.
+- Kod karmaşıklığını artırabilir, çünkü durumun doğru şekilde paylaşılması gereklidir.
+
+**Örnek Kod:**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Flyweight arayüzü
+public interface IFlyweight
+{
+    void Operation();
+}
+
+// ConcreteFlyweight sınıfı
+public class ConcreteFlyweight : IFlyweight
+{
+    private string intrinsicState;
+
+    public ConcreteFlyweight(string intrinsicState)
+    {
+        this.intrinsicState = intrinsicState;
+    }
+
+    public void Operation()
+    {
+        Console.WriteLine("ConcreteFlyweight: " + intrinsicState);
+    }
+}
+
+// FlyweightFactory sınıfı
+public class FlyweightFactory
+{
+    private Dictionary<string, IFlyweight> flyweights = new Dictionary<string, IFlyweight>();
+
+    public IFlyweight GetFlyweight(string key)
+    {
+        if (!flyweights.ContainsKey(key))
+        {
+            flyweights[key] = new ConcreteFlyweight(key);
+        }
+        return flyweights[key];
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // FlyweightFactory oluştur
+        FlyweightFactory factory = new FlyweightFactory();
+
+        // Flyweight'lerin alınması
+        IFlyweight flyweight1 = factory.GetFlyweight("key1");
+        IFlyweight flyweight2 = factory.GetFlyweight("key2");
+        IFlyweight flyweight3 = factory.GetFlyweight("key1");
+
+        // Aynı flyweight referanslarına sahip olduklarını kontrol et
+        Console.WriteLine(flyweight1 == flyweight2); // false
+        Console.WriteLine(flyweight1 == flyweight3); // true
+
+        // Flyweight operasyonlarını çağır
+        flyweight1.Operation();
+        flyweight2.Operation();
+        flyweight3.Operation();
+    }
+}
+```
+
+## Proxy Tasarım Deseni
+
+Proxy tasarım deseni, bir nesnenin yerine geçerek erişimi kontrol eden ve gerçek nesneye yapılan erişimi yöneten bir yapısal tasarım desenidir. Bu desen, gerçek nesneye erişimde ek kontrol veya ek işlemler yapılması gerektiğinde veya nesnenin oluşturulması veya yüklenmesi gerektiğinde kullanılır.
+
+1. Kullanım Senaryoları
+
+- Erişimin kısıtlanması veya kontrol edilmesi gerektiğinde.
+- Gerçek nesneye erişimde gecikme veya maliyet varsa.
+- Gerçek nesnenin oluşturulması veya yüklenmesi gerektiğinde.
+
+2. Avantajlar
+
+- Erişim kontrolünü veya ek işlemleri kolayca eklemeyi sağlar.
+- Gerçek nesne üzerinde gerekli değişiklikleri yapmadan istemcileri destekler.
+
+3. Dezavantajlar
+
+- Proxy ve gerçek nesnenin arasındaki arayüz uyuşmazlıkları veya eşleşmeme durumlarında sorunlara yol açabilir.
+
+ **Örnek Kod**
+
+```csharp
+using System;
+
+// Subject arayüzü
+public interface ISubject
+{
+    void Request();
+}
+
+// RealSubject sınıfı
+public class RealSubject : ISubject
+{
+    public void Request()
+    {
+        Console.WriteLine("RealSubject: Handling request.");
+    }
+}
+
+// Proxy sınıfı
+public class Proxy : ISubject
+{
+    private RealSubject realSubject;
+
+    public void Request()
+    {
+        if (realSubject == null)
+        {
+            realSubject = new RealSubject();
+        }
+        Console.WriteLine("Proxy: Handling request by delegating to RealSubject.");
+        realSubject.Request();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Proxy kullanarak gerçek nesneye erişim
+        ISubject proxy = new Proxy();
+        proxy.Request();
+    }
+}
+```
+
+
+
+## Behavioral Patterns (Davranışsal Desenler)
+
+Bu desenler, nesneler arasındaki etkileşimi ve sorumluluk dağılımını tanımlar.
+
+### Observer Pattern (Gözlemci Deseni)
+Örnek Kod (C#):
+```csharp
+using System;
+using System.Collections.Generic;
+
+public interface IObserver
+{
+    void Update();
+}
+
+public interface ISubject
+{
+    void Attach(IObserver observer);
+    void Detach(IObserver observer);
+    void Notify();
+}
+
+public class ConcreteSubject : ISubject
+{
+    private List<IObserver> observers = new List<IObserver>();
+
+    public void Attach(IObserver observer)
+    {
+        observers.Add(observer);
+    }
+
+    public void Detach(IObserver observer)
+    {
+        observers.Remove(observer);
+    }
+
+    public void Notify()
+    {
+        foreach (var observer in observers)
+        {
+            observer.Update();
+        }
+    }
+}
+
+public class ConcreteObserver : IObserver
+{
+    public void Update()
+    {
+        Console.WriteLine("ConcreteObserver is updated.");
+    }
+}
+```
+## Chain of Responsibility Tasarım Deseni
+
+Chain of Responsibility tasarım deseni, bir isteğin bir dizi işleyici tarafından sırayla işlenmesini sağlayan ve her işleyicinin isteği işlemeyi denemesine olanak tanıyan bir davranışsal tasarım desenidir. Bu desen, bir isteğin birden fazla nesne tarafından işlenmesi gerektiği durumlarda kullanılır.
+
+1. Kullanım Senaryoları
+
+- İsteğin bir dizi nesne tarafından sırayla işlenmesi ve hangi nesnenin işleyeceğinin belirlenmesi gerektiğinde.
+- Farklı işleyicilerin bir isteği farklı şekillerde işlemesi gerektiğinde.
+
+2. Avantajlar
+
+- İsteklerin işlenme sırasını dinamik olarak değiştirmeyi sağlar.
+- İstek işleyicileri arasındaki bağımlılığı azaltır, çünkü her işleyici yalnızca kendi işini bilir.
+
+3. Dezavantajlar
+
+- Zincirdeki tüm işleyicilerin işlemeyi reddetmesi durumunda isteğin işlenmemesi riski vardır.
+- Zincirdeki işleyicilerin tam olarak nasıl yapılandırılacağı ve sıralanacağı belirtilmeli ve bakımı gerektirebilir.
+
+**Örnek Kod**
+
+```csharp
+using System;
+
+// Handler arayüzü
+public interface IHandler
+{
+    void HandleRequest(int request);
+}
+
+// ConcreteHandler sınıfları
+public class ConcreteHandler1 : IHandler
+{
+    private IHandler nextHandler;
+
+    public void SetNextHandler(IHandler handler)
+    {
+        nextHandler = handler;
+    }
+
+    public void HandleRequest(int request)
+    {
+        if (request >= 0 && request < 10)
+        {
+            Console.WriteLine("ConcreteHandler1 handled the request.");
+        }
+        else if (nextHandler != null)
+        {
+            nextHandler.HandleRequest(request);
+        }
+    }
+}
+
+public class ConcreteHandler2 : IHandler
+{
+    private IHandler nextHandler;
+
+    public void SetNextHandler(IHandler handler)
+    {
+        nextHandler = handler;
+    }
+
+    public void HandleRequest(int request)
+    {
+        if (request >= 10 && request < 20)
+        {
+            Console.WriteLine("ConcreteHandler2 handled the request.");
+        }
+        else if (nextHandler != null)
+        {
+            nextHandler.HandleRequest(request);
+        }
+    }
+}
+
+// Client sınıfı
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Zincir oluştur
+        IHandler handler1 = new ConcreteHandler1();
+        IHandler handler2 = new ConcreteHandler2();
+        handler1.SetNextHandler(handler2);
+
+        // İstekleri işle
+        handler1.HandleRequest(5);
+        handler1.HandleRequest(15);
+        handler1.HandleRequest(25);
+    }
+}
+```
+## Command Tasarım Deseni
+
+Command tasarım deseni, işlemleri nesne olarak soyutlar ve işlemleri tetikleyen nesneleri ayırır. Bu sayede işlemlerin isteklerle bağlantısını koparıp, isteği bir nesne içine paketler. Bu paketleme, isteği nesne ile sarmalayarak parametrelerle uğraşmayı ortadan kaldırır ve işlemlerin sonradan geri alınmasını veya kuyruğa alınmasını sağlar.
+
+1. Kullanım Alanları
+
+- Menü sistemleri
+- Metin editörleri
+- Uygulama işlem geçmişleri
+
+2. Avantajları
+
+- İşlemleri parametrelerle bağlamak yerine, nesne ile bağlar.
+- İşlemleri isteklerle bağlamaktan ziyade, bir nesne içine paketler.
+- İşlemlerin geri alınmasını veya kuyruğa alınmasını sağlar.
+
+3. Örnek Kod (C#)
+
+```csharp
+using System;
+
+// Command arayüzü
+public interface ICommand
+{
+    void Execute();
+}
+
+// Alıcı sınıf
+public class Receiver
+{
+    public void Action()
+    {
+        Console.WriteLine("Receiver: Action");
+    }
+}
+
+// Command sınıfı
+public class ConcreteCommand : ICommand
+{
+    private Receiver receiver;
+
+    public ConcreteCommand(Receiver receiver)
+    {
+        this.receiver = receiver;
+    }
+
+    public void Execute()
+    {
+        receiver.Action();
+    }
+}
+
+// İstemci sınıf
+public class Client
+{
+    public void Run()
+    {
+        Receiver receiver = new Receiver();
+        ICommand command = new ConcreteCommand(receiver);
+        command.Execute();
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Client client = new Client();
+        client.Run();
+    }
+}
+```
+## Interpreter Tasarım Deseni
+
+Interpreter tasarım deseni, belirli bir dilin sözdizimini yorumlamak ve yürütmek için kullanılır. Bu tasarım deseni, dilin her bir unsurunu temsil eden bir nesne hiyerarşisi oluşturur. Bu nesneleri bir araya getirerek, dilin belirli bir ifadesini yorumlayabilir ve yürütebiliriz.
+
+1. Kullanım Alanları
+
+- Matematiksel ifadelerin yorumlanması
+- Sorgu dillerinin analizi
+- Regex (Düzenli İfadeler) işlemleri
+
+2. Avantajları
+
+- Esneklik: Yeni dil öğeleri eklenebilir veya mevcut öğeler değiştirilebilir.
+- Yeniden Kullanılabilirlik: Aynı yorumlayıcı farklı ifadeler için kullanılabilir.
+- Kolay Bakım: Dilin değişikliklerine karşı daha kolay bakım yapılabilir.
+
+**Örnek Kod**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Soyut ifade sınıfı
+public abstract class Expression
+{
+    public abstract int Interpret();
+}
+
+// Terminal ifade sınıfı
+public class NumberExpression : Expression
+{
+    private int number;
+
+    public NumberExpression(int number)
+    {
+        this.number = number;
+    }
+
+    public override int Interpret()
+    {
+        return number;
+    }
+}
+
+// Operatör ifade sınıfı
+public class AddExpression : Expression
+{
+    private Expression left;
+    private Expression right;
+
+    public AddExpression(Expression left, Expression right)
+    {
+        this.left = left;
+        this.right = right;
+    }
+
+    public override int Interpret()
+    {
+        return left.Interpret() + right.Interpret();
+    }
+}
+
+// İstemci sınıf
+public class Client
+{
+    public void Run()
+    {
+        // 2 + 3 ifadesini yorumlayalım
+        Expression expression = new AddExpression(new NumberExpression(2), new NumberExpression(3));
+        Console.WriteLine(expression.Interpret()); // Çıktı: 5
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Client client = new Client();
+        client.Run();
+    }
+}
+```
+## Iterator Tasarım Deseni
+
+Iterator tasarım deseni, bir koleksiyonun elemanlarına erişmek için kullanılır ve koleksiyonun iç yapısını gizler. Bu tasarım deseni, koleksiyon üzerinde dolaşmak için bir arayüz sağlar ve koleksiyonun iç detaylarını istemciden gizler.
+
+1. Kullanım Alanları
+
+- Koleksiyon üzerinde dolaşma işlemleri
+- Veri yapıları üzerinde gezinme
+
+2. Avantajları
+
+- Koleksiyonun yapısını gizler ve istemciye sadece dolaşma arayüzünü sunar.
+- Koleksiyonun altta yatan yapısını değiştirmeden dolaşma işlemlerini gerçekleştirebiliriz.
+- Çeşitli dolaşma stratejileri uygulayabiliriz.
+
+ **Örnek Kod**
+
+```csharp
+using System;
+using System.Collections;
+
+// Iterator arayüzü
+public interface IIterator
+{
+    bool HasNext();
+    object Next();
+}
+
+// Aggregate arayüzü
+public interface IAggregate
+{
+    IIterator CreateIterator();
+}
+
+// ConcreteAggregate sınıfı
+public class ConcreteAggregate : IAggregate
+{
+    private ArrayList items = new ArrayList();
+
+    public void Add(object item)
+    {
+        items.Add(item);
+    }
+
+    public IIterator CreateIterator()
+    {
+        return new ConcreteIterator(this);
+    }
+
+    public object this[int index]
+    {
+        get { return items[index]; }
+    }
+
+    public int Count
+    {
+        get { return items.Count; }
+    }
+}
+
+// ConcreteIterator sınıfı
+public class ConcreteIterator : IIterator
+{
+    private ConcreteAggregate aggregate;
+    private int index = 0;
+
+    public ConcreteIterator(ConcreteAggregate aggregate)
+    {
+        this.aggregate = aggregate;
+    }
+
+    public bool HasNext()
+    {
+        return index < aggregate.Count;
+    }
+
+    public object Next()
+    {
+        if (HasNext())
+        {
+            return aggregate[index++];
+        }
+        throw new InvalidOperationException("No more elements to iterate.");
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        ConcreteAggregate aggregate = new ConcreteAggregate();
+        aggregate.Add("Item 1");
+        aggregate.Add("Item 2");
+        aggregate.Add("Item 3");
+
+        IIterator iterator = aggregate.CreateIterator();
+        while (iterator.HasNext())
+        {
+            Console.WriteLine(iterator.Next());
+        }
+    }
+}
+```
+## Mediator Tasarım Deseni
+
+Mediator tasarım deseni, bir grup nesne arasındaki etkileşimi düzenler ve merkezi bir iletişim noktası sağlar. Bu tasarım deseni, nesnelerin birbiriyle doğrudan iletişim kurmasını önler ve onların yalnızca bir aracı (mediator) üzerinden iletişim kurmasını sağlar.
+
+1. Kullanım Alanları
+
+- UI bileşenleri arasındaki etkileşim
+- Çoklu kullanıcı sistemlerinde iletişim
+- Orta yazılım bileşenleri arasındaki iletişim
+
+2. Avantajları
+
+- Nesneler arasındaki sıkı bağımlılığı azaltır.
+- İletişimi merkezi bir noktada toplar ve karmaşıklığı azaltır.
+- Nesneleri yeniden kullanılabilir hale getirir ve bakımını kolaylaştırır.
+
+**Örnek Kod**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Mediator arayüzü
+public interface IMediator
+{
+    void SendMessage(Colleague colleague, string message);
+}
+
+// ConcreteMediator sınıfı
+public class ConcreteMediator : IMediator
+{
+    private List<Colleague> colleagues = new List<Colleague>();
+
+    public void AddColleague(Colleague colleague)
+    {
+        colleagues.Add(colleague);
+    }
+
+    public void SendMessage(Colleague colleague, string message)
+    {
+        foreach (var col in colleagues)
+        {
+            if (col != colleague)
+                col.Receive(message);
+        }
+    }
+}
+
+// Colleague sınıfı
+public abstract class Colleague
+{
+    protected IMediator mediator;
+
+    public Colleague(IMediator mediator)
+    {
+        this.mediator = mediator;
+    }
+
+    public abstract void Send(string message);
+    public abstract void Receive(string message);
+}
+
+// ConcreteColleague sınıfı
+public class ConcreteColleague : Colleague
+{
+    public ConcreteColleague(IMediator mediator) : base(mediator) { }
+
+    public override void Send(string message)
+    {
+        Console.WriteLine("Sending message: " + message);
+        mediator.SendMessage(this, message);
+    }
+
+    public override void Receive(string message)
+    {
+        Console.WriteLine("Received message: " + message);
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        ConcreteMediator mediator = new ConcreteMediator();
+        ConcreteColleague colleague1 = new ConcreteColleague(mediator);
+        ConcreteColleague colleague2 = new ConcreteColleague(mediator);
+
+        mediator.AddColleague(colleague1);
+        mediator.AddColleague(colleague2);
+
+        colleague1.Send("Hello from colleague1!");
+        colleague2.Send("Hello from colleague2!");
+    }
+}
+```
+## Memento Tasarım Deseni
+
+Memento tasarım deseni, bir nesnenin iç durumunu yakalamak ve kaydetmek için kullanılır. Bu durum daha sonra geri yüklenmek istendiğinde kullanılabilir. Bu desen, bir nesnenin durumunu saklamak ve geri yüklemek için dışa bağımlı hale getirir, böylece nesne kendisini temizler.
+
+1. Kullanım Alanları
+
+- Uygulama geri alma (undo) işlemleri
+- Yapısal veritabanı dönüşümleri
+- Çalışma zamanı oluşturma ve geri yükleme durumları
+
+2. Avantajları
+
+- Nesne durumunun depolanması ve geri yüklenmesi işlemlerini kolaylaştırır.
+- Nesnenin iç durumunu kapsüller ve dışa bağımlı hale getirir.
+- İstemci ve nesne arasındaki bağımlılığı azaltır.
+
+**Örnek Kod**
+
+```csharp
+using System;
+
+// Memento sınıfı
+public class Memento
+{
+    public string State { get; private set; }
+
+    public Memento(string state)
+    {
+        State = state;
+    }
+}
+
+// Originator sınıfı
+public class Originator
+{
+    private string state;
+
+    public string State
+    {
+        get { return state; }
+        set
+        {
+            state = value;
+            Console.WriteLine("State set to: " + state);
+        }
+    }
+
+    public Memento CreateMemento()
+    {
+        return new Memento(state);
+    }
+
+    public void SetMemento(Memento memento)
+    {
+        state = memento.State;
+    }
+}
+
+// Caretaker sınıfı
+public class Caretaker
+{
+    public Memento Memento { get; set; }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Originator originator = new Originator();
+        Caretaker caretaker = new Caretaker();
+
+        originator.State = "State1";
+        caretaker.Memento = originator.CreateMemento();
+
+        originator.State = "State2";
+
+        originator.SetMemento(caretaker.Memento);
+        Console.WriteLine("State after restoring: " + originator.State); // Çıktı: State1
+    }
+}
+```
+## State Tasarım Deseni
+
+State tasarım deseni, bir nesnenin davranışını durum değişikliklerine bağlı olarak değiştirmek için kullanılır. Bu desen, bir nesnenin iç durumunu temsil eden ayrı nesneler kullanarak karmaşık koşullu ifadeleri ortadan kaldırır ve nesnenin davranışını temsil eden farklı durumları yönetir.
+
+1. Kullanım Alanları
+
+- Nesne davranışının duruma bağlı olarak değiştiği durumlar
+- Makine durumlarının yönetimi
+- Oyun programlamada karakter davranışlarının yönetimi
+
+2. Avantajları
+
+- Durumlar arasındaki geçişleri kolaylaştırır ve yönetir.
+- Karmaşık koşullu ifadeleri ortadan kaldırır ve nesnenin iç durumunu temsil eden ayrı nesneler kullanır.
+- Durumların ekleme veya değiştirme işlemlerini kolaylaştırır.
+
+**Örnek Kod**
+
+```csharp
+using System;
+
+// State arayüzü
+public interface IState
+{
+    void Handle(Context context);
+}
+
+// ConcreteState sınıfları
+public class ConcreteStateA : IState
+{
+    public void Handle(Context context)
+    {
+        Console.WriteLine("State A is handling the context.");
+        context.State = new ConcreteStateB();
+    }
+}
+
+public class ConcreteStateB : IState
+{
+    public void Handle(Context context)
+    {
+        Console.WriteLine("State B is handling the context.");
+        context.State = new ConcreteStateA();
+    }
+}
+
+// Context sınıfı
+public class Context
+{
+    public IState State { get; set; }
+
+    public Context(IState state)
+    {
+        State = state;
+    }
+
+    public void Request()
+    {
+        State.Handle(this);
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Başlangıç durumu olarak State A'yı belirle
+        Context context = new Context(new ConcreteStateA());
+
+        // İsteği işle
+        context.Request(); // Çıktı: State A is handling the context.
+
+        // İsteği işle
+        context.Request(); // Çıktı: State B is handling the context.
+
+        // İsteği işle
+        context.Request(); // Çıktı: State A is handling the context.
+    }
+}
+```
+## Strategy Tasarım Deseni
+
+Strategy tasarım deseni, bir algoritmanın farklı varyasyonlarını tanımlamak ve bu algoritmaları birbirinden bağımsız hale getirmek için kullanılır. Bu desen, algoritmayı kullanıcı nesnelerden soyutlar ve farklı algoritma uygulamalarını değiştirilebilir hale getirir.
+
+1. Kullanım Alanları
+
+- Sıralama algoritmaları
+- Dosya sıkıştırma algoritmaları
+- Ödeme işlemleri yönetimi
+
+2. Avantajları
+
+- Kod tekrarını azaltır ve yeniden kullanılabilirliği arttırır.
+- Algoritma değişikliklerinin kolayca yapılmasını sağlar.
+- Farklı algoritmaları birbirinden bağımsız hale getirir ve karmaşıklığı azaltır.
+
+**Örnek Kod**
+
+```csharp
+using System;
+
+// Strategy arayüzü
+public interface IStrategy
+{
+    void Execute();
+}
+
+// ConcreteStrategy1 sınıfı
+public class ConcreteStrategy1 : IStrategy
+{
+    public void Execute()
+    {
+        Console.WriteLine("Executing strategy 1");
+    }
+}
+
+// ConcreteStrategy2 sınıfı
+public class ConcreteStrategy2 : IStrategy
+{
+    public void Execute()
+    {
+        Console.WriteLine("Executing strategy 2");
+    }
+}
+
+// Context sınıfı
+public class Context
+{
+    private IStrategy strategy;
+
+    public Context(IStrategy strategy)
+    {
+        this.strategy = strategy;
+    }
+
+    public void SetStrategy(IStrategy strategy)
+    {
+        this.strategy = strategy;
+    }
+
+    public void ExecuteStrategy()
+    {
+        strategy.Execute();
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Strategy 1 ile başla
+        IStrategy strategy1 = new ConcreteStrategy1();
+        Context context = new Context(strategy1);
+        context.ExecuteStrategy(); // Çıktı: Executing strategy 1
+
+        // Daha sonra Strategy 2'ye geç
+        IStrategy strategy2 = new ConcreteStrategy2();
+        context.SetStrategy(strategy2);
+        context.ExecuteStrategy(); // Çıktı: Executing strategy 2
+    }
+}
+```
+
+## Template Method Tasarım Deseni
+
+Template Method tasarım deseni, bir algoritmanın genel yapısını tanımlar, ancak belirli adımları alt sınıflara bırakır. Bu desen, algoritmanın genel davranışını bir temel sınıfta tanımlar ve daha sonra bu davranışın belirli adımlarını alt sınıflara bırakır.
+
+1. Kullanım Alanları
+
+- Veri tabanı işlemleri
+- Çeşitli dosya formatları için okuma/yazma işlemleri
+- Oyun geliştirme (örneğin, bir oyun karakterinin hareket algoritması)
+
+2. Avantajları
+
+- Kod tekrarını azaltır ve yeniden kullanılabilirliği arttırır.
+- Ana algoritmanın yapısını korur ve değişikliklerin etkilerini azaltır.
+- Alt sınıfların belirli adımları uygulama esnekliği sağlar.
+
+**Örnek Kod**
+
+```csharp
+using System;
+
+// AbstractClass (AbstractTemplate) sınıfı
+public abstract class DataProcessor
+{
+    // Template method
+    public void ProcessData()
+    {
+        ReadData();
+        TransformData();
+        WriteData();
+    }
+
+    // Abstract methods
+    protected abstract void ReadData();
+    protected abstract void TransformData();
+    protected abstract void WriteData();
+}
+
+// ConcreteClass (ConcreteTemplate) sınıfı
+public class ExcelDataProcessor : DataProcessor
+{
+    protected override void ReadData()
+    {
+        Console.WriteLine("Reading data from Excel file");
+    }
+
+    protected override void TransformData()
+    {
+        Console.WriteLine("Transforming Excel data");
+    }
+
+    protected override void WriteData()
+    {
+        Console.WriteLine("Writing data to database");
+    }
+}
+
+// ConcreteClass (ConcreteTemplate) sınıfı
+public class TextDataProcessor : DataProcessor
+{
+    protected override void ReadData()
+    {
+        Console.WriteLine("Reading data from text file");
+    }
+
+    protected override void TransformData()
+    {
+        Console.WriteLine("Transforming text data");
+    }
+
+    protected override void WriteData()
+    {
+        Console.WriteLine("Writing data to XML file");
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        DataProcessor excelProcessor = new ExcelDataProcessor();
+        excelProcessor.ProcessData();
+
+        DataProcessor textProcessor = new TextDataProcessor();
+        textProcessor.ProcessData();
+    }
+}
+```
+
+## Visitor Tasarım Deseni
+
+Visitor tasarım deseni, bir nesnenin yapısını (örneğin, bir nesne ağacı) değiştirmeden yeni işlevsellik eklemek için kullanılır. Bu desen, birbirinden bağımsız işlevselliği nesneler üzerinde uygulamak için bir arayüz sağlar.
+
+1. Kullanım Alanları
+
+- XML dökümanları üzerinde işlem yapma
+- Derleme ağaçları üzerinde işlem yapma
+- Veritabanı sorgularını analiz etme
+
+2. Avantajları
+
+- Yeni işlevselliğin eklenmesini ve mevcut işlevselliğin değiştirilmesini kolaylaştırır.
+- Bir nesne yapısını değiştirmeden işlevselliği ekler.
+- Birbirinden bağımsız işlevselliği uygulamayı sağlar.
+ **Örnek Kod**
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Element arayüzü
+public interface IElement
+{
+    void Accept(IVisitor visitor);
+}
+
+// ConcreteElement1 sınıfı
+public class ConcreteElement1 : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitConcreteElement1(this);
+    }
+
+    public void Operation1()
+    {
+        Console.WriteLine("Operation 1 called on ConcreteElement1");
+    }
+}
+
+// ConcreteElement2 sınıfı
+public class ConcreteElement2 : IElement
+{
+    public void Accept(IVisitor visitor)
+    {
+        visitor.VisitConcreteElement2(this);
+    }
+
+    public void Operation2()
+    {
+        Console.WriteLine("Operation 2 called on ConcreteElement2");
+    }
+}
+
+// Visitor arayüzü
+public interface IVisitor
+{
+    void VisitConcreteElement1(ConcreteElement1 element);
+    void VisitConcreteElement2(ConcreteElement2 element);
+}
+
+// ConcreteVisitor sınıfı
+public class ConcreteVisitor : IVisitor
+{
+    public void VisitConcreteElement1(ConcreteElement1 element)
+    {
+        element.Operation1();
+    }
+
+    public void VisitConcreteElement2(ConcreteElement2 element)
+    {
+        element.Operation2();
+    }
+}
+
+// ObjectStructure sınıfı
+public class ObjectStructure
+{
+    private List<IElement> elements = new List<IElement>();
+
+    public void Attach(IElement element)
+    {
+        elements.Add(element);
+    }
+
+    public void Detach(IElement element)
+    {
+        elements.Remove(element);
+    }
+
+    public void Accept(IVisitor visitor)
+    {
+        foreach (var element in elements)
+        {
+            element.Accept(visitor);
+        }
+    }
+}
+
+// Kullanım
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        ObjectStructure objectStructure = new ObjectStructure();
+        objectStructure.Attach(new ConcreteElement1());
+        objectStructure.Attach(new ConcreteElement2());
+
+        IVisitor visitor = new ConcreteVisitor();
+        objectStructure.Accept(visitor);
+    }
+}
+```
+
+## 78. Domain-Driven Design (DDD) Pattern Nedir ?
+Domain-Driven Design (DDD), bir yazılım projesini geliştirirken, özellikle de karmaşık iş domain'leriyle uğraşırken kullanılan bir tasarım metodolojisidir. Bu metodoloji, yazılımın karmaşıklığını azaltmak ve iş domain'ini yazılım modeline yansıtmak için çeşitli teknikler ve prensipler sağlar.
+
+## Özellikler
+
+- **Zengin Model**: Yazılım modeli, iş domain'ine odaklanır ve iş gereksinimlerini doğrudan yansıtan zengin bir model oluşturulur.
+  
+- **Ubiquitous Language (Her Yerde Geçerli Dil)**: Geliştirme ekibi ve iş sahipleri arasında ortak bir dil oluşturulur. Bu dil, iş gereksinimlerini anlamak ve ifade etmek için kullanılır.
+
+- **Bounded Contexts (Sınırlı Bağlam)**: İş domain'i, sınırlı bağlamlara ayrılır. Her bağlam, belirli bir iş gereksinimini ele alır ve kendi sınırları içerisinde tanımlanır.
+
+- **Aggregate Roots (Kök Varlıklar)**: Karmaşık iş domain'lerini yönetmek için birer kök varlık (aggregate root) tanımlanır. Kök varlıklar, diğer varlıkları yöneten ve bunlar arasındaki konsistansı sağlayan ana noktalardır.
+
+- **Domain Events (Domain Olayları)**: İş domain'indeki önemli değişiklikler, domain olayları aracılığıyla bildirilir. Bu olaylar, sistemdeki diğer bileşenler tarafından dinlenerek işlenebilir.
+
+## Uygulama Adımları
+
+1. **Domain Anlayışı**: İş gereksinimlerini ve iş domain'ini anlamak için iş sahipleri ve geliştirme ekibiyle etkileşimde bulunulur.
+
+2. **Ubiquitous Language Oluşturma**: Ortak bir dil oluşturulur ve iş gereksinimleri bu dil kullanılarak ifade edilir.
+
+3. **Bounded Contexts Tanımlama**: İş domain'i, ilgili iş gereksinimlerine göre sınırlı bağlamlara ayrılır.
+
+4. **Zengin Model Oluşturma**: Sınırlı bağlamlar içerisinde, iş gereksinimlerini yansıtan zengin bir model oluşturulur. Kök varlıklar ve bunlar arasındaki ilişkiler belirlenir.
+
+5. **Aggregate Roots Belirleme**: Karmaşık iş domain'lerinde, kök varlıklar tanımlanır ve bunlar arasındaki konsistans sağlanır.
+
+6. **Domain Events Kullanma**: Önemli iş domain değişiklikleri, domain olayları aracılığıyla bildirilir ve sistemdeki diğer bileşenler tarafından işlenir.
+
+7. **Uygulama Geliştirme**: Belirlenen tasarım prensipleri ve yönergeleri doğrultusunda, yazılımın geri kalanı geliştirilir ve iş gereksinimleri karşılanır.
+
+## Sonuç
+
+Domain-Driven Design (DDD), karmaşık iş domain'lerini ele almak için etkili bir yöntem sunar. Zengin bir model oluşturarak, iş gereksinimlerini doğrudan yazılım modeline yansıtmak ve sınırlı bağlamlar içerisinde yönetmek mümkün olur. Bu sayede, yazılımın karmaşıklığı azalır ve iş gereksinimleri daha iyi karşılanır.
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+// Örnek: Bir alışveriş uygulaması için Domain-Driven Design (DDD) kullanımı
+
+// Model: Ürün sınıfı
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+// Repository: Ürünlerin depolandığı veritabanı veya başka bir kaynak
+public class ProductRepository
+{
+    private List<Product> products = new List<Product>();
+
+    public void Add(Product product)
+    {
+        products.Add(product);
+    }
+
+    public Product GetById(int id)
+    {
+        return products.Find(p => p.Id == id);
+    }
+
+    public List<Product> GetAll()
+    {
+        return products;
+    }
+}
+
+// Service: Alışveriş işlemlerinin gerçekleştirildiği hizmet
+public class ShoppingService
+{
+    private ProductRepository productRepository;
+
+    public ShoppingService(ProductRepository productRepository)
+    {
+        this.productRepository = productRepository;
+    }
+
+    public void BuyProduct(int productId)
+    {
+        Product product = productRepository.GetById(productId);
+        if (product != null)
+        {
+            Console.WriteLine($"'{product.Name}' adlı ürünü başarıyla satın aldınız!");
+        }
+        else
+        {
+            Console.WriteLine("Üzgünüz, belirtilen ürün bulunamadı.");
+        }
+    }
+
+    public void ShowAllProducts()
+    {
+        List<Product> products = productRepository.GetAll();
+        Console.WriteLine("Ürünler:");
+        foreach (var product in products)
+        {
+            Console.WriteLine($"- {product.Name}: {product.Price:C}");
+        }
+    }
+}
+
+// Kullanım
+class Program
+{
+    static void Main(string[] args)
+    {
+        ProductRepository productRepository = new ProductRepository();
+        productRepository.Add(new Product { Id = 1, Name = "Telefon", Price = 2000 });
+        productRepository.Add(new Product { Id = 2, Name = "Bilgisayar", Price = 4000 });
+
+        ShoppingService shoppingService = new ShoppingService(productRepository);
+        shoppingService.ShowAllProducts();
+
+        shoppingService.BuyProduct(1);
+        shoppingService.BuyProduct(3); // Olmayan bir ürün satın alınmaya çalışılıyor
+    }
+}
+```
+
+## 79. Command Query Responsibility Segregation (CQRS) Deseni Nedir ?
+
+CQRS deseni, bir uygulamanın sorgu (query) ve komut (command) tarafını birbirinden ayırarak, veri okuma ve veri yazma işlemlerini farklı modellerle ele almayı amaçlar.
+
+## Özellikler
+
+- **Sorgu (Query) Modeli**: Veri okuma işlemleri için optimize edilmiş bir model.
+- **Komut (Command) Modeli**: Veri yazma işlemleri için optimize edilmiş bir model.
+- **Event Sourcing**: Veri değişikliklerini event'ler aracılığıyla takip etme ve saklama.
+
+## Avantajlar
+
+- Uygulamanın performansını artırır.
+- Okuma ve yazma işlemlerinin karmaşıklığını azaltır.
+- Event sourcing ile veri geçmişini takip etmek ve geriye dönük analiz yapmak mümkün olur.
+
+## 80. Service-Oriented Architecture (SOA) Deseni Nedir ?
+SOA deseni, bir yazılım sistemini hizmetlere dayalı modüler bir yapıya dönüştürür. Her hizmet, belirli bir işlevi gerçekleştirir ve diğer hizmetlerle bağımsız olarak çalışır.
+## Özellikler
+
+- **Servisler**: Bağımsız olarak çalışabilen işlevsel birimler.
+- **Hizmet Arayüzleri**: Servisler arasında iletişimi sağlayan tanımlanmış arayüzler.
+- **İstek/Yanıt (Request/Response)**: İstemci ve servis arasındaki iletişim modeli.
+
+## Avantajlar
+
+- Modülerlik ve yeniden kullanılabilirlik sağlar.
+- Servisler arası bağımsızlık ve esneklik sunar.
+- Büyük projelerde yönetimi kolaylaştırır ve paralel geliştirme olanakları sunar.
+
+## 81. Kalıtımın Tanımı ve Çalışma Mekanizması
+
+Kalıtım (inheritance), bir nesne yönelimli programlama (OOP) konseptidir ve bir sınıfın diğer bir sınıftan özelliklerini (veri ve davranış) miras almasını sağlar. Bu, bir sınıfın başka bir sınıftan tüm özelliklerini ve davranışlarını devralmasına olanak tanır. Kalıtım, sınıflar arasında bir "is-a" ilişkisi kurar.
+
+### Kalıtımın Çalışma Mekanizması
+
+Bir sınıfın başka bir sınıftan kalıtım alması, alt sınıfın (türetilmiş sınıf) üst sınıfın (temel sınıf) özelliklerini ve davranışlarını miras almasını sağlar. Bu, alt sınıfın, üst sınıfın tüm public ve protected üyelerine erişebileceği anlamına gelir.
+
+Kalıtımın çalışma mekanizması şu adımları içerir:
+
+1. **Alt Sınıfın Tanımlanması**: Yeni bir sınıf tanımlanır ve bu sınıfın üst sınıfını belirlemek için ':' operatörü kullanılır.
+
+    ```csharp
+    // Üst sınıf tanımı
+    public class BaseClass
+    {
+        // Üst sınıfın özellikleri ve davranışları
+    }
+
+    // Alt sınıf tanımı
+    public class DerivedClass : BaseClass
+    {
+        // Alt sınıfın özellikleri ve davranışları
+    }
+    ```
+
+2. **Üst Sınıfın Özelliklerinin ve Davranışlarının Kullanılması**: Alt sınıf, üst sınıfın tüm public ve protected özelliklerine ve metodlarına erişebilir.
+
+    ```csharp
+    // Üst sınıf tanımı
+    public class BaseClass
+    {
+        public int Number { get; set; }
+
+        public void PrintMessage()
+        {
+            Console.WriteLine("Hello from BaseClass!");
+        }
+    }
+
+    // Alt sınıf tanımı
+    public class DerivedClass : BaseClass
+    {
+        public void DisplayNumber()
+        {
+            Console.WriteLine($"Number: {Number}");
+        }
+    }
+
+    // Kullanım
+    static void Main(string[] args)
+    {
+        DerivedClass derivedObj = new DerivedClass();
+        derivedObj.Number = 10;
+        derivedObj.DisplayNumber(); // Sonuç: Number: 10
+        derivedObj.PrintMessage();  // Sonuç: Hello from BaseClass!
+    }
+    ```
+## 82. Sınıf Kalıtımının Avantajları Nelerdir ?
+
+Sınıf kalıtımı, bir sınıfın başka bir sınıftan özelliklerini ve davranışlarını miras almasını sağlayarak çeşitli avantajlar sunar.
+
+### Avantajlar
+
+1. **Kodun Yeniden Kullanılabilirliği**: Üst sınıfta tanımlanan özellikler ve davranışlar, alt sınıflar tarafından tekrar tekrar yazılmak zorunda kalmaz. Bu, kodun yeniden kullanılabilirliğini artırır.
+
+2. **Kodun Daha Az Tekrar Edilmesi**: Ortak özelliklerin ve davranışların üst sınıfta tanımlanması, kodun tekrarlanmasını önler. Bu, kodun daha az karmaşık hale gelmesini sağlar.
+
+3. **Kodun Daha Kolay Bakımı**: Bir değişiklik yapıldığında, bu değişiklik sadece üst sınıfa yapılırsa, tüm alt sınıflar bu değişiklikten otomatik olarak etkilenir. Bu, kodun bakımını kolaylaştırır ve tutarlılığını sağlar.
+
+4. **Polimorfizm (Çok Biçimlilik) İmkanı**: Kalıtım, alt sınıfların üst sınıfın metotlarını geçersiz kılmasına (override) izin verir. Bu, farklı alt sınıfların aynı metotları farklı şekilde uygulamasına olanak tanır, bu da çok biçimliliği (polymorphism) sağlar.
+
+5. **Kodun Daha Modüler Olması**: Her alt sınıf, kendi özelleştirilmiş davranışlarını eklerken, üst sınıfın temel davranışlarını korur. Bu, kodun daha modüler hale gelmesini sağlar.
+
+Bu avantajlar, sınıflar arasındaki ilişkilerin belirli bir hiyerarşide tanımlanmasıyla sağlanır ve yazılım geliştirme sürecinde kodun daha verimli ve sürdürülebilir olmasını sağlar.
+
+## 82. Temel Sınıfın Türetilmiş Sınıf Üzerindeki Etkisi
+
+Temel sınıfın (base class) türetilmiş sınıf (derived class) üzerindeki etkisi, kalıtım (inheritance) ilişkisi içinde önemli bir rol oynar.
+
+### Etkiler
+
+1. **Özellik ve Metot Mirası**: Temel sınıfın tüm public ve protected özellikleri ve metotları, türetilmiş sınıf tarafından doğrudan miras alınır. Bu, türetilmiş sınıfın, temel sınıfın özelliklerini ve davranışlarını kullanabilmesini sağlar.
+
+2. **Genişletme (Extension)**: Türetilmiş sınıf, temel sınıfın özelliklerini ve metotlarını genişletebilir veya değiştirebilir. Bu, kalıtım yoluyla yeni özellikler ve davranışlar eklenerek daha özelleştirilmiş bir yapı oluşturulabilir.
+
+3. **Geçersiz Kılma (Overriding)**: Türetilmiş sınıf, temel sınıfta tanımlanan metotları geçersiz kılabilir (override). Bu, türetilmiş sınıfın aynı adı taşıyan ancak farklı davranışlar sergileyen bir metot tanımlamasına olanak tanır.
+
+4. **Erişim Belirleyicileri (Access Modifiers)**: Temel sınıfın private üyeleri, türetilmiş sınıf tarafından erişilemez. Ancak protected üyeler, türetilmiş sınıf tarafından erişilebilir ve bu sayede alt sınıfların temel sınıfın içeriğine erişimi sağlanır.
+
+5. **Çok Biçimlilik (Polymorphism)**: Temel sınıfın ve türetilmiş sınıfların aynı adı taşıyan metotları, çeşitli alt sınıflar tarafından farklı şekillerde uygulanabilir. Bu, çok biçimliliği sağlar ve farklı nesnelerin aynı arayüzü kullanarak farklı davranışlar sergilemesine olanak tanır.
+
+Temel sınıfın türetilmiş sınıf üzerindeki etkisi, kalıtımın temel prensipleri doğrultusunda kodun modüler ve sürdürülebilir olmasını sağlar.
+
+## 83 .C# Dilinde Çok Biçimliliğin Uygulanması
+
+C# dilinde çok biçimlilik (polymorphism), farklı nesnelerin aynı arayüzü kullanarak farklı davranışlar sergilemesini sağlar. Bu, kalıtım (inheritance) ve arayüzler (interfaces) gibi kavramlar kullanılarak gerçekleştirilir.
+
+### Kalıtım (Inheritance) ile Çok Biçimlilik
+
+C# dilinde kalıtım yoluyla çok biçimlilik uygulamak için, bir üst sınıfta tanımlanan metotları, alt sınıflarda gerektiği şekilde geçersiz kılarız (override). Bu, alt sınıfların aynı adı taşıyan ancak farklı davranışlar sergileyen metotlar tanımlamasını sağlar.
+
+```csharp
+// Temel sınıf
+public class Animal
+{
+    public virtual void Sound()
+    {
+        Console.WriteLine("Animal makes a sound");
+    }
+}
+
+// Türetilmiş sınıf
+public class Dog : Animal
+{
+    public override void Sound()
+    {
+        Console.WriteLine("Dog barks");
+    }
+}
+
+// Türetilmiş sınıf
+public class Cat : Animal
+{
+    public override void Sound()
+    {
+        Console.WriteLine("Cat meows");
+    }
+}
+
+// Kullanım
+class Program
+{
+    static void Main(string[] args)
+    {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+
+        animal1.Sound(); // Sonuç: Dog barks
+        animal2.Sound(); // Sonuç: Cat meows
+    }
+}
+```
+
+### Arayüzler (Interfaces) ile Çok Biçimlilik
+
+C# dilinde arayüzler kullanarak da çok biçimlilik sağlanabilir. Arayüzler, farklı sınıflar arasında bir ortak davranışı tanımlar ve bu davranışı uygulamak isteyen sınıflar bu arayüzü uygular.
+
+```csharp
+// Arayüz tanımı
+public interface IShape
+{
+    void Draw();
+}
+
+// Arayüzü uygulayan sınıflar
+public class Circle : IShape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Circle is drawn");
+    }
+}
+
+public class Rectangle : IShape
+{
+    public void Draw()
+    {
+        Console.WriteLine("Rectangle is drawn");
+    }
+}
+
+// Kullanım
+class Program
+{
+    static void Main(string[] args)
+    {
+        IShape shape1 = new Circle();
+        IShape shape2 = new Rectangle();
+
+        shape1.Draw(); // Sonuç: Circle is drawn
+        shape2.Draw(); // Sonuç: Rectangle is draw
+    }
+}
+```
+## 84. Sanal Fonksiyonlar (Virtual Functions) ve Sanal Olmayan Fonksiyonlar (Non-Virtual Functions) Arasındaki Farklar
+
+Sanal fonksiyonlar ve sanal olmayan fonksiyonlar, C# dilinde çok biçimliliği (polymorphism) sağlamak için kullanılan önemli kavramlardır. İşte bu iki kavram arasındaki farklar:
+
+### Sanal Fonksiyonlar (Virtual Functions)
+
+- **Tanım**: Sanal fonksiyonlar, bir üst sınıfta tanımlanan bir metodun alt sınıflar tarafından geçersiz kılınabileceği (override) özellik taşıyan fonksiyonlardır.
+- **İşaretlenme**: Sanal fonksiyonlar, `virtual` anahtar kelimesi ile işaretlenir.
+- **Geçersiz Kılma (Overriding)**: Alt sınıflar, sanal fonksiyonları geçersiz kılabilir ve kendi uygulamalarını sağlayabilir.
+- **Çok Biçimlilik (Polymorphism)**: Farklı alt sınıflar, aynı adı taşıyan sanal fonksiyonları farklı davranışlarla uygulayabilir.
+
+### Sanal Olmayan Fonksiyonlar (Non-Virtual Functions)
+
+- **Tanım**: Sanal olmayan fonksiyonlar, bir üst sınıfta tanımlanan bir metodun alt sınıflar tarafından geçersiz kılınamayacağı fonksiyonlardır.
+- **İşaretlenme**: Sanal olmayan fonksiyonlar, `virtual` anahtar kelimesi kullanılmadan tanımlanır.
+- **Geçersiz Kılma (Overriding)**: Alt sınıflar, sanal olmayan fonksiyonları geçersiz kılamaz ve üst sınıfta tanımlandığı şekilde kullanılır.
+- **Çok Biçimlilik (Polymorphism)**: Sanal olmayan fonksiyonlar, farklı alt sınıflar tarafından farklı davranışlarla uygulanamazlar.
+
+### Farklar
+
+1. **Geçersiz Kılma (Overriding)**: Sanal fonksiyonlar geçersiz kılınabilirken, sanal olmayan fonksiyonlar geçersiz kılınamaz.
+2. **Çok Biçimlilik (Polymorphism)**: Sanal fonksiyonlar farklı davranışlarla uygulanabilirken, sanal olmayan fonksiyonlar aynı davranışı korur.
+3. **Anahtar Kelime Kullanımı**: Sanal fonksiyonlar `virtual` anahtar kelimesi ile işaretlenirken, sanal olmayan fonksiyonlar bu anahtar kelime kullanılmadan tanımlanır.
+
+## 84. Sanal Fonksiyonların Geçersiz Kılınması (Overriding) Nedir ve Neden Önemlidir?
+
+Sanal fonksiyonların geçersiz kılınması (overriding), bir alt sınıfın, üst sınıfta tanımlanan sanal bir fonksiyonu kendi ihtiyaçlarına göre yeniden tanımlamasıdır. Bu, alt sınıfın, üst sınıftan devralınan bir fonksiyonun davranışını değiştirmesine olanak tanır.
+
+### Önem
+
+1. **Çok Biçimlilik (Polymorphism)**: Sanal fonksiyonların geçersiz kılınması, çok biçimliliği (polymorphism) sağlar. Farklı alt sınıflar, aynı adı taşıyan sanal fonksiyonları farklı davranışlarla uygulayabilir, bu da kodun daha esnek ve genişletilebilir olmasını sağlar.
+
+2. **Alt Sınıfın İhtiyaçlarına Uygunluk**: Alt sınıflar, üst sınıftan devralınan bir fonksiyonun davranışını kendi ihtiyaçlarına göre uygun hale getirebilir. Bu, alt sınıfların daha özelleştirilmiş davranışlar sergilemesini sağlar.
+
+3. **Miras Alanın İşlevselliğini Genişletme**: Alt sınıflar, üst sınıftan devralınan bir fonksiyonu yeniden tanımlayarak, miras aldıkları işlevselliği genişletebilir veya değiştirebilir. Bu, kodun daha modüler hale gelmesini ve yeniden kullanılabilirliğini artırır.
+
+ **Örnek**
+
+```csharp
+public class BaseClass
+{
+    public virtual void Display()
+    {
+        Console.WriteLine("BaseClass - Display");
+    }
+}
+
+public class DerivedClass : BaseClass
+{
+    public override void Display()
+    {
+        Console.WriteLine("DerivedClass - Display");
+    }
+}
+```
+## 85. CI Nedir? CD Nedir? Aralarındaki Fark Nedir?
+
+**Soru:** CI ve CD kavramlarını tanımlayın.
+
+**Cevap:**
+
+- **CI (Continuous Integration - Sürekli Entegrasyon):** CI, yazılım geliştirme sürecinde sık sık gerçekleştirilen bir uygulama test ve entegrasyon sürecidir. Yazılım geliştiricilerin kodlarını sık sık birleştirmesine ve otomatik olarak test etmesine olanak tanır. CI süreci genellikle her kod değişikliği yapıldığında tetiklenir ve kod tabanında olası hataları erken tespit etmeye ve yazılım kalitesini artırmaya yardımcı olur.
+
+- **CD (Continuous Delivery - Sürekli Dağıtım) ve (Continuous Deployment - Sürekli Yayınlama):** CD, CI'nin bir uzantısı olarak kabul edilir. Sürekli dağıtım (Continuous Delivery), yazılımı test ve yapım aşamalarından geçirdikten sonra bir ortama dağıtmak için sürekli bir süreç oluşturur. Yazılım sürümleri burada manuel olarak yayınlanabilir. Sürekli yayınlama (Continuous Deployment) ise yazılımı test edilmiş ve onaylanmış bir şekilde üretim ortamına otomatik olarak dağıtma sürecidir. CD, yazılım geliştirme sürecini hızlandırır, güvenilirliği artırır ve insan hatalarını en aza indirir.
+
+**Soru:** CI ve CD'nin farklarını açıklayın.
+
+**Cevap:**
+
+- CI, yazılım geliştirme sürecinde kod değişikliklerinin sürekli olarak birleştirilmesi ve otomatik olarak test edilmesini sağlayan bir uygulama test ve entegrasyon sürecidir. CD ise bu sürecin bir uzantısı olup, sürekli olarak üretilen yazılım sürümlerinin otomatik olarak test edilmiş ve onaylanmış bir şekilde üretim ortamına dağıtılmasını sağlar.
+
+- CI, yazılım kalitesini artırmaya ve hataların erken tespit edilmesine odaklanırken, CD ise yazılım sürümlerinin güvenli, hızlı ve tekrarlanabilir bir şekilde üretim ortamına dağıtılmasını sağlayarak yazılım geliştirme sürecini otomatikleştirir ve hızlandırır.
+
+## 86. CI/CD Araçları Nelerdir ve Ne İşe Yararlar?
+
+**Popüler CI/CD araçlarından bazılarını sıralayın ve her birinin işlevlerini açıklayın:**
+
+1. **Jenkins:**
+   - Jenkins, açık kaynaklı bir CI/CD aracıdır.
+   - Yazılım geliştirme sürecinde sürekli entegrasyon, yapım ve dağıtım süreçlerini otomatikleştirmek için kullanılır.
+   - Jenkins, geniş eklenti desteğiyle esnek bir yapıya sahiptir ve farklı platformlarla uyumludur.
+
+2. **GitLab CI/CD:**
+   - GitLab CI/CD, GitLab'in entegre CI/CD aracıdır.
+   - GitLab projesi içinde yerleşik olarak bulunur ve GitLab CI/CD dosyaları ile yapılandırılır.
+   - GitLab CI/CD, kod depolama, yapılandırma, test ve dağıtım süreçlerini tek bir arayüzde birleştirir.
+
+3. **CircleCI:**
+   - CircleCI, bulut tabanlı bir CI/CD hizmetidir.
+   - GitHub, Bitbucket ve GitLab gibi kod depolama platformları ile entegre çalışır.
+   - CircleCI, kod değişikliklerini algılar, otomatik testler çalıştırır ve onaylanmış değişiklikleri belirlenen ortamlara dağıtır.
+
+4. **Travis CI:**
+   - Travis CI, bulut tabanlı bir CI/CD hizmetidir.
+   - GitHub ve Bitbucket gibi kod depolama platformları ile entegre çalışır.
+   - Travis CI, projelerinizi otomatik olarak test eder ve belirli test sonuçlarına göre yapılandırılmış işlemleri gerçekleştirir.
+
+5. **TeamCity:**
+   - TeamCity, JetBrains tarafından geliştirilen bir CI/CD aracıdır.
+   - Java tabanlıdır ve Windows, macOS ve Linux gibi farklı işletim sistemlerinde çalışabilir.
+   - TeamCity, esnek yapılandırma seçenekleri ve ölçeklenebilir mimarisi ile büyük ölçekli projelerde kullanılabilir.
+
+6. **GitHub Actions:**
+   - GitHub Actions, GitHub'in entegre CI/CD hizmetidir.
+   - GitHub deposu içinde yerleşik olarak bulunur ve GitHub Actions YAML dosyaları ile yapılandırılır.
+   - GitHub Actions, GitHub deposundaki olaylara tepki verir ve belirli işlemleri otomatik olarak gerçekleştirir.
+
+7. **Bamboo:**
+   - Bamboo, Atlassian tarafından geliştirilen bir CI/CD aracıdır.
+   - Jira, Bitbucket ve diğer Atlassian ürünleri ile entegre çalışır.
+   - Bamboo, karmaşık CI/CD süreçlerini kolayca yapılandırmanıza olanak tanır ve büyük ölçekli projeler için ölçeklenebilirdir.
+
+## 87. CI/CD Süreçlerinin Avantajları Nelerdir?
+
+**Soru:** CI/CD süreçlerinin sağladığı avantajları açıklayın.
+
+**Cevap:**
+
+- **Hızlı Geri Bildirim (Rapid Feedback):** CI/CD süreçleri, her kod değişikliğinin otomatik olarak test edilmesini ve derlenmesini sağlar. Bu sayede geliştiriciler, hataları hızlı bir şekilde tespit edebilir ve düzeltebilirler.
+
+- **Yüksek Kalite:** Sürekli entegrasyon (CI), kod tabanındaki hataların erken tespit edilmesini sağlar. Sürekli dağıtım (CD) ise yazılımın her zaman kullanıma hazır, test edilmiş ve güvenilir olmasını sağlar.
+
+- **Otomasyon ve Tekrarlanabilirlik:** CI/CD süreçleri, yazılım geliştirme sürecindeki tekrarlanan görevleri otomatikleştirir. Bu, insan hatalarını azaltır, zaman ve kaynak tasarrufu sağlar.
+
+- **Esneklik ve Ölçeklenebilirlik:** CI/CD süreçleri, farklı platformlarda ve ortamlarda kullanılabilir. Ayrıca, büyük ölçekli projelerde de kolayca uygulanabilir ve ölçeklenebilir.
+
+**Soru:** Yazılım geliştirme sürecinde CI/CD'nin önemini vurgulayın.
+
+**Cevap:**
+
+- Yazılım geliştirme sürecinde CI/CD, hızlı bir şekilde kod geliştirmeyi, test etmeyi ve dağıtmayı sağlayarak zaman ve kaynak tasarrufu yapılmasını sağlar.
+
+- CI/CD süreçleri, ekip üyeleri arasında iletişimi ve işbirliğini artırır. Sürekli geri bildirim almak, hataları hızlı bir şekilde düzeltmek ve sürekli olarak yazılımı iyileştirmek için bir fırsat sunar.
+
+- Güvenilir ve kaliteli yazılım üretmek için CI/CD süreçlerinin önemi büyüktür. Sürekli testler ve otomatik dağıtım, yazılımın hatalarını minimize eder ve kullanıcı deneyimini artırır.
+
+- Sonuç olarak, CI/CD süreçleri yazılım geliştirme sürecini daha verimli, güvenilir ve kaliteli hale getirir. Bu da şirketlerin rekabet avantajını artırır ve müşteri memnuniyetini artırır.
+
+## 88. CI/CD Sürecinde Otomatik Testlerin Rolü Nedir?
+
+**Soru:** CI/CD sürecinde otomatik testlerin rolünü açıklayın.
+
+**Cevap:**
+
+Otomatik testler, CI/CD sürecinde yazılım kalitesini artırmak ve hızlı ve güvenilir bir dağıtım süreci sağlamak için kritik bir rol oynar. Otomatik testler, her kod değişikliği yapıldığında otomatik olarak tetiklenir ve yazılımın istikrarını sağlamak için kod tabanındaki hataları ve uyumsuzlukları tespit eder. Ayrıca, otomatik testler, kod değişikliklerinin geriye dönük olarak mevcut işlevselliği bozup bozmadığını ve yeni eklenen özelliklerin mevcut sistemle uyumlu olup olmadığını doğrulamak için de kullanılır.
+
+Otomatik testler, yazılım projelerinin hızlı bir şekilde geliştirilmesini ve güvenle dağıtılmasını sağlar. Geliştiricilerin daha fazla güvenlik ve rahatlıkla kodlarını değiştirmelerine olanak tanır ve hataları erken aşamada tespit ederek düzeltmelerin maliyetini azaltır. Ayrıca, otomatik testlerin sürekli birleştirme (CI) sürecinin bir parçası olarak otomatik olarak çalıştırılması, yazılım kalitesini korumak için önemlidir.
+
+**Soru:** Hangi tür otomatik testlerin CI/CD sürecinde kullanılabileceğini tartışın.
+
+**Cevap:**
+
+CI/CD sürecinde birçok farklı türde otomatik test kullanılabilir. Bunlar arasında şunlar bulunur:
+
+1. **Birim Testleri (Unit Tests):** Kodun en küçük birimlerini (fonksiyonlar, metodlar) test eden testlerdir. Birim testleri, kodun işlevselliğini ve davranışını doğrulamak için kullanılır ve yazılımın parçalarını ayrı ayrı test eder.
+
+2. **Entegrasyon Testleri (Integration Tests):** Farklı bileşenlerin veya sistemlerin bir araya gelerek çalışmasını test eden testlerdir. Entegrasyon testleri, sistemdeki farklı parçaların birbiriyle iletişim kurmasını ve uyumlu bir şekilde çalışmasını doğrular.
+
+3. **Kabul Testleri (Acceptance Tests):** Yazılımın kullanıcı ihtiyaçlarını karşılayıp karşılamadığını doğrulayan testlerdir. Kabullenme testleri, yazılımın belirli gereksinimlere uygun olduğunu ve kullanıcı beklentilerini karşıladığını doğrular.
+
+4. **Fonksiyonel Testler (Functional Tests):** Yazılımın belirli işlevselliğini doğrulayan testlerdir. Fonksiyonel testler, kullanıcı deneyimini simüle ederek yazılımın doğru çalıştığını doğrular.
+
+5. **Performans Testleri (Performance Tests):** Yazılımın performansını, ölçeklenebilirliğini ve dayanıklılığını değerlendiren testlerdir. Performans testleri, yazılımın beklenen yük altında nasıl davrandığını ve performans sorunlarını belirlemeye yardımcı olur.
+
+## 89. CI/CD Entegrasyonunun Yazılım Geliştirme Sürecindeki Yeri Nedir?
+
+**Soru:** CI/CD'nin yazılım geliştirme sürecindeki rolünü açıklayın.
+
+**Cevap:**
+
+CI/CD (Continuous Integration/Continuous Delivery veya Continuous Deployment), yazılım geliştirme sürecinde temel bir role sahiptir. Bu süreçler, kod tabanındaki değişikliklerin hızlı bir şekilde test edilmesini, doğrulanmasını ve dağıtılmasını sağlar. CI/CD, yazılım geliştirme sürecini otomatikleştirir, iyileştirir ve hızlandırır.
+
+- **Sürekli Entegrasyon (CI):** CI süreci, yazılım geliştiricilerin kod değişikliklerini sık sık birleştirmesini ve bu değişikliklerin otomatik olarak test edilmesini sağlar. Her bir kod değişikliği yapıldığında, CI aracı bu değişiklikleri alır, otomatik testlerle birlikte birleştirir ve hataları erken aşamada tespit etmeye yardımcı olur. Bu süreç, kod tabanında çatışmaları ve uyumsuzlukları önler, yazılım kalitesini artırır ve geliştiricilerin daha güvenle kod değişiklikleri yapmasına olanak tanır.
+
+- **Sürekli Dağıtım (CD) veya Sürekli Yayınlama (CD):** CD süreci, doğrulanan ve test edilen kod değişikliklerinin otomatik olarak üretim ortamına dağıtılmasını sağlar. Bu, yazılımın hızlı bir şekilde kullanıcıların erişimine sunulmasını sağlar. CD süreci, yazılımın güvenilirliğini ve istikrarını artırır, insan hatalarını en aza indirir ve geliştirme sürecini hızlandırır.
+
+CI/CD süreçleri, yazılım geliştirme ekiplerinin daha hızlı ve güvenilir bir şekilde yazılım teslim etmelerine olanak tanır. Otomatik testlerin entegre edilmesi, yazılımın kalitesini artırırken, sürekli dağıtım süreci, yazılımın kullanıcılara hızlı bir şekilde sunulmasını sağlar.
+
+**Soru:** CI/CD'nin yazılım kalitesi, süreç iyileştirmesi ve hızlı dağıtım gibi yönlerini tartışın.
+
+**Cevap:**
+
+- **Yazılım Kalitesi:** CI/CD süreçleri, yazılım kalitesini artırmak için otomatik testlerin ve sürekli geri bildirimlerin entegrasyonunu sağlar. Her kod değişikliği yapıldığında otomatik olarak gerçekleştirilen testler, hataların erken tespit edilmesini ve yazılımın kalitesinin artırılmasını sağlar.
+
+- **Süreç İyileştirmesi:** CI/CD süreçleri, yazılım geliştirme sürecini otomatikleştirir ve iyileştirir. Sürekli geri bildirim ve otomatik testlerin entegrasyonu, hataların hızlı bir şekilde tanımlanmasını ve çözülmesini sağlar. Bu süreçler, geliştirme sürecinin verimliliğini artırır ve yazılımın daha güvenilir ve istikrarlı olmasını sağlar.
+
+- **Hızlı Dağıtım:** CI/CD süreçleri, kod değişikliklerinin otomatik olarak test edilmesi ve dağıtılmasıyla yazılımın hızlı bir şekilde kullanıcıların erişimine sunulmasını sağlar. Bu süreçler, yazılımın hızlı bir şekilde piyasaya sürülmesini ve kullanıcı geri bildirimlerine daha hızlı yanıt verilmesini sağlar.
+
+## 90. CI/CD Sürecinin İşletmelere Sağladığı Faydalar Nelerdir?
+
+**Soru:** Bir işletmeye CI/CD sürecinin uygulanmasının sağladığı faydaları açıklayın.
+
+**Cevap:**
+
+CI/CD (Continuous Integration/Continuous Delivery veya Continuous Deployment), bir işletmeye bir dizi fayda sağlayan önemli bir süreçtir. Bu süreç, yazılım geliştirme sürecini otomatikleştirir, iyileştirir ve hızlandırır. İşte CI/CD'nin işletmelere sağladığı bazı faydalar:
+
+- **Hızlı ve Güvenilir Yazılım Dağıtımı:** CI/CD süreci, kod değişikliklerinin hızlı bir şekilde test edilmesini, doğrulanmasını ve üretim ortamına dağıtılmasını sağlar. Bu, yazılımın hızlı ve güvenilir bir şekilde kullanıcıların erişimine sunulmasını sağlar.
+
+- **Yazılım Kalitesinin Artması:** CI/CD süreci, her kod değişikliği yapıldığında otomatik olarak gerçekleştirilen testler sayesinde yazılımın kalitesinin artmasını sağlar. Bu süreç, hataların erken tespit edilmesini ve yazılımın daha güvenilir olmasını sağlar.
+
+- **İşbirliğinin ve Verimliliğin Artması:** CI/CD süreci, geliştirme ekibi üyelerinin kod değişikliklerini sık sık birleştirmesini ve birbirleriyle uyumlu bir şekilde çalışmasını sağlar. Bu, ekip içi işbirliğini artırır ve geliştirme sürecinin verimliliğini artırır.
+
+- **Maliyet ve Zaman Tasarrufu:** CI/CD süreci, kod değişikliklerinin otomatik olarak test edilmesi ve doğrulanması sayesinde hataların erken tespit edilmesini ve düzeltilmesini sağlar. Bu, yazılım geliştirme sürecindeki maliyetleri ve zamanı azaltır.
+
+**Soru:** CI/CD'nin işletme performansı, müşteri memnuniyeti ve rekabet avantajı gibi alanlardaki katkılarını tartışın.
+
+**Cevap:**
+
+- **İşletme Performansı:** CI/CD süreci, işletmenin yazılım geliştirme sürecindeki performansını artırır. Hızlı ve güvenilir yazılım dağıtımı, işletmenin rekabetçi olmasını ve piyasadaki değişen koşullara hızlı bir şekilde adapte olmasını sağlar.
+
+- **Müşteri Memnuniyeti:** CI/CD süreci, yazılımın hızlı bir şekilde kullanıcıların erişimine sunulmasını sağlar. Bu, müşteri taleplerine daha hızlı yanıt verilmesini sağlar ve müşteri memnuniyetini artırır.
+
+- **Rekabet Avantajı:** CI/CD süreci, yazılımın hızlı bir şekilde piyasaya sürülmesini ve müşteri geri bildirimlerine hızlı bir şekilde yanıt verilmesini sağlar. Bu, işletmenin rakiplerinden öne geçmesini sağlayarak rekabet avantajı sağlar.
+
+## 91. Redis Nedir ve Ne İçin Kullanılır?
+
+**Soru:** Redis'in temel özelliklerini ve kullanım senaryolarını açıklayın.
+
+**Cevap:**
+
+Redis, açık kaynaklı, anahtar-değer tabanlı bir in-memory veri depolama çözümüdür. Genellikle hızlı, basit, esnek ve yüksek performanslı veri depolama gereksinimleri için kullanılır. Redis, birçok farklı kullanım senaryosu için idealdir:
+
+1. **Önbellekleme (Caching):** Redis, sık kullanılan verileri bellekte hızlı bir şekilde saklayarak uygulamaların performansını artırır. Web sayfaları, API çağrıları ve veritabanı sorguları gibi tekrarlayan işlemler için önbellekleme yapılabilir.
+
+2. **Sıralama ve Kararlılık (Ranking and Leaderboards):** Redis, sıralı verileri saklamak için kullanılabilir ve bu özellikle lider tabloları ve puan tabloları gibi uygulamalarda yaygın olarak kullanılır.
+
+3. **Sessiz Oturum Yönetimi (Session Management):** Redis, oturum kimlik bilgilerini saklamak ve yönetmek için kullanılabilir. Özellikle web uygulamalarında kullanıcı oturumlarını yönetmek için idealdir.
+
+4. **Mesaj Kuyrukları (Message Queues):** Redis, yaygın olarak mesaj kuyrukları oluşturmak için kullanılır. Asenkron işlemleri, arka plan işlemleri ve iş parçacığı işlemlerini kolayca yönetmek için kullanılabilir.
+
+5. **Gerçek Zamanlı Analitik (Real-time Analytics):** Redis, gerçek zamanlı veri analitiği ve olay akışı işleme için kullanılabilir. Anlık veri analizi, kullanıcı davranışları ve uygulama performansı gibi alanlarda kullanılabilir.
+
+**Soru:** Redis ile veri saklama ve önbellekleme nasıl yapılır?
+
+**Cevap:**
+
+Redis, açık kaynaklı bir anahtar-değer deposu (key-value store) olarak kullanılabilir ve veri saklama ve önbellekleme için geniş bir kullanım alanına sahiptir. İşte Redis ile veri saklama ve önbellekleme süreçlerinin genel adımları:
+
+1. **Veri Saklama:**
+   - Redis, anahtar-değer çiftleri üzerinde çalışır. Veri saklamak için bir anahtar (key) ve bir değer (value) kullanılır.
+   - Değerler olarak sadece basit veri tipleri (string, integer, float) değil, aynı zamanda karmaşık veri yapıları (listeler, kümeler, hash'ler) de saklanabilir.
+   - Veri saklama işlemi, `SET` komutu kullanılarak gerçekleştirilir. Örneğin: `SET anahtar değer`.
+   - Veri saklamak için belirli bir süre (expire time) belirtmek istenirse, `EXPIRE` komutu kullanılabilir. Örneğin: `EXPIRE anahtar zaman`.
+
+2. **Önbellekleme:**
+   - Redis, sıkça erişilen verileri hızlı bir şekilde erişmek için kullanılabilir. Bu durumda, Redis bir önbellek olarak kullanılır.
+   - Önbellekleme için genellikle verilerin belirli bir süre boyunca saklanması ve ardından güncellenmesi veya silinmesi gerekebilir.
+   - Önbellekleme işlemi, sıkça erişilen verileri önceden yükleyerek performansı artırabilir.
+   - Önbellek verileri saklamak için `SET` komutu kullanılabilir, ancak belirli bir süre sonunda bu verilerin otomatik olarak silinmesi için `EXPIRE` komutu da kullanılabilir.
+   - Sıkça erişilen verilere öncelik vermek için, Redis'te bir önbellek anahtarı (cache key) kullanılabilir. Bu anahtarlar, genellikle verinin türünü ve kimliğini içerir.
+
+## 92. Redis Veri Tipleri ve Kullanım Alanları
+
+**Soru:** Redis'te hangi veri tipleri bulunur? Bu veri tiplerinin kullanım alanlarını açıklayın.
+
+**Cevap:**
+
+Redis, çeşitli veri tiplerini destekleyen bir anahtar-değer deposudur. Her bir veri tipinin farklı kullanım alanları ve özellikleri vardır:
+
+1. **String:**
+   - String veri tipi, basit metin veya sayısal verileri saklamak için kullanılır.
+   - Tek bir değeri saklamak veya metin tabanlı verileri hızlı bir şekilde depolamak için idealdir.
+   - Örneğin, kullanıcı oturum anahtarlarını, sayısal sayaçları veya basit metin verilerini saklamak için kullanılabilir.
+
+2. **List:**
+   - List veri tipi, sıralı bir koleksiyon olarak elemanlar saklamak için kullanılır.
+   - Liste, elemanların sıralı bir şekilde eklenmesine ve çıkarılmasına izin verir.
+   - Sıralı veri işlemleri ve kuyruk (queue) mantığı için kullanılabilir.
+   - Örneğin, son gönderilen mesajları, kullanıcı aktivitelerini veya işlenmesi gereken görevleri saklamak için kullanılabilir.
+
+3. **Set:**
+   - Set veri tipi, benzersiz elemanları bir küme olarak saklamak için kullanılır.
+   - Her bir eleman yalnızca bir kez saklanabilir, yani küme içinde yinelenen elemanlar bulunmaz.
+   - Elemanların eşsizliği ve kesişim, birleşim ve fark gibi küme işlemleri için idealdir.
+   - Örneğin, kullanıcıların etiketlerini saklamak, benzersiz ziyaretçileri izlemek veya ilişkilendirilmiş verileri saklamak için kullanılabilir.
+
+4. **Hash:**
+   - Hash veri tipi, bir anahtar altında birden çok alanı (field) saklamak için kullanılır.
+   - Her bir alan ve değer çifti, bir anahtar altında gruplanır.
+   - İç içe veri yapılarını ve karmaşık veri yapılarını temsil etmek için kullanılabilir.
+   - Örneğin, kullanıcı profillerini, ürün özelliklerini veya özellikli listeleri saklamak için kullanılabilir.
+
+5. **Sorted Set (ZSet):**
+   - Sorted Set veri tipi, bir skor değeri ile sıralı bir koleksiyon olarak elemanları saklamak için kullanılır.
+   - Her bir eleman, bir skor değeriyle ilişkilendirilir ve elemanlar skorlarına göre sıralanır.
+   - Sıralı veriye ihtiyaç duyulan durumlarda ve aralık tabanlı sorgular için idealdir.
+   - Örneğin, liderlik tablolarını, puan tablolarını veya sıralı listeleri saklamak için kullanılabilir.
+
+## 93. Redis ve Cache Kullanımı
+
+**Soru:** Redis nasıl bir önbellekleme (caching) aracı olarak kullanılır? Cache verilerini saklamak ve getirmek için Redis'in avantajları nelerdir?
+
+**Cevap:**
+
+Redis, bir anahtar-değer deposu olarak veri saklamak ve hızlı bir şekilde erişmek için kullanılabilir. Önbellekleme (caching) amacıyla Redis'in kullanımı şu şekildedir:
+
+1. **Veri Saklama:**
+   - Redis, sıkça erişilen verileri bellekte saklamak için kullanılabilir.
+   - Önbellek verileri, daha yavaş olan disk tabanlı veritabanlarına veya diğer veri kaynaklarına (örneğin, SQL veritabanlarına) erişimi azaltmak için kullanılabilir.
+   - Sıkça kullanılan sorguların sonuçları, ara bellekte (cache) saklanarak daha hızlı erişim sağlanır.
+
+2. **Hızlı Erişim:**
+   - Redis, in-memory veri deposu olarak çalıştığı için, önbelleğe alınan verilere çok hızlı bir şekilde erişim sağlar.
+   - Önbellek verileri, Redis'in yüksek performansı sayesinde çok kısa yanıt süreleri ile erişilebilir.
+
+3. **Önbellek Yönetimi:**
+   - Redis, önbellek verilerinin saklanması ve sona ermesi (expire) gibi işlemleri otomatik olarak yönetir.
+   - Önbellek verilerinin zamanlamasını belirlemek için expire süreleri ayarlanabilir. Böylece veriler belirli bir süre sonra otomatik olarak temizlenir ve yer açılır.
+
+4. **Yüksek Erişilebilirlik:**
+   - Redis, verileri bellekte yedekler ve yüksek erişilebilirlik sağlar.
+   - Önbellek verilerinin kaybı durumunda, veri kaynaklarından (örneğin, veritabanlarından) yeniden oluşturulabilir.
+
+5. **Esneklik ve Genişletilebilirlik:**
+   - Redis, farklı veri yapıları ve veri tipleri kullanarak önbellek verilerini saklamak için esnek bir yapı sunar.
+   - Önbellek verileri, karmaşık veri yapıları veya basit metin değerleri gibi çeşitli veri tipleri kullanılarak saklanabilir.
+
+## 94. RabbitMQ Nedir ve Ne İşe Yarar?
+
+**Soru:** RabbitMQ'nun temel kavramlarını açıklayın. RabbitMQ'nun mesaj kuyruğu sistemi olarak kullanım senaryolarını tartışın.
+
+**Cevap:**
+
+### Temel Kavramlar:
+
+1. **Producer (Üretici):**
+   - Producer, mesajları oluşturan ve RabbitMQ'ya ileten bir uygulamadır.
+   - Producer, mesajları belirli bir exchange'e gönderir.
+
+2. **Exchange (Değişim):**
+   - Exchange, mesajların alıcı kuyruklara yönlendirilmesinden sorumlu olan bileşendir.
+   - Mesajlar, exchange'e gönderilir ve exchange, mesajları ilgili kuyruklara yönlendirir.
+
+3. **Queue (Kuyruk):**
+   - Queue, mesajların geçici olarak saklandığı ve tüketilmesi için beklediği bir yerdir.
+   - Bir exchange tarafından yönlendirilen mesajlar, ilgili kuyruklara gönderilir.
+
+4. **Consumer (Tüketici):**
+   - Consumer, RabbitMQ'dan mesajları alan ve işleyen bir uygulamadır.
+   - Bir kuyruğa bağlanan consumer, kuyruktaki mesajları alır ve işler.
+
+### Kullanım Senaryoları:
+
+1. **İş Kuyruğu (Job Queue):**
+   - RabbitMQ, iş kuyruğu senaryolarında kullanılabilir. Üreticiler, iş parçalarını mesaj olarak gönderir ve tüketiciler bu iş parçalarını alarak işler.
+   - Bu senaryoda, iş yükü dağıtımı ve iş akışı kontrolü sağlanır.
+
+2. **İşleme Dengeleme (Load Balancing):**
+   - RabbitMQ, tüketiciler arasında iş yükünün dengeli bir şekilde dağıtılmasını sağlamak için kullanılabilir. Bir kuyruğa bağlanan birden fazla tüketici, gelen mesajları işleyerek yükü paylaşır.
+
+3. **Asenkron İletişim (Asynchronous Communication):**
+   - RabbitMQ, asenkron iletişim senaryolarında kullanılabilir. Üreticiler, mesajları gönderir ve tüketiciler, bu mesajları alarak işler.
+   - Bu senaryoda, sistem bileşenleri arasında asenkron veri alışverişi sağlanır.
+
+4. **Olay Günlüğü (Event Logging):**
+   - RabbitMQ, olay günlüğü senaryolarında kullanılabilir. Sistem bileşenleri, olayları mesaj olarak gönderir ve bu olaylar tüketiciler tarafından alınarak kaydedilir veya işlenir.
+   - Bu senaryoda, sistemdeki önemli olaylar ve durumlar izlenebilir ve kaydedilebilir.
+
+## 94. RabbitMQ'da Exchange ve Queue Arasındaki Farklar
+
+**Soru:** RabbitMQ'da Exchange ve Queue kavramlarını açıklayın. Bu iki kavram arasındaki ilişkiyi anlatın.
+
+**Cevap:**
+
+1. **Exchange (Değişim):**
+   - Exchange, RabbitMQ'da mesajların yönlendirilmesi ve dağıtılması için kullanılan bir yapıdır.
+   - Mesajları alır ve ilgili kuyruklara (queue) gönderir.
+   - Mesajların nereye yönlendirileceğini belirlemek için Exchange tipi ve yönlendirme kuralları tanımlanır.
+   - Exchange, mesajları kuyruklara doğrudan iletemez; bunun yerine, belirli bir kuyruğa yönlendirilmesi gereken mesajları belirler.
+
+2. **Queue (Kuyruk):**
+   - Queue, RabbitMQ'da mesajların depolandığı ve tüketildiği yerdir.
+   - Mesajları bekleyen bir yapı olarak düşünülebilir.
+   - Bir veya birden çok üreticiden (publisher) gelen mesajları alır ve bunları bir veya birden çok tüketiciye (consumer) gönderir.
+   - Mesajlar kuyrukta FIFO (First-In-First-Out) şeklinde saklanır ve tüketilir.
+   
+3. **Exchange ve Queue İlişkisi:**
+   - Exchange ve Queue arasındaki ilişki, mesajların nasıl yönlendirileceğini belirler.
+   - Bir Exchange, mesajları alır ve bunları bir veya birden çok Queue'ya yönlendirir.
+   - Exchange, mesajları belirli bir kuyruğa yönlendirmek için belirli bir yönlendirme türüne ve kuralına (binding) sahiptir.
+   - Queue'lar, Exchange tarafından yönlendirilen mesajları alır ve bunları tüketiciye iletir.
+
+## 95. RabbitMQ ile Asenkron İletişim ve Pub/Sub Modeli
+
+**Soru:** RabbitMQ nasıl asenkron iletişimi sağlar? RabbitMQ'nun pub/sub (yayın/abone) modeli nasıl çalışır?
+
+**Cevap:**
+
+1. **Asenkron İletişim:**
+   - RabbitMQ, mesaj kuyrukları üzerinden asenkron iletişimi sağlar.
+   - Üreticiler (publishers) mesajları kuyruğa gönderir ve tüketici (consumer) bu mesajları kuyruktan alır ve işler.
+   - Bu iletişimde üretici ve tüketici birbirine bağlı değildir; yani üretici bir mesajı gönderdikten sonra beklemek zorunda kalmaz ve tüketici de mesajın geldiği anda işlemesi gerekmez.
+
+2. **Pub/Sub Modeli:**
+   - RabbitMQ'nun pub/sub modeli, yayın (publish) ve abone (subscribe) işlemlerini içerir.
+   - Yayın işlemi, belirli bir konu (topic) veya değişim (exchange) üzerine mesajların gönderilmesini sağlar.
+   - Abone işlemi, belirli bir konu veya değişimden gelen mesajları alır ve işler.
+   - Birden çok abonenin aynı yayını (topic) dinleyebileceği ve gelen mesajları işleyebileceği bir yapı sağlar.
+   - Bu model, mesajların birden çok alıcıya dağıtılması ve işlenmesi gerektiği durumlarda kullanılır.
+
+RabbitMQ, asenkron iletişim ve pub/sub modeli sayesinde dağıtık sistemler arasında veri alışverişi ve işlemlerin yönetimini kolaylaştırır.
+
+## 96. Jenkins Nedir ve CI/CD Süreçlerinde Nasıl Kullanılır?
+
+**Soru:** Jenkins'in temel özelliklerini açıklayın. Jenkins ile sürekli entegrasyon (CI) ve sürekli dağıtım (CD) süreçlerini nasıl yönetirsiniz?
+
+**Cevap:**
+
+1. **Jenkins Nedir?**
+   - Jenkins, açık kaynaklı bir sürekli entegrasyon (CI) ve sürekli dağıtım (CD) aracıdır.
+   - Yazılım geliştirme sürecindeki tekrar eden işleri otomatikleştirmek ve iyileştirmek için kullanılır.
+   - Jenkins, çok çeşitli projeler için kullanılabilen geniş bir eklenti ve araç yelpazesi sunar.
+
+2. **Temel Özellikler:**
+   - Otomatik sürekli entegrasyon (CI) ve sürekli dağıtım (CD) işlemlerini destekler.
+   - Çeşitli programlama dilleri, proje tipleri ve platformlarla uyumludur.
+   - Geniş eklenti ve entegrasyon desteği sayesinde esnek bir yapı sunar.
+   - Web tabanlı bir arayüz ile kolay kullanım sağlar.
+   - Özelleştirilebilir yapı ve görevlerin programlanması için scripting desteği sunar.
+   - Birden çok sunucuda paralel işlem desteği sağlar.
+
+3. **CI/CD Süreçlerini Yönetme:**
+   - Jenkins, yazılım geliştirme sürecinde sürekli entegrasyon (CI) ve sürekli dağıtım (CD) süreçlerini yönetmek için kullanılır.
+   - CI sürecinde, yazılım projelerinin sürekli olarak derlenmesi, test edilmesi ve otomatik olarak dağıtılması sağlanır.
+   - CD sürecinde, yazılım projelerinin test edildikten sonra otomatik olarak dağıtılması ve hizmete alınması sağlanır.
+   - Jenkins, bu süreçleri otomatikleştirmek ve tekrar eden işleri azaltmak için kullanılır. Böylece yazılım geliştirme süreci daha hızlı ve güvenilir hale gelir.
+
+Jenkins, yazılım geliştirme sürecinde sürekli entegrasyon (CI) ve sürekli dağıtım (CD) süreçlerini kolaylaştırarak, yazılım kalitesini artırır ve hızlı bir şekilde yazılım dağıtımını sağlar.
+
+## 97. Pipeline Oluşturma ve Jenkinsfile Nedir?
+
+**Soru:** Jenkins'te pipeline oluşturma sürecini anlatın. Jenkinsfile nedir ve ne işe yarar?
+
+**Cevap:**
+
+1. **Pipeline Oluşturma Süreci:**
+   - Jenkins'te pipeline oluşturma süreci, Jenkinsfile adı verilen bir dosya kullanılarak gerçekleştirilir.
+   - Pipeline, yazılım geliştirme sürecindeki adımları tanımlayan ve otomatikleştiren bir yapıdır.
+   - Pipeline, derleme, test, paketleme, dağıtım gibi adımların sırasını ve koşullarını belirleyerek yazılım süreçlerini yönetir.
+   - Pipeline, Jenkins'te görsel bir arayüzle veya Jenkinsfile dosyası aracılığıyla tanımlanabilir.
+
+2. **Jenkinsfile Nedir ve Ne İşe Yarar?**
+   - Jenkinsfile, Jenkins pipeline'ın tanımlandığı ve yönetildiği bir dosyadır.
+   - Jenkinsfile, kod deposunun (repository) içinde bulunur ve projeyle birlikte saklanır.
+   - Jenkinsfile, pipeline'ın adımlarını, koşullarını, işlevlerini ve diğer özelliklerini tanımlar.
+   - Jenkinsfile, pipeline'ın değişiklik göstermesine ve esnek bir yapıya sahip olmasına olanak tanır.
+   - Jenkinsfile, kod tabanlı bir yaklaşımı destekler ve pipeline'ın kodla birlikte yönetilmesini sağlar.
+
+Jenkinsfile, Jenkins pipeline'ın tanımlandığı ve yönetildiği bir dosya olarak yazılım geliştirme sürecinde önemli bir rol oynar.
+
+## 98. Jenkins ile Otomatik Testlerin Yönetimi
+
+**Soru:** Jenkins ile otomatik testlerin nasıl yapılandırıldığını açıklayın. Jenkins'te test sonuçlarının nasıl raporlandığını tartışın.
+
+**Cevap:**
+
+1. **Otomatik Testlerin Yapılandırılması:**
+   - Jenkins, otomatik testlerin yapılandırılması için farklı eklentiler ve araçlar sağlar.
+   - Proje yapılandırması sırasında Jenkins, test işlemlerini otomatikleştirmek için gerekli eklentilerin ve araçların kurulumunu sağlar.
+   - Otomatik testler, projenin bir parçası olarak Jenkins'te tanımlanır ve yapılandırılır.
+   - Jenkins, test aşamalarını ve koşullarını belirlemek için pipeline veya diğer yapılandırma araçlarını kullanır.
+
+2. **Test Sonuçlarının Raporlanması:**
+   - Jenkins, otomatik testlerin sonuçlarını raporlamak için çeşitli eklentiler ve araçlar sağlar.
+   - Test sonuçları, Jenkins tarafından izlenir, toplanır ve raporlanır.
+   - Jenkins, test sonuçlarını genel bir raporlama arayüzü üzerinde görselleştirir ve sunar.
+   - Test sonuçları, başarılı veya başarısız olma durumlarına göre ayrıntılı olarak raporlanır.
+   - Jenkins, test sonuçlarına dayalı olarak otomatik bildirimler ve uyarılar sağlayabilir.
+
+Jenkins, otomatik testlerin yapılandırılması ve test sonuçlarının raporlanması için kapsamlı bir altyapı sunar. Bu sayede yazılım geliştirme sürecinde testlerin otomatik olarak yönetilmesi ve sonuçlarının izlenmesi sağlanır.
+
+## 99. Docker Nedir ve Docker Container'larının Sanal Makinelerden Farkı Nedir?
+
+**Soru:** Docker'in temel kavramlarını açıklayın. Docker container'larının sanal makinelerden farkı nedir?
+
+**Cevap:**
+
+1. **Docker Nedir?**
+   - Docker, yazılım uygulamalarını hızlı bir şekilde dağıtmak, paketlemek ve çalıştırmak için kullanılan bir konteynerizasyon platformudur.
+   - Docker, uygulamaların altyapıya bağımlılıklarını ortadan kaldırarak yazılım geliştirme sürecini hızlandırır ve kolaylaştırır.
+   - Docker, yazılım uygulamalarını container adı verilen hafif, taşınabilir ve izole edilmiş birimlerde çalıştırır.
+
+2. **Docker Container'larının Sanal Makinelerden Farkı:**
+   - Docker container'larının sanal makinelerden temel farkı, işletim sistemi düzeyinde izolasyon sağlamalarıdır.
+   - Docker container'larında, her bir container bir host işletim sistemi çekirdeğini paylaşır, ancak kendi dosya sistemini ve kaynaklarını (CPU, bellek, ağ) izole eder.
+   - Sanal makinelerde ise her bir sanal makine kendi işletim sistemi çekirdeğine sahiptir ve tam bir işletim sistemi yüklenmiştir.
+   - Docker container'larının daha hafif ve daha hızlı başlatılabilmesi, kaynakların daha etkin kullanılabilmesi ve daha fazla ölçeklenebilirlik sağlaması gibi avantajları vardır.
+
+Docker, yazılım uygulamalarını hızlı bir şekilde paketlemek, dağıtmak ve çalıştırmak için kullanılan bir konteynerizasyon platformudur. Docker container'larının sanal makinelerden temel farkı, işletim sistemi düzeyinde izolasyon sağlamalarıdır.
+
+## 100. Docker Image ve Container Arasındaki Farklar
+
+**Soru:** Docker image ve container kavramlarını açıklayın. Bir Docker image'in nasıl bir container'a dönüştüğünü anlatın.
+
+**Cevap:**
+
+1. **Docker Image Nedir?**
+   - Docker image, bir uygulamanın çalıştırılabilir durumunu tanımlayan bir paketlemedir.
+   - Bir Docker image, uygulamanın çalışması için gereken tüm dosyaları (uygulama kodu, bağımlılıklar, çalıştırılabilir dosyalar vb.) ve yapılandırma bilgilerini içerir.
+   - Docker image, bir veya birden çok katman (layer) şeklinde oluşturulur ve önceden tanımlanmış bir yapıya (örneğin Dockerfile) göre inşa edilir.
+   - Docker image'lar, Docker Hub gibi merkezi bir depoda bulunabilir veya yerel olarak oluşturulabilir.
+
+2. **Docker Container Nedir?**
+   - Docker container, bir Docker image'in çalıştırılabilir bir örneğidir.
+   - Bir Docker container, bir image'in bir kopyasıdır ve çalışma zamanında uygulamanın çalıştırılmasını sağlar.
+   - Docker container'lar, izole edilmiş bir ortamda çalışır ve kendi dosya sistemlerine ve ağ bağlantılarına sahiptir.
+   - Container, image'in çalışma zamanında durumunu temsil eder ve çalışma zamanında değişikliklere izin verir.
+
+3. **Image'in Container'a Dönüşümü:**
+   - Bir Docker image, `docker run` komutuyla bir container'a dönüştürülür.
+   - `docker run` komutu, belirtilen Docker image'i temel alarak yeni bir container başlatır.
+   - Container, image'in tüm içeriğini ve yapılandırmasını alır ve çalışma zamanında uygulamanın çalıştırılmasını sağlar.
+   - Container başlatıldığında, image'in dosya sistemleri kopyalanır, gerekli bağımlılıklar yüklenir ve uygulama başlatılır.
+
+Docker image, bir uygulamanın çalıştırılabilir durumunu tanımlayan bir paketlemedir, Docker container ise bu image'in çalıştırılabilir bir örneğidir. Bir Docker image, `docker run` komutuyla bir container'a dönüştürülür ve container, image'in çalışma zamanında durumunu temsil eder.
+
+## 101. Docker Compose Nedir ve Kullanımı
+
+**Soru:** Docker Compose'un görevlerini ve kullanım senaryolarını açıklayın. Docker Compose ile birden fazla container'ın yönetimini nasıl yaparsınız?
+
+**Cevap:**
+
+1. **Docker Compose Nedir?**
+   - Docker Compose, çoklu container uygulamalarının tanımlanması, yönetilmesi ve çalıştırılmasını sağlayan bir araçtır.
+   - Docker Compose, YAML dosyaları kullanarak uygulamaların altyapısını tanımlar ve bu uygulamaların birden fazla container'da nasıl çalıştırılacağını belirtir.
+   - Docker Compose, Docker container'larının ortak bir ağ üzerinde bir araya gelerek bir uygulama oluşturmasını sağlar.
+   - Birden fazla container'ı tek bir komutla yönetebilme, aynı ağ üzerinde çalışmalarını sağlama ve bağımlılıkları yönetme gibi görevleri üstlenir.
+
+2. **Docker Compose'un Kullanım Senaryoları:**
+   - Geliştirme Ortamı Yönetimi: Docker Compose, geliştirme ortamında birden fazla container'ın bir araya getirilmesi ve yönetilmesi için kullanılabilir. Örneğin, bir web uygulaması için web sunucusu, veritabanı sunucusu ve önbellek sunucusu gibi farklı container'ların bir araya getirilmesi.
+   - Test Ortamı Yönetimi: Docker Compose, test senaryolarının çalıştırılması için birden fazla container'ın otomatik olarak başlatılmasını ve yapılandırılmasını sağlar. Örneğin, bir test süiti için farklı testlerin farklı container'lar üzerinde çalıştırılması.
+   - Üretim Ortamı Yönetimi: Docker Compose, üretim ortamında birden fazla container'ın yönetilmesi ve dağıtılması için kullanılabilir. Örneğin, bir mikroservis mimarisi için farklı servislerin bir araya getirilmesi ve çalıştırılması.
+
+3. **Birden Fazla Container'ın Yönetimi:**
+   - Docker Compose, birden fazla container'ın bir araya getirilmesi ve yönetilmesini sağlar.
+   - YAML dosyasında tanımlanan servislerin her biri, Docker Compose tarafından ayrı bir container olarak başlatılır.
+   - Bu container'lar, Docker Compose'un sağladığı ortak bir ağ üzerinde iletişim kurarlar ve birlikte çalışırlar.
+
+Docker Compose, çoklu container uygulamalarının tanımlanması, yönetilmesi ve çalıştırılmasını sağlayan bir araçtır. Birden fazla container'ın yönetimi için YAML dosyasında tanımlanan servisler Docker Compose tarafından başlatılır ve bir araya getirilir.
+
+## 102. Kubernetes Nedir ve Kullanımı
+
+**Soru:** Kubernetes'in temel özelliklerini ve kullanım senaryolarını açıklayın. Kubernetes ile konteyner orkestrasyonu nasıl yapılır?
+
+**Cevap:**
+
+1. **Kubernetes Nedir?**
+   - Kubernetes, konteyner tabanlı uygulamaların dağıtımı, ölçeklenmesi ve yönetilmesi için açık kaynaklı bir konteyner orkestrasyon platformudur.
+   - Kubernetes, uygulamaların birden fazla container üzerinde otomatik olarak dağıtılmasını, denetlenmesini ve ölçeklendirilmesini sağlar.
+   - Kubernetes, yüksek kullanılabilirlik, otomatik düzenleme, hata toleransı gibi özellikleriyle karmaşık mikro servis tabanlı uygulamaları yönetmek için ideal bir platformdur.
+
+2. **Kullanım Senaryoları:**
+   - Otomatik Yönetim ve Ölçeklendirme: Kubernetes, uygulamaları belirli bir durumda tutmak için gereken container sayısını otomatik olarak yönetir. Taleplere göre otomatik olarak ölçeklendirme yapabilir.
+   - Servis Dağıtımı: Kubernetes, uygulama servislerini birden fazla container üzerinde dengeli bir şekilde dağıtır ve trafik yönlendirmesini sağlar.
+   - Depolama ve Yönetim: Kubernetes, farklı depolama seçeneklerini destekler ve uygulama verilerinin yönetimini kolaylaştırır.
+   - Güvenlik ve İzolasyon: Kubernetes, container'lar arasında güvenlik duvarları oluşturarak uygulamaların izole edilmesini sağlar.
+
+3. **Konteyner Orkestrasyonu:**
+   - Kubernetes, bir cluster (küme) olarak adlandırılan birden fazla node'dan oluşan bir yapıda çalışır.
+   - Kubernetes, YAML tabanlı dosyalar aracılığıyla uygulama konfigürasyonlarını ve dağıtımlarını tanımlar.
+   - Kubernetes, cluster üzerindeki node'ları izler, container'ları başlatır, durdurur, ölçekler ve yüksek kullanılabilirlik sağlar.
+
+Kubernetes, konteyner tabanlı uygulamaların dağıtımı, ölçeklenmesi ve yönetilmesi için kullanılan açık kaynaklı bir konteyner orkestrasyon platformudur. Kubernetes'in temel özellikleri, uygulamaların otomatik yönetimi, servis dağıtımı, depolama ve güvenlik gibi alanlarda sağladığı avantajlarla ilişkilidir.
+
+## 103. Pod, Deployment ve Service Kavramları
+
+**Soru:** Kubernetes'te pod, deployment ve service kavramlarını açıklayın. Bu kavramlar arasındaki ilişkiyi tartışın.
+
+**Cevap:**
+
+1. **Pod Nedir?**
+   - Pod, Kubernetes'in en küçük birimi olan ve bir veya birden fazla container'ı içeren bir grup container'ı temsil eder.
+   - Pod içindeki container'lar birlikte çalışır ve aynı ağ ve depolama alanını paylaşır.
+   - Pod, kapsayıcılığı, ağ bağlantısını ve depolama özelliklerini tanımlayan YAML dosyaları kullanılarak oluşturulur.
+
+2. **Deployment Nedir?**
+   - Deployment, pod'ların dağıtılması ve yönetilmesi için Kubernetes tarafından kullanılan bir kaynaktır.
+   - Deployment, belirli bir pod konfigürasyonunu tanımlar ve bu konfigürasyonu uygulamak için gerekli adımları sağlar.
+   - Deployment, pod'ların yeniden başlatılması, ölçeklendirilmesi ve güncellenmesi gibi işlemleri otomatikleştirir.
+
+3. **Service Nedir?**
+   - Service, bir veya birden fazla pod'a erişim sağlayan bir abstraksiyondur.
+   - Service, pod'ların IP adresi ve portları gibi ağ detaylarını gizleyerek uygulamalara hizmet verir.
+   - Service, yük dengeleme, DNS isim çözümü ve uygulama yüksek erişilebilirlik gibi özellikleri sağlar.
+
+4. **İlişkiler:**
+   - Deployment, belirli bir pod konfigürasyonunu tanımlar ve bu pod'ların nasıl başlatılacağını ve yönetileceğini sağlar.
+   - Pod'lar, bir deployment kaynağı tarafından oluşturulur ve yönetilir.
+   - Service, pod'ların sağladığı uygulamalara erişim sağlar ve bu pod'ların yeniden başlatılması veya ölçeklendirilmesi durumunda bile sabit bir erişim noktası sunar.
+
+Pod, deployment ve service kavramları Kubernetes'in farklı seviyelerinde uygulanır. Pod, temel container gruplaması sağlarken, deployment pod'ların dağıtımını ve yönetimini kolaylaştırır. Service ise uygulamalara erişim sağlar ve yük dengeleme gibi ağ özelliklerini yönetir.
+
+## 104. Kubernetes ile Yüksek Erişilebilirlik
+
+**Soru:** Kubernetes nasıl yüksek erişilebilirlik sağlar? Bir Kubernetes cluster'ını yüksek erişilebilirlik için nasıl yapılandırırsınız?
+
+**Cevap:**
+
+1. **Yüksek Erişilebilirlik Nasıl Sağlanır?**
+   - Kubernetes, yüksek erişilebilirlik (HA) sağlamak için çeşitli stratejiler kullanır.
+   - Kubernetes cluster'ı, birden fazla master ve worker node'dan oluşur. Bu, tek bir noktada meydana gelebilecek bir arıza durumunda sistemin çalışmasını sağlar.
+   - Kubernetes, otomatik olarak pod'ları yeniden başlatarak, etkilenen pod'ların yerine yeni pod'lar oluşturarak ve yük dengeleme özelliklerini kullanarak yüksek erişilebilirlik sağlar.
+
+2. **Kubernetes Cluster'ının Yapılandırılması:**
+   - Yüksek erişilebilirlik için Kubernetes cluster'ı, birden fazla master ve worker node'dan oluşan bir yapıda konumlandırılmalıdır.
+   - Master node'lar arasında etkileşim sağlamak için load balancer kullanılabilir. Bu, tek bir master node'unun arızalanması durumunda diğer master node'ların devreye girmesini sağlar.
+   - Kubernetes'in etkin rol değişimi (active-passive) özelliği kullanılarak, bir master node'un arızalanması durumunda diğer master node'lar otomatik olarak yönetim görevini devralabilir.
+   - Worker node'lar arasında yük dengelemesi sağlanabilir ve pod'ların dengeli bir şekilde dağıtılmasını sağlar.
+
+Kubernetes, yüksek erişilebilirlik sağlamak için birden fazla strateji kullanır. Bu, cluster'ın birden fazla node üzerinde dağıtılmasını, otomatik yeniden başlatma ve yük dengeleme özelliklerini içerir. Bir Kubernetes cluster'ını yüksek erişilebilirlik için yapılandırırken, birden fazla master ve worker node'unun kullanılması ve etkin rol değişimi özelliklerinin etkinleştirilmesi önemlidir.
+
+## 105. Redis, RabbitMQ, Jenkins, Docker ve Kubernetes Kullanımı
+
+**Soru:** Redis, RabbitMQ, Jenkins, Docker ve Kubernetes gibi teknolojiler birlikte nasıl kullanılabilir? Bu teknolojilerin bir araya getirilmesiyle oluşan bir sistem nasıl tasarlanır ve yönetilir?
+
+**Cevap:**
+
+1. **Teknolojilerin Kullanımı:**
+   - Redis: Hafızada anahtar-değer çiftleri depolamak için kullanılır. Önbellekleme ve veri depolama için idealdir.
+   - RabbitMQ: Mesaj kuyruğu sistemi olarak kullanılır. Farklı sistemler arasında asenkron iletişim sağlar.
+   - Jenkins: Sürekli entegrasyon (CI) ve sürekli dağıtım (CD) süreçlerini yönetmek için kullanılır. Yazılım geliştirme sürecini otomatikleştirir.
+   - Docker: Konteyner teknolojisi kullanarak uygulamaların hızlı bir şekilde paketlenmesi ve dağıtılmasını sağlar.
+   - Kubernetes: Konteyner orkestrasyon platformu olarak kullanılır. Çoklu konteyner uygulamalarının yönetilmesini ve dağıtılmasını sağlar.
+
+2. **Sistem Tasarımı ve Yönetimi:**
+   - Redis ve RabbitMQ gibi veri depolama ve iletişim araçlarını kullanarak uygulama bileşenleri arasında veri alışverişi sağlanır.
+   - Jenkins, Docker ve Kubernetes'i kullanarak uygulamaların otomatik olarak derlenmesi, paketlenmesi, dağıtılması ve yönetilmesi sağlanır.
+   - Jenkins, CI/CD süreçlerini otomatikleştirir ve Docker imajlarının oluşturulmasını ve Kubernetes cluster'ına dağıtılmasını sağlar.
+   - Docker ve Kubernetes, uygulamaların konteynerlerde izole edilmesini ve yüksek erişilebilirlik ve ölçeklenebilirlik sağlar.
+
+Redis, RabbitMQ, Jenkins, Docker ve Kubernetes gibi teknolojilerin birlikte kullanılmasıyla, otomatikleştirilmiş bir yazılım geliştirme ve dağıtım süreci sağlanır. Veri depolama, iletişim, derleme, paketleme, dağıtım ve yönetim gibi farklı ihtiyaçlar, bu teknolojilerin bir araya getirilmesiyle karşılanabilir.
