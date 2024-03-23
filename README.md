@@ -4680,3 +4680,131 @@ public class MyClass
 **Atama Zamanı**: const alanlar tanımlandığı yerde veya sınıfın başlatıcılarında atanırken, readonly alanlar sadece sınıfın başlatıcılarında veya constructor'larında atanabilir.
 **Veri Türleri**: const alanlar sadece değer tipi (value type) veri türlerine atanabilirken, readonly alanlar herhangi bir veri türüne atanabilirler.
 
+## 129.Düzensiz Diziler (Jagged Arrays) Nedir?
+ 
+Düzensiz diziler (Jagged Arrays), bir dizinin öğelerinin diğer diziler olabileceği çok boyutlu dizilerdir. Bu tür diziler, her bir alt dizinin farklı uzunluklara sahip olabileceği esnek bir yapı sağlar.
+
+### Özellikler
+
+- **Farklı Uzunluklar**: Her bir alt dizi farklı bir uzunluğa sahip olabilir. Yani, ana dizinin her bir öğesi, diğer diziler olabilir ve bu dizilerin her biri farklı uzunlukta olabilir.
+
+- **Çok Boyutluluk**: Düzensiz diziler, temelde bir dizinin elemanlarının kendilerinin de diziler olabileceği çok boyutlu bir yapı sağlar.
+
+- **Esneklik**: Düzensiz diziler, farklı uzunluklara sahip alt diziler kullanarak veri yapılarını esnek bir şekilde temsil etmek için kullanılabilir. Bu, özellikle matrislerde veya liste benzeri yapıların uygulanmasında yararlı olabilir.
+
+### Kullanım Alanları
+
+#### Oyun Geliştirme
+
+- **Harita ve Düşman Yerleşimi**: Bir oyun haritasını temsil etmek için düzensiz diziler kullanılabilir. Her bir hücre, oyun dünyasındaki bir konumu temsil edebilir ve bu hücrelerin her biri farklı uzunlukta olabilir. Ayrıca, düşmanların veya diğer oyun nesnelerinin yerleşimlerini tutmak için de düzensiz diziler kullanılabilir.
+
+- **Çoklu Seviyeler**: Oyunlarda farklı seviyelerin veya bölümlerin oluşturulması için düzensiz diziler kullanılabilir. Her bir seviye veya bölüm, farklı uzunluklara sahip alt dizilerle temsil edilebilir.
+
+#### Bilimsel Hesaplamalar
+
+- **Görüntü İşleme**: Görüntü işleme uygulamalarında, bir görüntünün piksel değerlerini tutmak için düzensiz diziler kullanılabilir. Her bir piksel, renk bileşenlerinin farklı özelliklerini içerebilir ve bu piksellerin her biri farklı uzunlukta olabilir.
+
+#### Veri Analizi ve İşleme
+
+- **Metin İşleme**: Metin işleme uygulamalarında, metinlerin kelimelere veya cümlelere ayrılması için düzensiz diziler kullanılabilir. Her bir kelime veya cümle, farklı uzunluklara sahip olabilir ve bu kelimeler veya cümlelerin her biri bir dizi olarak temsil edilebilir.
+
+- **Çoklu Boyutlu Veri Analizi**: Veri analizi uygulamalarında, çok boyutlu veri setlerini temsil etmek için düzensiz diziler kullanılabilir. Örneğin, bir satırın farklı sütunlardaki değerlerini tutmak için düzensiz diziler kullanılabilir ve bu satırların her biri farklı uzunlukta olabilir.
+
+**Örnek:**
+
+```csharp
+// Düzensiz dizi tanımlama
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5 };
+jaggedArray[2] = new int[] { 6, 7, 8, 9 };
+
+// Düzensiz dizinin elemanlarına erişim
+Console.WriteLine(jaggedArray[0][1]); // Çıktı: 2
+Console.WriteLine(jaggedArray[1][0]); // Çıktı: 4
+Console.WriteLine(jaggedArray[2][2]); // Çıktı: 8
+```
+
+## 130. C# Dilinde "Using" Deyiminin Faydaları ve Örnek Kodlar
+
+### Faydaları
+
+#### 1. Kaynak Yönetimi
+
+- `using` deyimi, bir kaynağın (örneğin dosya, veritabanı bağlantısı, ağ soketi vb.) kullanımı tamamlandığında kaynağın otomatik olarak serbest bırakılmasını sağlar. Bu, kaynakların bellek sızıntılarına veya kaynak sıkıntısına neden olmadan güvenli bir şekilde kullanılmasını sağlar.
+
+#### 2. Nesne Ömrü Yönetimi
+
+- `using` deyimi, bir nesnenin ömrünü sınırlar ve nesne belirli bir kapsamın dışına çıktığında otomatik olarak yok edilir. Bu, gereksiz bellek kullanımını ve nesne birikmesini önler, performansı artırır ve uygulamanın daha verimli çalışmasını sağlar.
+
+#### 3. IDisposable Arabirimini Kullanma
+
+- `using` deyimi, `IDisposable` arabirimini uygulayan nesnelerle kullanılır. `IDisposable` arabirimi, bir nesnenin kaynaklarını serbest bırakmak için `Dispose()` yöntemini tanımlar. `using` deyimi kullanılarak bu yöntem otomatik olarak çağrılır ve kaynaklar serbest bırakılır.
+
+#### 4. Kod Okunabilirliği
+
+- `using` deyimi, kaynak yönetimi için daha okunabilir ve sade bir sözdizimi sunar. Bu, kodun daha anlaşılır olmasını sağlar ve kaynakların ne zaman ve nasıl serbest bırakılacağını açıkça belirtir.
+
+#### 5. Kapsam Yönetimi
+
+- `using` deyimi, belirli bir kapsam içindeki kod bloklarını tanımlamak için kullanılabilir. Bu, kaynakların belirli bir kapsamda (örneğin, bir `using` bloğu içinde) kullanılmasını ve kapsamın dışına çıkıldığında otomatik olarak serbest bırakılmasını sağlar.
+
+**Örnek**
+
+```csharp
+using (FileStream fileStream = new FileStream("example.txt", FileMode.Open))
+{
+    // Dosya işlemleri burada yapılır
+}
+// 'using' bloğu dışına çıkıldığında 'fileStream' otomatik olarak kapatılır
+```
+
+## 131.  Continue ve Break Arasındaki Fark Nedir ?
+
+`continue` ve `break` ifadeleri, kontrol yapılarını değiştiren ve döngüleri etkileyen C# programlama dilindeki anahtar kelimelerdir. İşlevleri farklıdır ve farklı senaryolarda kullanılırlar.
+
+### 1. `continue` İfadesi
+
+- `continue` ifadesi, döngü içinde kullanıldığında, döngünün geri kalan kısmını atlayarak bir sonraki döngü adımına geçilmesini sağlar.
+- Bu ifade, döngüyü sonlandırmaz ve döngüdeki sonraki adıma geçilmesini sağlar.
+
+Örnek kullanım:
+
+```csharp
+for (int i = 0; i < 5; i++)
+{
+    if (i == 2)
+    {
+        continue; // i = 2 olduğunda döngüyü atlar
+    }
+    Console.WriteLine(i);
+}
+/* 
+Çıktı:
+0
+1
+3
+4
+*/
+```
+
+### 2. break İfadesi
+- `break` ifadesi, döngü içinde kullanıldığında, döngünün hemen sonlandırılmasını ve döngüden çıkılmasını sağlar.
+- Bu ifade, döngüyü tamamen sonlandırır ve döngüden çıkılır.
+```csharp
+for (int i = 0; i < 5; i++)
+{
+    if (i == 3)
+    {
+        break; // i = 3 olduğunda döngüyü sonlandırır
+    }
+    Console.WriteLine(i);
+}
+/* 
+Çıktı:
+0
+1
+2
+*/
+```
+### 132.
